@@ -1,0 +1,99 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="local.props" Condition="Exists('local.props')" />
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Sts2ContextCoach</RootNamespace>
+    <AssemblyName>Sts2ContextCoach</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>0.1.2</Version>
+    <AssemblyVersion>0.1.2.0</AssemblyVersion>
+    <FileVersion>0.1.2.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(STS2GamePath)' != ''">
+    <Sts2ModsDeployDir>$(STS2GamePath)\mods\$(AssemblyName)</Sts2ModsDeployDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="GodotSharp">
+      <HintPath>lib\GodotSharp.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="sts2">
+      <HintPath>lib\sts2.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>lib\0Harmony.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <Reference Include="BaseLib">
+      <HintPath>lib\BaseLib.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="_reflect\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Sts2ContextCoach.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="result_cleaned.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\cards.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="data\relics.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <!-- Embedded so SlayTheSpire2 does not scan <mod>/Localization/*.json as mod manifests (requires id). -->
+  <ItemGroup>
+    <EmbeddedResource Include="Localization\en.json">
+      <LogicalName>Sts2ContextCoach.Localization.en.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Localization\zh-CN.json">
+      <LogicalName>Sts2ContextCoach.Localization.zh-CN.json</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <Target Name="CheckLibReferences" BeforeTargets="CoreCompile">
+    <PropertyGroup>
+      <_LibSts2>$(MSBuildProjectDirectory)\lib\sts2.dll</_LibSts2>
+      <_LibGodot>$(MSBuildProjectDirectory)\lib\GodotSharp.dll</_LibGodot>
+      <_LibHarmony>$(MSBuildProjectDirectory)\lib\0Harmony.dll</_LibHarmony>
+      <_LibBase>$(MSBuildProjectDirectory)\lib\BaseLib.dll</_LibBase>
+    </PropertyGroup>
+    <Warning Text="Missing lib\sts2.dll — run .\setup-lib.ps1 (see local.props.example)" Condition="!Exists('$(_LibSts2)')" />
+    <Warning Text="Missing lib\GodotSharp.dll — run .\setup-lib.ps1" Condition="!Exists('$(_LibGodot)')" />
+    <Warning Text="Missing lib\0Harmony.dll — run .\setup-lib.ps1" Condition="!Exists('$(_LibHarmony)')" />
+    <Warning Text="Missing lib\BaseLib.dll — run .\setup-lib.ps1 or install BaseLib in game mods" Condition="!Exists('$(_LibBase)')" />
+  </Target>
+
+  <Target Name="DeploySts2ModToGame" AfterTargets="Build" Condition="'$(DeploySts2Mod)' == 'true' And '$(STS2GamePath)' != '' And '$(Sts2ModsDeployDir)' != ''">
+    <ItemGroup>
+      <_DeployDll Include="$(TargetDir)$(TargetFileName)" />
+      <_DeployRootFiles Include="$(TargetDir)Sts2ContextCoach.json" />
+      <_DeployRootFiles Include="$(TargetDir)result_cleaned.csv" />
+      <_DeployData Include="$(TargetDir)data\cards.json" />
+      <_DeployData Include="$(TargetDir)data\relics.json" />
+    </ItemGroup>
+    <MakeDir Directories="$(Sts2ModsDeployDir)" />
+    <!-- Remove stale Localization/ from older deploys (game treats any *.json here as a mod manifest). -->
+    <RemoveDir Directories="$(Sts2ModsDeployDir)\Localization" Condition="Exists('$(Sts2ModsDeployDir)\Localization')" />
+    <Copy SourceFiles="@(_DeployDll)" DestinationFolder="$(Sts2ModsDeployDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(_DeployRootFiles)" DestinationFolder="$(Sts2ModsDeployDir)" SkipUnchangedFiles="true" />
+    <MakeDir Directories="$(Sts2ModsDeployDir)\data" />
+    <Copy SourceFiles="@(_DeployData)" DestinationFolder="$(Sts2ModsDeployDir)\data" SkipUnchangedFiles="true" />
+    <Message Text="[Sts2ContextCoach] Deployed to $(Sts2ModsDeployDir)" Importance="high" />
+  </Target>
+</Project>

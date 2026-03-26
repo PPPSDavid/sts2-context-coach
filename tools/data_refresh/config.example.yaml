@@ -1,0 +1,32 @@
+# Copy to `config.yaml` beside main.py and adjust URLs for your environment.
+
+# Relative paths are resolved from the repository root.
+data_dir: Data
+
+merge_mode: safe
+
+sources:
+  wiki_main: "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Main"
+  wiki_cards_list: "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cards_List"
+  wiki_relics_list: "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+  wiki_character_pages:
+    - "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ironclad"
+  steam_news_rss: "https://steamcommunity.com/games/2868840/rss/"
+  steam_patch_notes_html: "https://store.steampowered.com/news/?appids=2868840"
+
+fetch:
+  cache_ttl_seconds: 21600
+  request_timeout_seconds: 45
+
+# OpenAI: set api_key_env OPENAI_API_KEY, base_url as below, model e.g. gpt-4o-mini
+# OpenRouter: set api_key_env OPENROUTER_API_KEY, base_url + model from openrouter.ai/docs
+llm:
+  enabled: false
+  provider: openrouter
+  api_key_env: OPENROUTER_API_KEY
+  base_url: "https://openrouter.ai/api/v1"
+  model: "openai/gpt-4o-mini"
+  max_items_per_run: 50
+  extra_headers:
+    "HTTP-Referer": "https://localhost"
+    "X-Title": "STS2 Data Refresh"

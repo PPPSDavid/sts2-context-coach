@@ -1,0 +1,20 @@
+bin/
+obj/
+lib/*.dll
+.vs/
+*.user
+local.props
+_reflect/
+
+# Secrets / machine-local config
+tools/data_refresh/config.yaml
+tools/data_refresh/.env
+tools/data_refresh/.venv/
+
+# Generated data-refresh artifacts
+tools/data_refresh/cache/
+tools/data_refresh/output/
+tools/data_refresh/backups/
+
+# Local release packaging output
+release/
