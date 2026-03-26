@@ -1,68 +1,100 @@
 # STS2 Context Coach
 
-Context-aware card scoring overlay for Slay the Spire 2.
+Context-aware card recommendation overlay for Slay the Spire 2 reward/shop choices.
 
-For most players, this project is **plug-and-play**: download the release zip, extract into your game `mods` folder, and play. You do **not** need Python, wiki fetch, or LLM setup.
+For most players, this mod is **plug-and-play**: download a release zip, extract into your game `mods` folder, and play. You do **not** need Python, wiki fetch, or LLM setup to use it.
 
-## What It Does
+## Preview
 
-- Shows `Base` + `Ctx` score on reward/shop cards.
-- Explains top context reasons with signed impact (`+` / `-`).
-- Uses deck state, relic synergies, shop economy, upgrade value, and enchantment context.
-- Supports English + Simplified Chinese (`zhs` auto-maps to `zh-CN`).
+Add screenshots under `docs/images/` in this repo, then keep these links as-is:
 
-## Supported Runtime Features
+![Reward choice example](docs/images/reward-example.png)
+![Shop example](docs/images/shop-example.png)
 
-- **Deck context:** block/draw/frontload/scaling pressure, curve pressure, redundancy.
-- **Shop context:** affordability, tight-gold penalties, discount/value bonuses.
-- **Upgrade context:** deterministic mechanics from wiki text + LLM tier summary.
-- **Enchantment context:**
-  - realized value when enchantment is present now,
-  - modest expected-value bonus for future enchantment upside.
-- **Localization:** embedded `en` and `zh-CN`.
+## Requirements
 
-## Install (Typical User)
+- **BaseLib is required.** This mod depends on BaseLib to load and patch into STS2.
+- Slay the Spire 2 with mod loading enabled (beta branch/mod-capable branch).
+
+## Installation (Typical User)
 
 1. Download `Sts2ContextCoach-vX.Y.Z.zip` from GitHub Releases.
-2. Extract so you get:
+2. Extract the zip contents into:
+   - `<Slay the Spire 2>/mods/Sts2ContextCoach/`
+3. Confirm these files exist:
    - `Sts2ContextCoach.dll`
    - `Sts2ContextCoach.json`
    - `result_cleaned.csv`
    - `data/cards.json`
    - `data/relics.json`
-3. Copy into:
-   - `<Slay the Spire 2>/mods/Sts2ContextCoach/`
 4. Ensure `BaseLib` is installed/enabled.
 5. Launch game.
 
-## Optional Debug Environment Variables
+## What It Shows
 
-- `STS2_CONTEXT_COACH_VERBOSE=1` enables verbose debug logs.
-- `STS2_CONTEXT_COACH_LANG=zh-CN` forces Chinese (normally auto-detected from game settings).
+- `Base` + `Ctx` score on reward/shop cards.
+- Top context reasons with explicit signed impact (`+` / `-`).
+- Mixed positives/negatives so tradeoffs are visible.
 
-## Developer Workflow (Quick)
+## Supported Features
 
-```powershell
-dotnet build .\Sts2ContextCoach.csproj -c Release
-```
+- **Deck context:** draw/block/frontload/scaling pressure, curve pressure, redundancy.
+- **Shop context:** affordability, tight-gold penalties, sale/value bonuses.
+- **Upgrade context:** deterministic mechanics from wiki text + upgrade value tiers.
+- **Enchantment context:** realized value if present + modest expected-value upside.
+- **Localization:** embedded English + Simplified Chinese (`zhs` auto-maps to `zh-CN`).
 
-If `local.props` has `DeploySts2Mod=true` and `STS2GamePath`, build will auto-deploy to your game mods folder.
+## Example Usage
 
-### Data Refresh / LLM (Optional, Maintainer-Only)
+- **Reward pick:** compare `Ctx` and reason lines to see whether a card solves your current deck gap (draw, block, scaling, etc.).
+- **Shop pick:** check affordability penalties before buying high-score cards when gold is tight.
+- **Enchanted cards:** if a card already has an enchantment, realized-value context can materially change priority.
+- **Upgrades:** cards with strong upgrade trajectories can get extra context value even when base form is average.
 
-This is for metadata curation, not normal gameplay use.
+## FAQ
+
+### Why don’t I see any overlay?
+
+- Verify BaseLib is installed and loaded.
+- Check folder nesting; avoid `mods/Sts2ContextCoach/Sts2ContextCoach/...`.
+- Confirm `Sts2ContextCoach.dll` and `Sts2ContextCoach.json` are in the same mod folder.
+
+### Why is Chinese not showing?
+
+- The mod auto-detects STS2 language and maps `zhs` to `zh-CN`.
+- You can force language via `STS2_CONTEXT_COACH_LANG=zh-CN`.
+
+### Is LLM required to play with this mod?
+
+- No. LLM tooling is only for maintainers refreshing metadata.
+- End users only need the release zip files.
+
+### Can I tune logging?
+
+- `STS2_CONTEXT_COACH_VERBOSE=1` enables verbose diagnostics.
+- Default usage should keep logs quieter.
+
+## Credits / Inspiration
+
+- This project builds on its own context-scoring pipeline and metadata flow.
+- Initial static-value direction was inspired by the STS2 draw-rate mod: [blackpatton17/sts2-draw-rate](https://github.com/blackpatton17/sts2-draw-rate).
+
+## Maintainer Notes (Optional)
+
+### Data Refresh / LLM
+
+This workflow is maintainer-only and not needed for normal gameplay users.
 
 - See `tools/data_refresh/README.md`.
 - Keep API keys in environment variables only.
-- Do not commit `tools/data_refresh/config.yaml` (already gitignored).
+- Do not commit `tools/data_refresh/config.yaml` (gitignored).
 
-## Release Packaging
-
-Use:
+### Build / Package
 
 ```powershell
+dotnet build .\Sts2ContextCoach.csproj -c Release
 powershell -ExecutionPolicy Bypass -File .\tools\release\build-release.ps1
 ```
 
-Zip output is written to `release/`.
+Release zip output is written to `release/`.
 
