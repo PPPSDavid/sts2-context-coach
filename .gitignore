@@ -10,6 +10,8 @@ _reflect/
 tools/data_refresh/config.yaml
 tools/data_refresh/.env
 tools/data_refresh/.venv/
+**/__pycache__/
+*.pyc
 
 # Generated data-refresh artifacts
 tools/data_refresh/cache/
