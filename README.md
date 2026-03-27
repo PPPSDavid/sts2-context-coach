@@ -27,7 +27,7 @@ Add screenshots under `docs/images/` in this repo, then keep these links as-is:
    - `result_cleaned.csv`
    - `data/cards.json`
    - `data/relics.json`
-4. Ensure `BaseLib` is installed/enabled.
+4. Ensure [BaseLib](https://github.com/Alchyr/BaseLib-StS2) is installed/enabled.
 5. Launch game.
 
 ## What It Shows
