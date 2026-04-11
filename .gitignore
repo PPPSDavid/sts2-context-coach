@@ -18,8 +18,8 @@ tools/data_refresh/cache/
 tools/data_refresh/output/
 tools/data_refresh/backups/
 
-# Local release packaging output
-release/
+# Local release packaging output (repo root only; do not match tools/release/)
+/release/
 
 # code-review-graph local SQLite index (regenerate with `code-review-graph build`)
 .code-review-graph/
