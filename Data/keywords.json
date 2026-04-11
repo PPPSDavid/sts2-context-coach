@@ -1,0 +1,1033 @@
+{
+  "schema_version": 1,
+  "keywords": [
+    {
+      "term": "Accelerant",
+      "definition": "Poison is triggered X additional times. Stacking: Intensity"
+    },
+    {
+      "term": "Accuracy",
+      "definition": "Shivs deal X additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Adaptable",
+      "definition": "When it would be defeated, it instead revives even stronger. Stacking: Does not stack"
+    },
+    {
+      "term": "Afterimage",
+      "definition": "Whenever you play a card, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Aggression",
+      "definition": "At the start of your turn, put X random Attacks from your Discard Pile into your Hand and Upgrade them for the rest of combat. Stacking: Intensity"
+    },
+    {
+      "term": "Anticipate",
+      "definition": "Gain X Dexterity until the end of this turn. Notes: Temporary Dexterity Mechanically identical to Speed Potion and Helical Dart Stacking: Intensity"
+    },
+    {
+      "term": "Arsenal",
+      "definition": "Whenever you play a Colorless card, gain X Strength . Stacking: Intensity"
+    },
+    {
+      "term": "Artifact",
+      "definition": "Negates X debuffs. Stacking: Counter"
+    },
+    {
+      "term": "Asleep",
+      "definition": "Awakens upon losing HP or after X turns. Stacking: Duration"
+    },
+    {
+      "term": "Automation",
+      "definition": "Every 10 cards you draw, gain . Stacking: Intensity"
+    },
+    {
+      "term": "Back Attack",
+      "definition": "Deals 50% more damage when it is attacking you from behind. Stacking: Does not stack"
+    },
+    {
+      "term": "Barricade",
+      "definition": "Block is not removed at the start of your turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Beacon of Hope",
+      "definition": "Whenever you gain Block on your turn, other players gain half that much Block X times. Stacking: Intensity"
+    },
+    {
+      "term": "Biased Cognition",
+      "definition": "At the start of your turn, lose X Focus . Stacking: Intensity"
+    },
+    {
+      "term": "Black Hole",
+      "definition": "Whenever you spend or gain 1 , deal X damage to ALL enemies. Stacking: Intensity"
+    },
+    {
+      "term": "Blade of Ink",
+      "definition": "Whenever you play an Attack this turn, gain X Strength this turn. Stacking: Intensity"
+    },
+    {
+      "term": "Block Next Turn",
+      "definition": "At the start of your next turn, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Blur",
+      "definition": "Block is not removed at the start of your next X turns. Stacking: Duration"
+    },
+    {
+      "term": "Buffer",
+      "definition": "Prevent the next X times you would lose HP. Stacking: Counter"
+    },
+    {
+      "term": "Burrowed",
+      "definition": "Block is not removed at the start of its turn. Stunned if all Block is removed. Notes: Loses all Block when Burrowed is removed. Stacking: Does not stack"
+    },
+    {
+      "term": "Burst",
+      "definition": "Your next X Skills are played an extra time this turn. Notes: Removed at end of turn. Stacking: Counter"
+    },
+    {
+      "term": "Calamity",
+      "definition": "Whenever you play an Attack, add X random Attacks into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Calcify",
+      "definition": "Osty's attacks deal X additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Call of the Void",
+      "definition": "At the start of your turn, add X random cards into your Hand and apply Ethereal to them. Stacking: Intensity"
+    },
+    {
+      "term": "Chains of Binding",
+      "definition": "The first X cards drawn each turn are Afflicted with Bound. Stacking: Intensity"
+    },
+    {
+      "term": "Child of the Stars",
+      "definition": "Gain X Block for each 1 spent. Stacking: Intensity"
+    },
+    {
+      "term": "Clarity",
+      "definition": "At the start of your next X turns, draw 1 additional card. Stacking: Duration"
+    },
+    {
+      "term": "Colossus",
+      "definition": "You receive 50% less damage from Vulnerable enemies for X turns. Stacking: Duration"
+    },
+    {
+      "term": "Confused",
+      "definition": "The costs of your cards are randomized on draw, from 0 to 3. Stacking: Does not stack"
+    },
+    {
+      "term": "Conqueror",
+      "definition": "Sovereign Blade deals double damage to it for the next X turns. Stacking: Duration"
+    },
+    {
+      "term": "Constrict",
+      "definition": "While the Slithering Strangler is alive, at the end of your turn, take X damage. Stacking: Intensity"
+    },
+    {
+      "term": "Consuming Shadow",
+      "definition": "At the end of your turn, Evoke your X leftmost Orbs. Stacking: Intensity"
+    },
+    {
+      "term": "Coolant",
+      "definition": "At the start of your turn, gain X Block for each unique Orb you have. Stacking: Intensity"
+    },
+    {
+      "term": "Coordinate",
+      "definition": "Gain X Strength until the end of this turn. Notes: Temporary Strength Mechanically identical to Flex Potion , Reptile Trinket , Setup Strike , and Feeding Frenzy Stacking: Intensity"
+    },
+    {
+      "term": "Corrosive Wave",
+      "definition": "Whenever you draw a card this turn, apply X Poison to ALL enemies. Stacking: Intensity"
+    },
+    {
+      "term": "Corruption",
+      "definition": "Skills cost 0. Whenever you play a Skill, Exhaust it. Stacking: Does not stack"
+    },
+    {
+      "term": "Countdown",
+      "definition": "At the start of your turn, apply X Doom to a random enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Covered",
+      "definition": "An ally is covering you. All attacks that would be directed to you are redirected to them instead. Stacking: Does not stack"
+    },
+    {
+      "term": "Crab Rage",
+      "definition": "When an ally dies, it gains 5 Strength and 99 Block . Stacking: Does not stack"
+    },
+    {
+      "term": "Creative AI",
+      "definition": "At the start of your turn, add X random Powers into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Crimson Mantle",
+      "definition": "At the start of your turn, lose X HP and gain X Block . Notes: Self-damage increases each time Crimson Mantle is applied. Stacking: Intensity"
+    },
+    {
+      "term": "Cruelty",
+      "definition": "Vulnerable enemies take an additional X% damage. Stacking: Intensity"
+    },
+    {
+      "term": "Crush Under",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Piercing Wail , Dying Star , Monarch's Gaze Strength Down , Enfeebling Touch , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Curious",
+      "definition": "Powers cost X less. Stacking: Intensity"
+    },
+    {
+      "term": "Curl Up",
+      "definition": "Gains X Block upon first being hit. Stacking: Intensity"
+    },
+    {
+      "term": "Dampen",
+      "definition": "While Magi Knight is alive, ALL your cards are Downgraded. Stacking: Does not stack"
+    },
+    {
+      "term": "Danse Macabre",
+      "definition": "Whenever you play a card that costs 2 or more, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Dark Embrace",
+      "definition": "Whenever a card is Exhausted , draw X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Dark Shackles",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Piercing Wail , Crush Under , Dying Star , Monarch's Gaze Strength Down , and Enfeebling Touch . Stacking: Intensity"
+    },
+    {
+      "term": "Debilitate",
+      "definition": "Vulnerable and Weak are twice as effective for the next X turns. Stacking: Duration"
+    },
+    {
+      "term": "Demesne",
+      "definition": "At the start of your turn, gain and draw X additional cards. Stacking: Intensity"
+    },
+    {
+      "term": "Demise",
+      "definition": "At the end of its turn, it loses X HP. Stacking: Intensity"
+    },
+    {
+      "term": "Demon Form",
+      "definition": "At the start of your turn, gain X Strength . Stacking: Intensity"
+    },
+    {
+      "term": "Devour Life",
+      "definition": "Whenever you play a Soul , Summon X. Stacking: Intensity"
+    },
+    {
+      "term": "Dexterity",
+      "definition": "Dexterity is a Buff that increases the Block gained directly from cards. This does not apply to any other sources of Block , including by Buffs gained from cards. Dexterity can be negative, reducing the Block gained from cards to a minimum of 0. Stacking: Intensity Caps: -999 to 999"
+    },
+    {
+      "term": "Diamond Diadem",
+      "definition": "Enemies deal 50% less damage this turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Die for You",
+      "definition": "Osty absorbs all unblocked attack damage. Stacking: Does not stack"
+    },
+    {
+      "term": "Disintegration",
+      "definition": "At the end of your turn, take X damage. Stacking: Intensity"
+    },
+    {
+      "term": "Doom",
+      "definition": "Doom is a Debuff that the Necrobinder can apply to Enemies, or to herself. At the end of its turn, if an enemy with less HP than it has Doom , it will die. If the Necrobinder (or another character) ends her turn with less HP than Doom, she will die. Doom does not interact with the enemy's Block , and each Artifact stack will negate all Doom applied by a single source. Stacking: Intensity"
+    },
+    {
+      "term": "Double Damage",
+      "definition": "For the next X turns, Attacks deal double damage. Stacking: Duration"
+    },
+    {
+      "term": "Draw Cards Next Turn",
+      "definition": "At the start of your next turn, draw X additional cards. Stacking: Intensity"
+    },
+    {
+      "term": "Drum of Battle",
+      "definition": "At the start of your turn, Exhaust the top X cards of your Draw Pile. Stacking: Intensity"
+    },
+    {
+      "term": "Duplication",
+      "definition": "Your next X cards are played an extra time. Stacking: Counter"
+    },
+    {
+      "term": "Dying Star",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Piercing Wail , Crush Under , Monarch's Gaze Strength Down , Enfeebling Touch , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Echo Form",
+      "definition": "The first X cards you play each turn are played an extra time. Stacking: Intensity and Counter"
+    },
+    {
+      "term": "Energy Next Turn",
+      "definition": "Gain X additional next turn. Stacking: Intensity"
+    },
+    {
+      "term": "Enfeebling Touch",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Piercing Wail , Crush Under , Dying Star , Monarch's Gaze Strength Down , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Enrage",
+      "definition": "Whenever you play a Skill, gains X Strength . Stacking: Intensity"
+    },
+    {
+      "term": "Entropy",
+      "definition": "At the start of your turn, Transform X cards in your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Envenom",
+      "definition": "Whenever you deal unblocked attack damage, apply X Poison . Stacking: Intensity"
+    },
+    {
+      "term": "Escape Artist",
+      "definition": "Tries to escape the combat after X turns. Stacking: Duration"
+    },
+    {
+      "term": "Fan of Knives",
+      "definition": "Shivs hit ALL enemies. Stacking: Does not stack"
+    },
+    {
+      "term": "Fasten",
+      "definition": "Gain an additional X Block from Defend cards. Stacking: Intensity"
+    },
+    {
+      "term": "Feeding Frenzy",
+      "definition": "Gain X Strength until the end of this turn. Notes: Temporary Strength Mechanically identical to Flex Potion , Reptile Trinket , Setup Strike , and Feeding Frenzy Stacking: Intensity"
+    },
+    {
+      "term": "Feel No Pain",
+      "definition": "Whenever a card is Exhausted , gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Feral",
+      "definition": "The first X times you play a 0 Attack each turn, return it to your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Flame Barrier",
+      "definition": "Whenever you are attacked this turn, deal X damage back. Stacking: Intensity"
+    },
+    {
+      "term": "Flanking",
+      "definition": "Other allies deal X times more damage to this enemy this turn. Notes: Multiplayer only. Stacking: Intensity"
+    },
+    {
+      "term": "Flex Potion",
+      "definition": "Gain X Strength until the end of this turn. Notes: Temporary Strength Mechanically identical to Reptile Trinket , Setup Strike , Coordinate , and Feeding Frenzy Stacking: Intensity"
+    },
+    {
+      "term": "Flutter",
+      "definition": "Receives 50% less damage from Attacks. Deal attack damage X times to Stun it. Stacking: Intensity"
+    },
+    {
+      "term": "Focus",
+      "definition": "Increases the effectiveness of Orbs by X. Notes: Allows negative values. Stacking: Intensity"
+    },
+    {
+      "term": "Focused Strike",
+      "definition": "Gain X Focus until the end of this turn. Notes: Temporary Focus Mechanically identical to Hotfix and Synchronize Stacking: Intensity"
+    },
+    {
+      "term": "Forbidden Grimoire",
+      "definition": "At the end of combat, remove X cards from your Deck. Stacking: Intensity"
+    },
+    {
+      "term": "Foregone Conclusion",
+      "definition": "Next turn, put X cards from your Draw Pile into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Frail",
+      "definition": "Gain 25% less Block from cards for X turns. Stacking: Duration"
+    },
+    {
+      "term": "Free Attack",
+      "definition": "Your next X Attacks cost 0 . Stacking: Counter"
+    },
+    {
+      "term": "Free Power",
+      "definition": "The next X Powers you play cost 0 . Stacking: Counter"
+    },
+    {
+      "term": "Free Skill",
+      "definition": "The next X Skills you play cost 0 . Stacking: Counter"
+    },
+    {
+      "term": "Friendship",
+      "definition": "Gain at the start of each turn. Stacking: Intensity"
+    },
+    {
+      "term": "Furnace",
+      "definition": "At the start of your turn, Forge X. Stacking: Intensity"
+    },
+    {
+      "term": "Galvanic",
+      "definition": "Powers are afflicted with Galvanized. Notes: Applied innately by Globe Head at combat start. Afflicts all Power-type cards with the Galvanized affliction, which deals damage to the card's owner when played. Stacking: Intensity"
+    },
+    {
+      "term": "Genesis",
+      "definition": "At the start of your turn, gain 1 . Stacking: Intensity"
+    },
+    {
+      "term": "Gigantification",
+      "definition": "The next 2 Attacks you play deal triple damage. Stacking: Counter"
+    },
+    {
+      "term": "Grapple",
+      "definition": "Whenever you gain Block this turn, deal X damage to the afflicted enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Grasp",
+      "definition": "The first card you play each turn costs 1 additional . Stacking: Does not stack"
+    },
+    {
+      "term": "Gravity",
+      "definition": "Whenever you play a card this turn, deal X damage to ALL enemies. Notes: No known sources found in cards, relics, potions, or monsters. May be granted by an event or other mechanism. Stacking: Intensity"
+    },
+    {
+      "term": "Guarded",
+      "definition": "Take half damage from enemies. Removed if the Tank dies. Notes: Applied to allies by the Tank power. The Tank player takes double damage instead. Stacking: Does not stack"
+    },
+    {
+      "term": "Hailstorm",
+      "definition": "At the end of your turn, if you have Frost , deal X damage to ALL enemies. Stacking: Intensity"
+    },
+    {
+      "term": "Hammer Time",
+      "definition": "Whenever you Forge , all allies Forge as well. Stacking: Does not stack"
+    },
+    {
+      "term": "Hang",
+      "definition": "All Hangs deal X times more damage to this enemy. Notes: Stacks multiplicatively (minimum +2 per application). Capped at 999. Stacking: Intensity Caps: 999"
+    },
+    {
+      "term": "Hard to Kill",
+      "definition": "Reduce all damage taken and HP lost by it to 9. Notes: Applied innately by Exoskeleton. Caps all damage instances to 9. Stacking: Intensity"
+    },
+    {
+      "term": "Hardened Shell",
+      "definition": "It cannot lose more than X HP each turn. Notes: Applied innately by Skulking Colony. Damage cap resets at the start of each player turn. Stacking: Intensity"
+    },
+    {
+      "term": "Hatch",
+      "definition": "Hatches after X turns. Stacking: Duration"
+    },
+    {
+      "term": "Haunt",
+      "definition": "Whenever you play a Soul , a random enemy loses X HP. Stacking: Intensity"
+    },
+    {
+      "term": "Heist",
+      "definition": "When killed, returns all the stolen Gold. Notes: Applied to Fat Gremlin when Gremlin Merc dies (via Surprise power). Killing the Fat Gremlin returns stolen gold. Stacking: Intensity"
+    },
+    {
+      "term": "Helical Dart",
+      "definition": "Gain X Dexterity until the end of this turn. Notes: Temporary Dexterity Gained when a Shiv is played. Mechanically identical to Speed Potion and Anticipate . Stacking: Intensity"
+    },
+    {
+      "term": "Hello World",
+      "definition": "At the start of your turn, add X random Common cards into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Hellraiser",
+      "definition": "Whenever you draw a card containing \"Strike\", it is played against a random enemy. Stacking: Does not stack"
+    },
+    {
+      "term": "Hex",
+      "definition": "While Spectral Knight is alive, ALL your cards are Ethereal . Stacking: Does not stack"
+    },
+    {
+      "term": "High Voltage",
+      "definition": "At the start of its turn, it gains X Strength . Notes: Applied innately by Zapbot. Stacking: Intensity"
+    },
+    {
+      "term": "Hotfix",
+      "definition": "Gain X Focus until the end of this turn. Notes: Temporary Focus Mechanically identical to Focused Strike and Synchronize Stacking: Intensity"
+    },
+    {
+      "term": "Hunger",
+      "definition": "Whenever you play an Attack or Skill, it is Exhausted . Stacking: Does not stack"
+    },
+    {
+      "term": "Illusion",
+      "definition": "When this dies, it revives next turn at full HP. Stacking: Does not stack"
+    },
+    {
+      "term": "Imbalanced",
+      "definition": "If the enemy's attacks are fully blocked, it becomes Stunned . Stacking: Does not stack"
+    },
+    {
+      "term": "Improvement",
+      "definition": "At the end of combat, Upgrade X random cards. Stacking: Intensity"
+    },
+    {
+      "term": "Inferno",
+      "definition": "At the start of your turn, lose X HP. Whenever you lose HP on your turn, deal X damage to ALL enemies. Notes: Self-damage increases by 1 each time Inferno is applied. Stacking: Intensity"
+    },
+    {
+      "term": "Infested",
+      "definition": "Upon dying, summons... something. Notes: Spawns 4 Wrigglers on death. Stacking: Does not stack"
+    },
+    {
+      "term": "Infinite Blades",
+      "definition": "At the start of your turn, add X Shivs into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Intangible",
+      "definition": "Reduce all damage taken and HP loss to 1. Lasts for X turns. Notes: Intangible is removed at the end of the enemy turn. The damage cap is raised to 5 if the attacker has The Boot. Stacking: Duration"
+    },
+    {
+      "term": "Intercept",
+      "definition": "You are covering an ally. All attacks that would be directed towards them are redirected towards you. Notes: Multiplayer only. Damage taken is multiplied by the number of players covered + 1. Removed at the end of the enemy turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Iteration",
+      "definition": "The first time you draw a Status card each turn, draw X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Juggernaut",
+      "definition": "Whenever you gain Block , deal X damage to a random enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Juggling",
+      "definition": "Add X copies of the third Attack you play each turn into your Hand. Notes: The copy counter resets each turn. Stacking: Intensity"
+    },
+    {
+      "term": "Knockdown",
+      "definition": "Other allies deal X times more damage to this enemy this turn. Notes: Multiplayer only. Stacking: Intensity"
+    },
+    {
+      "term": "Leadership",
+      "definition": "All other allies deal X additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Lethality",
+      "definition": "The first Attack each turn deals X% additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Lightning Rod",
+      "definition": "At the start of the next X turns, Channel 1 Lightning . Stacking: Duration"
+    },
+    {
+      "term": "Loop",
+      "definition": "At the start of your turn, trigger the passive ability of your next Orb X times. Stacking: Intensity"
+    },
+    {
+      "term": "Machine Learning",
+      "definition": "At the start of your turn, draw X additional cards. Stacking: Intensity"
+    },
+    {
+      "term": "Magic Bomb",
+      "definition": "Take X damage at the end of your turn. Is cleared if the Magi Knight dies. Stacking: Intensity"
+    },
+    {
+      "term": "Mangle",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Piercing Wail , Crush Under , Dying Star , Monarch's Gaze Strength Down , and Enfeebling Touch , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Master Planner",
+      "definition": "When you play a Skill, it gains Sly. Stacking: Does not stack"
+    },
+    {
+      "term": "Mayhem",
+      "definition": "At the start of your turn, play the next X top cards of your Draw Pile. Stacking: Intensity"
+    },
+    {
+      "term": "Mind Rot",
+      "definition": "Draw X fewer cards each turn. Stacking: Intensity"
+    },
+    {
+      "term": "Minion",
+      "definition": "Minions abandon combat without their leader. Stacking: Does not stack"
+    },
+    {
+      "term": "Monarch's Gaze",
+      "definition": "Whenever you attack an enemy, it loses X Strength this turn. Stacking: Intensity"
+    },
+    {
+      "term": "Monarch's Gaze Strength Down",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Piercing Wail , Crush Under , Dying Star , Enfeebling Touch , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Monologue",
+      "definition": "Whenever you play a card this turn, gain 1 Strength this turn. Notes: Removed at end of turn. Strength gained is also removed. Stacking: Does not stack"
+    },
+    {
+      "term": "Necro Mastery",
+      "definition": "Whenever Osty loses HP, ALL enemies lose X times that much HP as well. Stacking: Intensity"
+    },
+    {
+      "term": "Nemesis",
+      "definition": "At the end of every other turn, gains Intangible 1. Stacking: Does not stack"
+    },
+    {
+      "term": "Neurosurge",
+      "definition": "At the start of your turn, apply X Doom to yourself. Stacking: Intensity"
+    },
+    {
+      "term": "Nightmare",
+      "definition": "Add X copies of a chosen card into your Hand next turn. Stacking: Intensity"
+    },
+    {
+      "term": "No Block",
+      "definition": "You cannot gain Block from cards for X turns. Stacking: Duration"
+    },
+    {
+      "term": "No Draw",
+      "definition": "You may not draw any more cards this turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Nostalgia",
+      "definition": "The first X Attacks or Skills you play each turn are placed on top of your Draw Pile. Stacking: Intensity"
+    },
+    {
+      "term": "Oblivion",
+      "definition": "Whenever you play a card, this enemy gains X Doom . Stacking: Intensity"
+    },
+    {
+      "term": "One-Two Punch",
+      "definition": "Your next X Attacks are played an extra time this turn. Notes: Removed at end of turn. Stacking: Counter"
+    },
+    {
+      "term": "Orbit",
+      "definition": "Every 4 you spend, gain X . Stacking: Intensity"
+    },
+    {
+      "term": "Orbs",
+      "definition": "Orbs are a mechanic used by The Defect . They operate identical to their Slay the Spire origins, with the addition of a new Orb type. Orbs have two abilities each, a Passive effect that happens every turn, and an Evoke effect. Using Orbs requires a player have Orb Slots . Each slot can hold one Orb. Orb Slots follow a first-in, first-out structure. Visually, Orbs are both Channeled and Evoked in right-to left order, with Orbs shifting right to fill any empty slots. The Defect will start combat with 3 Orb Slots. Gaining a Orb as any character without Orb Slots will add 1 Orb Slot. You can have a maximum of 10 Orb Slots at once. When an Orb is Channeled , it is placed into the right-most available Orb Slot. If all Orb Slots are occupied, the right-most Orb is Evoked, making space for the newly Channeled Orb. When an Orb is Evoked , it is removed from its Slot (allowing Orbs behind it to move forward), and its Evoke effect is activated. Each Orb type has a Passive ability which is activated automatically once per turn. Lightning , Frost , Dark , and Glass Orbs activate their Passives at end of turn, while Plasma Orbs activate theirs at the beginning of your turn. There are five typ..."
+    },
+    {
+      "term": "Pagestorm",
+      "definition": "Whenever you draw an Ethereal card, draw X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Painful Stabs",
+      "definition": "Shuffle X Wounds into your Discard Pile each time you receive unblocked attack damage. Stacking: Intensity"
+    },
+    {
+      "term": "Pale Blue Dot",
+      "definition": "If you play 5 or more cards in a turn, draw X additional cards at the start of your next turn. Stacking: Intensity"
+    },
+    {
+      "term": "Panache",
+      "definition": "If you play 5 more cards this turn, deal X damage to ALL enemies. Notes: Counter resets to 5 each turn. Displayed amount shows cards remaining, not power stacks. Stacking: Intensity"
+    },
+    {
+      "term": "Paper Cuts",
+      "definition": "Whenever it deals unblocked attack damage to you, you lose X Max HP. Stacking: Intensity"
+    },
+    {
+      "term": "Parry",
+      "definition": "Whenever you play Sovereign Blade , gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Personal Hive",
+      "definition": "Whenever this enemy is hit by an Attack, add X Dazed into your Draw Pile. Stacking: Intensity"
+    },
+    {
+      "term": "Phantom Blades",
+      "definition": "Shivs gain Retain . The first Shiv you play each turn deals X additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Piercing Wail",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Shackling Potion , Mangle , Crush Under , Dying Star , Enfeebling Touch , Monarch's Gaze Strength Down , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Pillar of Creation",
+      "definition": "Whenever you create a card, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Plating",
+      "definition": "At the end of your turn, gain X Block . Plating is reduced by 1 at the start of your turn. Notes: On enemies, Plating decreases by 1 per player per turn. Stacking: Intensity"
+    },
+    {
+      "term": "Plow",
+      "definition": "The first time this enemy's HP reaches X or below, it becomes Stunned and loses all its Strength . Stacking: Intensity"
+    },
+    {
+      "term": "Poison",
+      "definition": "Poison is a Debuff that the Silent can apply to Enemies. At the beginning of its turn, an enemy with Poison will lose HP equal to its number of Poison stacks. Then, its Poison stack will decrease by 1. Poison inflicts HP loss after the enemy's Block is removed, and each Artifact stack will negate all Poison applied by a single source. Stacking: Intensity"
+    },
+    {
+      "term": "Possess Speed",
+      "definition": "When killed, return all stolen Dexterity to the player. Stacking: Does not stack"
+    },
+    {
+      "term": "Possess Strength",
+      "definition": "When killed, return all stolen Strength to the player. Stacking: Does not stack"
+    },
+    {
+      "term": "Prep Time",
+      "definition": "At the start of your turn, gain X Vigor . Stacking: Intensity"
+    },
+    {
+      "term": "Pyre",
+      "definition": "Gain at the start of each turn. Stacking: Intensity"
+    },
+    {
+      "term": "Radiance",
+      "definition": "Gain additional for the next X turns. Stacking: Duration"
+    },
+    {
+      "term": "Rage",
+      "definition": "Whenever you play an Attack this turn, gain X Block . Notes: Removed at end of turn. Stacking: Intensity"
+    },
+    {
+      "term": "Rampart",
+      "definition": "At the start of the player's turn, Turret Operator gains X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Ravenous",
+      "definition": "When an enemy dies, Corpse Slug immediately eats it, becoming Stunned and gaining X Strength . Stacking: Intensity"
+    },
+    {
+      "term": "Reaper Form",
+      "definition": "Whenever Attacks deal damage, they also apply X times that much Doom . Stacking: Intensity"
+    },
+    {
+      "term": "Reattach",
+      "definition": "If other segments are still alive, revives in 2 turns with X HP. Stacking: Does not stack"
+    },
+    {
+      "term": "Rebound",
+      "definition": "The next X cards you play this turn are placed on the top of your Draw Pile. Notes: Removed at end of turn. Stacking: Counter"
+    },
+    {
+      "term": "Reflect",
+      "definition": "Blocked damage is reflected to your attacker for X turns. Stacking: Duration"
+    },
+    {
+      "term": "Regen",
+      "definition": "At the end of your turn, heal X HP, then reduce Regen by 1. Stacking: Intensity and Duration"
+    },
+    {
+      "term": "Reptile Trinket",
+      "definition": "Gain X Strength until the end of this turn. Notes: Temporary Strength gained when a Potion is used. Mechanically identical to Flex Potion , Setup Strike , Coordinate , and Feeding Frenzy Stacking: Intensity"
+    },
+    {
+      "term": "Retain Hand",
+      "definition": "Retain your Hand for the next X turns. Stacking: Duration"
+    },
+    {
+      "term": "Ringing",
+      "definition": "You can only play 1 card this turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Ritual",
+      "definition": "At the end of its turn, gains X Strength . Notes: Skips the first end-of-turn trigger when applied by an enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Rolling Boulder",
+      "definition": "At the start of your turn, deal X damage to ALL enemies and increase this damage by 5. Stacking: Intensity"
+    },
+    {
+      "term": "Royalties",
+      "definition": "At the end of combat, gain X Gold. Stacking: Intensity"
+    },
+    {
+      "term": "Rupture",
+      "definition": "Whenever you lose HP on your turn, gain X Strength . Notes: HP loss from cards you play is batched and applied after the card resolves. Stacking: Intensity"
+    },
+    {
+      "term": "Sandpit",
+      "definition": "In X turns, you will be eaten and die. Notes: Applied to the player. Counts down each enemy turn. If it reaches 0, the player is killed. Stacking: Duration"
+    },
+    {
+      "term": "Scrutiny",
+      "definition": "You cannot draw additional cards during your turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Seeking Edge",
+      "definition": "Sovereign Blade now hits ALL enemies. Stacking: Does not stack"
+    },
+    {
+      "term": "Self-Forming Clay",
+      "definition": "Gain X Block next turn. Notes: Triggers when your Block is cleared (reduced to 0). Removed after triggering. Stacking: Counter"
+    },
+    {
+      "term": "Sentry Mode",
+      "definition": "At the start of your turn, add X Sweeping Gaze into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Serpent Form",
+      "definition": "Whenever you play a card, deal X damage to a random enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Setup Strike",
+      "definition": "Gain X Strength until the end of this turn. Notes: Temporary Strength Mechanically identical to Flex Potion , Reptile Trinket , Coordinate , and Feeding Frenzy Stacking: Intensity"
+    },
+    {
+      "term": "Shackling Potion",
+      "definition": "Lose X Strength until the end of this turn. Notes: Temporary Strength loss Mechanically Identical to Mangle , Piercing Wail , Crush Under , Dying Star , Enfeebling Touch , Monarch's Gaze Strength Down , and Dark Shackles Stacking: Intensity"
+    },
+    {
+      "term": "Shadow Step",
+      "definition": "For the next X turns after this one, Attacks deal double damage. Notes: At the start of your turn, grants X Double Damage and is removed. It is possible to stack Shadow Step with Burst or Master Planner Stacking: Intensity"
+    },
+    {
+      "term": "Shadowmeld",
+      "definition": "Double your Block gain this turn X times. Notes: Removed at end of turn. Stacks multiplicatively (2^X multiplier). Stacking: Counter"
+    },
+    {
+      "term": "Shriek",
+      "definition": "The first time this enemy's HP reaches X or below, it becomes Stunned . Stacking: Intensity"
+    },
+    {
+      "term": "Shrink",
+      "definition": "Attacks deal 30% less damage. Removed when the applier dies. Stacking: Duration"
+    },
+    {
+      "term": "Shroud",
+      "definition": "Whenever you apply Doom , gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Sic 'Em",
+      "definition": "Whenever Osty hits this enemy this turn, Summon X. Stacking: Intensity"
+    },
+    {
+      "term": "Signal Boost",
+      "definition": "Your next X Powers are played an extra time. Notes: Loses 1 stack each time a Power is played an extra time. Stacking: Counter"
+    },
+    {
+      "term": "Skittish",
+      "definition": "The first time it is hit each turn, it gains X Block . Notes: Only triggers once per turn. Resets at end of turn. Stacking: Intensity"
+    },
+    {
+      "term": "Sleight of Flesh",
+      "definition": "Whenever you apply a debuff to an enemy, they take X damage. Notes: Does not trigger from temporary debuffs. Stacking: Intensity"
+    },
+    {
+      "term": "Slippery",
+      "definition": "The next X times it loses HP, it only loses 1 HP instead. Notes: Loses 1 stack each time it takes damage. Stacking: Counter"
+    },
+    {
+      "term": "Sloth",
+      "definition": "You cannot play more than X cards each turn. Stacking: Intensity"
+    },
+    {
+      "term": "Slow",
+      "definition": "Whenever you play a card, this enemy receives 10% more damage from Attacks this turn. Stacking: Intensity"
+    },
+    {
+      "term": "Slumber",
+      "definition": "Awakens upon taking turns or losing HP X times. Notes: Loses stacks from both taking damage and enemy turns ending. When removed, the Slumbering Beetle wakes up. Stacking: Counter"
+    },
+    {
+      "term": "Smoggy",
+      "definition": "You can only play 1 Skill per turn. Stacking: Does not stack"
+    },
+    {
+      "term": "Smokestack",
+      "definition": "Whenever you create a Status, deal X damage to ALL enemies. Stacking: Intensity"
+    },
+    {
+      "term": "Sneaky",
+      "definition": "Whenever another player attacks an enemy, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Soar",
+      "definition": "Receives 50% less attack damage until it lands. Notes: Only reduces damage from powered attacks. Does not stack. Stacking: Does not stack"
+    },
+    {
+      "term": "Spectrum Shift",
+      "definition": "At the start of your turn, add X random Colorless cards into your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Speed Potion",
+      "definition": "Gain X Dexterity until the end of this turn. Notes: Temporary Dexterity Mechanically identical to Anticipate and Helical Dart Stacking: Intensity"
+    },
+    {
+      "term": "Speedster",
+      "definition": "Whenever you draw a card during your turn, deal X damage to ALL enemies. Notes: Only triggers on cards drawn outside the normal hand draw (e.g. from card effects). Stacking: Intensity"
+    },
+    {
+      "term": "Spinner",
+      "definition": "At the start of your turn, Channel X Glass . Stacking: Intensity"
+    },
+    {
+      "term": "Spirit of Ash",
+      "definition": "Whenever you play an Ethereal card, gain X Block . Stacking: Intensity"
+    },
+    {
+      "term": "Stampede",
+      "definition": "At the end of your turn, X random Attacks in your Hand are played against a random enemy. Stacking: Intensity"
+    },
+    {
+      "term": "Star Next Turn",
+      "definition": "Gain X next turn. Notes: Removed after triggering. Stacking: Intensity"
+    },
+    {
+      "term": "Steam Eruption",
+      "definition": "When killed, deals X damage at the end of your next turn. Notes: Innate to Waterfall Giant . Accumulated through its moves. On death, the Giant becomes Stunned , then explodes for the full accumulated amount. Stacking: Intensity"
+    },
+    {
+      "term": "Stock",
+      "definition": "When killed, a new Axebot is summoned in its place. Notes: The new Axebot spawns with Stock reduced by 1. At 0, no further Axebots spawn. Stacking: Intensity"
+    },
+    {
+      "term": "Storm",
+      "definition": "Whenever you play a Power, Channel X Lightning . Stacking: Intensity"
+    },
+    {
+      "term": "Strangle",
+      "definition": "Whenever you play a card this turn, this enemy loses X HP. Stacking: Intensity"
+    },
+    {
+      "term": "Stratagem",
+      "definition": "Whenever you shuffle your Draw Pile, choose X cards from it to put into your Hand. Notes: Singleplayer only. Stacking: Intensity"
+    },
+    {
+      "term": "Strength",
+      "definition": "Strength is a Buff that increases the damage of Attack cards and enemy Attacks. Each point of Strength increases the damage of an attack by 1. Attacks that hit multiple times, like Sword Boomerang , will apply Strength to each individual hit. Strength can be negative, reducing the damage of attacks to a minimum of 0 damage per hit. Notes: Negative Strength is possible. Stacking: Intensity Caps: -999 to 999"
+    },
+    {
+      "term": "Subroutine",
+      "definition": "Whenever you play a Power, gain X . Stacking: Intensity"
+    },
+    {
+      "term": "Suck",
+      "definition": "Whenever it deals unblocked attack damage, it gains X Strength . Notes: Innate to Fossil Stalker . Stacking: Intensity"
+    },
+    {
+      "term": "Summon Next Turn",
+      "definition": "At the start of your next turn, Summon X. Notes: Removed after triggering. Stacking: Intensity"
+    },
+    {
+      "term": "Surprise",
+      "definition": "Something is off about this creature... Notes: When Gremlin Merc dies, a Sneaky Gremlin and Fat Gremlin are spawned. Stacking: Does not stack"
+    },
+    {
+      "term": "Surrounded",
+      "definition": "Receive 50% more damage if attacked from behind. Use targeting cards or potions to change your orientation. Stacking: Does not stack"
+    },
+    {
+      "term": "Swipe",
+      "definition": "Upon killing this enemy, the stolen card is returned. Notes: Applied by Thieving Hopper when it steals a card. Each stolen card is a separate instance of Swipe. Stacking: Does not stack"
+    },
+    {
+      "term": "Sword Sage",
+      "definition": "Increase the cost of Sovereign Blade by X. Sovereign Blade now hits X additional times. Stacking: Intensity"
+    },
+    {
+      "term": "Synchronize",
+      "definition": "Gain X Focus until the end of this turn. Notes: Temporary Focus Mechanically identical to Focused Strike and Hotfix Stacking: Intensity"
+    },
+    {
+      "term": "Tag Team",
+      "definition": "The next Attack another player plays on the enemy is played an extra time. Stacking: Intensity"
+    },
+    {
+      "term": "Tangled",
+      "definition": "Attacks cost an additional for 2 turns. Stacking: Intensity"
+    },
+    {
+      "term": "Tank",
+      "definition": "Take double damage from enemies. Allies take half damage from enemies. Stacking: Does not stack"
+    },
+    {
+      "term": "Tender",
+      "definition": "Whenever you play a card, lose X Strength and X Dexterity this turn. Stacking: Intensity"
+    },
+    {
+      "term": "Territorial",
+      "definition": "At the end of its turn, gains X Strength . Stacking: Intensity"
+    },
+    {
+      "term": "The Bomb",
+      "definition": "At the end of X turns, deal 40 damage to ALL enemies. Stacking: Duration, multiple plays create separate Stacks"
+    },
+    {
+      "term": "The Gambit",
+      "definition": "If you take unblocked attack damage this combat, die. Stacking: Does not stack"
+    },
+    {
+      "term": "The Hunt",
+      "definition": "Gain X additional card rewards at the end of combat. Stacking: Intensity"
+    },
+    {
+      "term": "The Sealed Throne",
+      "definition": "Whenever you play a card, gain 1 . Stacking: Intensity"
+    },
+    {
+      "term": "Thievery",
+      "definition": "Steals X Gold when Attacking. Stacking: Intensity"
+    },
+    {
+      "term": "Thorns",
+      "definition": "When hit by an attack, deal X damage back. Stacking: Intensity"
+    },
+    {
+      "term": "Thunder",
+      "definition": "Whenever you Evoke Lightning , deal X damage to each enemy hit. Stacking: Intensity"
+    },
+    {
+      "term": "Time Limit",
+      "definition": "You have X more turns to defeat the Battleworn Dummy. Stacking: Duration"
+    },
+    {
+      "term": "Tools of the Trade",
+      "definition": "At the start of your turn, draw X cards and discard X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Toric Toughness",
+      "definition": "Gain N Block at the start of the next X turns. Stacking: Duration/Intensity"
+    },
+    {
+      "term": "Tracking",
+      "definition": "Weak enemies take X times more damage from Attacks. Stacking: Intensity"
+    },
+    {
+      "term": "Trash to Treasure",
+      "definition": "Whenever you create a Status, Channel X random Orbs. Stacking: Intensity"
+    },
+    {
+      "term": "Tyranny",
+      "definition": "At the start of your turn, draw X cards and Exhaust X cards from your Hand. Stacking: Intensity"
+    },
+    {
+      "term": "Unmovable",
+      "definition": "The first X times you gain Block from a card each turn, double the amount gained. Stacking: Intensity"
+    },
+    {
+      "term": "Veilpiercer",
+      "definition": "The next X Ethereal cards you play cost 0. Stacking: Counter"
+    },
+    {
+      "term": "Vicious",
+      "definition": "Whenever you apply Vulnerable , draw X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Vigor",
+      "definition": "Your next Attack deals X additional damage. Stacking: Intensity"
+    },
+    {
+      "term": "Vital Spark",
+      "definition": "The first time it takes Attack damage each turn, the attacker gains . Stacking: Intensity"
+    },
+    {
+      "term": "Void Form",
+      "definition": "The first X cards you play each turn are free to play. Stacking: Intensity"
+    },
+    {
+      "term": "Vulnerable",
+      "definition": "Vulnerable is a Debuff both players and enemies can apply to their targets. While available to all characters, the Ironclad has the most dedicated support for Vulnerable . While a character or enemy has Vulnerable , the damage received from Attack cards and enemy Attacks is increased by 50% (typically). At the end of its turn, one point of Vulnerable is decremented from the player or enemy. Stacking: Duration"
+    },
+    {
+      "term": "Waste Away",
+      "definition": "Gain X less per turn. Stacking: Intensity"
+    },
+    {
+      "term": "Weak",
+      "definition": "Weak is a Debuff both players and enemies can apply to their targets. While available to all characters, the Silent has the some dedicated support for Weak . While a character or enemy has Weak , the damage of their Attack cards or enemy Attacks is decreased by 25% (typically), then rounded down. At the end of its turn, one point of Weak is decremented from the player or enemy. Stacking: Duration"
+    },
+    {
+      "term": "Well-Laid Plans",
+      "definition": "At the end of your turn, Retain up to X cards. Stacking: Intensity"
+    },
+    {
+      "term": "Wraith Form",
+      "definition": "At the start of your turn, lose X Dexterity . Stacking: Intensity"
+    }
+  ]
+}

@@ -31,6 +31,7 @@ public sealed class DeckAnalysis
 
     public bool HasStrengthSynergy { get; init; }
     public bool HasExhaustSynergy { get; init; }
+    public bool HasDiscardSupport { get; init; }
 
     /// <summary>0 = saturated, 1 = urgent gap.</summary>
     public float BlockNeed { get; init; }

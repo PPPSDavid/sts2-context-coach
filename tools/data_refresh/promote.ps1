@@ -64,6 +64,10 @@ if (-not $SkipReleaseCopy) {
     }
     Copy-Item (Join-Path $srcData "cards.json") (Join-Path $dstData "cards.json") -Force
     Copy-Item (Join-Path $srcData "relics.json") (Join-Path $dstData "relics.json") -Force
+    $kw = Join-Path $srcData "keywords.json"
+    if (Test-Path $kw) {
+        Copy-Item $kw (Join-Path $dstData "keywords.json") -Force
+    }
     Write-Host "Release data sync complete." -ForegroundColor Green
 }
 else {

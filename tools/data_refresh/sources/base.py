@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -64,13 +65,25 @@ class CachedFetcher:
                 pass
 
         headers = {"User-Agent": self.fetch.user_agent}
+        max_attempts = 3
         try:
-            r = requests.get(
-                url,
-                headers=headers,
-                timeout=self.fetch.request_timeout_seconds,
-            )
-            r.raise_for_status()
+            r: requests.Response | None = None
+            for attempt in range(max_attempts):
+                r = requests.get(
+                    url,
+                    headers=headers,
+                    timeout=self.fetch.request_timeout_seconds,
+                )
+                # Be gentle with upstream and handle temporary saturation.
+                if r.status_code in {429, 503} and attempt < (max_attempts - 1):
+                    retry_after = r.headers.get("Retry-After")
+                    delay = _retry_delay_seconds(retry_after, attempt)
+                    time.sleep(delay)
+                    continue
+                r.raise_for_status()
+                break
+            if r is None:
+                raise requests.RequestException("No response returned")
             text = r.text
             fetched_at = now
             body_path.write_text(text, encoding="utf-8", errors="replace")
@@ -114,3 +127,15 @@ def _age_seconds(fetched_at: str, now_iso: str) -> float | None:
         return abs((b - a).total_seconds())
     except (ValueError, TypeError):
         return None
+
+
+def _retry_delay_seconds(retry_after: str | None, attempt: int) -> float:
+    if retry_after:
+        try:
+            parsed = float(retry_after.strip())
+            if parsed > 0:
+                return min(parsed, 30.0)
+        except ValueError:
+            pass
+    # 1.0s, 2.0s, 4.0s ...
+    return min(1.0 * (2**attempt), 8.0)

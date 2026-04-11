@@ -6,8 +6,6 @@ For most players, this mod is **plug-and-play**: download a release zip, extract
 
 ## Preview
 
-Add screenshots under `docs/images/` in this repo, then keep these links as-is:
-
 ![Reward choice example](docs/images/reward-example.png)
 ![Shop example](docs/images/shop-example.png)
 
@@ -81,20 +79,81 @@ Add screenshots under `docs/images/` in this repo, then keep these links as-is:
 
 ## Maintainer Notes (Optional)
 
-### Data Refresh / LLM
+Not required to **play** with the mod; only if you are building or changing the **C# mod**, refreshing **metadata**, or running **tests** from source.
 
-This workflow is maintainer-only and not needed for normal gameplay users.
+### How the mod is structured (quick map)
 
-- See `tools/data_refresh/README.md`.
-- Keep API keys in environment variables only.
-- Do not commit `tools/data_refresh/config.yaml` (gitignored).
+| Folder / file | Responsibility |
+|----------------|----------------|
+| `ModMain.cs` | Loads config and data, applies Harmony patches, wires startup logging. |
+| `UI/` | Reward/shop overlay (`CardOverlayPatch.cs`) and in-game settings (`LlmSettingsPanel.cs`). |
+| `Scoring/` | Heuristic scoring (`RecommendationEngine`, `DeckAnalyzer`) and score models. |
+| `State/` | Reflection-based game state extraction, shop/economy probes, caching. |
+| `Llm/` | Optional batch LLM calls, parsing, deck-profile summaries, transcript logging. |
+| `Data/` | Shipped metadata (`cards.json`, `relics.json`, `keywords.json`) and loaders (`MetadataRepository`, `KeywordGlossary`). |
+| `Telemetry/` | `contextcoach.config`, run folders, export helpers. |
+| `Localization/` | Embedded `en.json` / `zh-CN.json` strings. |
+| `tools/data_refresh/` | Maintainer Python pipeline for metadata refresh (not required to play). |
+| `Sts2ContextCoach.Tests/` | xUnit regression tests for scoring and data helpers. |
 
-### Build / Package
+Use this table as a compass when reading the repo; deeper architecture notes live in `docs/REPO_MEMORY_BANK.md`.
+
+### C# development (.NET 9)
+
+1. Install the **[.NET 9 SDK](https://dotnet.microsoft.com/download)**.
+2. Put game/modding references under **`lib/`** (`sts2.dll`, `GodotSharp.dll`, `0Harmony.dll`, `BaseLib.dll`). Easiest: install **[BaseLib](https://github.com/Alchyr/BaseLib-StS2)** into the game’s `mods\BaseLib\`, then from the **repo root** run:
+
+   ```powershell
+   .\setup-lib.ps1 -GamePath "C:\Path\To\Slay the Spire 2"
+   ```
+
+   (Adjust **`-GamePath`** to your Slay the Spire 2 install. The script copies from the game’s `data_sts2_windows_x86_64` folder and from `mods\BaseLib\`.)
+
+3. **Optional — deploy on build:** copy **`local.props.example`** to **`local.props`** (gitignored), set **`STS2GamePath`** to your game folder, and keep **`DeploySts2Mod`** `true` if you want `dotnet build` to copy the mod into `<game>\mods\Sts2ContextCoach\`.
+
+### Data refresh / LLM
+
+- See **`tools/data_refresh/README.md`** for the Python pipeline.
+- Keep API keys in environment variables; do not commit **`tools/data_refresh/config.yaml`** (gitignored).
+
+### Python environment (conda)
+
+**Optional** — only needed for **`tools/data_refresh`**, optional **code-review-graph** / embeddings work, or other Python tooling. C#-only changes can skip this section.
+
+Use a conda env named **`sts2-context-coach`** (see root **`environment.yml`**) so Python tooling shares one stack. Install **CUDA PyTorch** from the official **cu12.8** wheel index **before** `requirements-dev.txt` so optional embedding work sees a GPU build of `torch`.
+
+From the **repo root**:
+
+```powershell
+conda env create -f .\environment.yml
+conda activate sts2-context-coach
+python -m pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu128
+python -m pip install -r .\requirements-dev.txt
+python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+```
+
+Run **`conda env create`** only the first time; if the env already exists, start at **`conda activate`**. To start over: `conda env remove -n sts2-context-coach -y`, then repeat the block. **`tools\dev\setup-conda-env.ps1`** and **`tools\dev\recreate-conda-env.ps1`** automate the same steps.
+
+**Cursor + code-review-graph:** the repo includes an example **`.cursor/mcp.json`**; point `command` at your env’s **`python.exe`** and use **`args`: `["-m","code_review_graph","serve"]`** so the MCP server pins that interpreter. After **`pip install`**, run **`tools\dev\install_crg_st_cache_patch.ps1`** once so a **`.pth`** hook loads **`crg_st_model_cache.py`**; keep **`CRG_APPLY_ST_CACHE_PATCH=1`** in MCP `env` (as in the example) so **`SentenceTransformer` is cached across tool calls** instead of reloading every semantic search.
+
+**Why Task Manager may show low GPU use:** most hybrid-search time is **CPU** (SQLite + Python cosine over all stored vectors). The GPU only runs a **short** embedding forward pass per query. The cache patch removes the biggest avoidable cost (reloading the model each call). **`tools\dev\run_bench_st_cache.bat`** prints first vs second query timing on your machine.
+
+### Build, test, and release zip
+
+From the **repo root** (after **`lib/`** is populated):
 
 ```powershell
 dotnet build .\Sts2ContextCoach.csproj -c Release
+dotnet test .\Sts2ContextCoach.Tests\Sts2ContextCoach.Tests.csproj -c Release
+```
+
+Tests are plain **.NET / xUnit** (no Godot editor required). They exercise scoring helpers and JSON metadata ingestion; keep new data-layer code from calling STS2 logging APIs directly so `dotnet test` stays stable on CI machines.
+
+Release zip (for GitHub / sharing):
+
+```powershell
 powershell -ExecutionPolicy Bypass -File .\tools\release\build-release.ps1
 ```
 
-Release zip output is written to `release/`.
+Output: **`release/Sts2ContextCoach-v<version>.zip`**. See **`docs/GITHUB_RELEASE_GUIDE.md`** for tagging and publishing a GitHub Release.
 

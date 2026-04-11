@@ -1,0 +1,13 @@
+# Conda environment for maintainer workflows: data_refresh + code-review-graph (MCP).
+# PyTorch with CUDA is installed via pip (see requirements-dev.txt + README) because
+# the official CUDA wheels use PyTorch's cu12.8 index, not conda defaults.
+#
+# If `conda env create -f environment.yml` fails (solver/TOS/channels), use instead:
+#   powershell -NoProfile -ExecutionPolicy Bypass -File .\tools\dev\recreate-conda-env.ps1
+name: sts2-context-coach
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - python=3.11
+  - pip

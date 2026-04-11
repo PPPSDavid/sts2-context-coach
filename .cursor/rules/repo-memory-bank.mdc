@@ -1,0 +1,40 @@
+---
+description: Repo memory bank for STS2 Context Coach architecture and workflow
+alwaysApply: true
+---
+
+# STS2 Context Coach - Always-on Memory
+
+Use this as baseline context in every session.
+
+## Auto-update requirement (always)
+
+- Treat `docs/REPO_MEMORY_BANK.md` as a living source of truth.
+- When a task changes repo structure, goals, usage patterns, major workflows, or debugging paths, update the memory bank in the same session before finishing.
+- Keep updates short and factual; prefer additive edits over rewrites.
+- Add a one-line entry to the memory bank changelog section for each meaningful update (date + what changed + why).
+- If a session has no meaningful architecture/workflow change, do not edit the memory bank.
+
+## Mission
+
+- Maintain a stable Slay the Spire 2 recommendation overlay mod.
+- Preserve gameplay-safe heuristic scoring while supporting optional LLM-assisted coaching.
+
+## Repo map
+
+- Runtime C# mod: `ModMain.cs`, `UI/`, `Scoring/`, `State/`, `Llm/`, `Telemetry/`, `Data/`, `Localization/`.
+- Maintainer tooling: `tools/data_refresh/` (Python metadata refresh/review pipeline).
+- Build/deploy metadata in `Sts2ContextCoach.csproj`, release scripts in `tools/release/`.
+
+## Critical working norms
+
+- Treat this repo as often intentionally dirty; do not revert unrelated changes.
+- For in-game bugs, inspect Godot and ContextCoach logs before assuming source-code faults.
+- Keep runtime network dependencies optional; users should be able to play without LLM setup.
+- Never commit API keys or secret config values.
+
+## Primary references
+
+- Human memory bank: `docs/REPO_MEMORY_BANK.md`
+- User-facing overview: `README.md`
+- Existing debug rule: `.cursor/rules/debug-godot-logs.mdc`

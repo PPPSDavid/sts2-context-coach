@@ -21,8 +21,8 @@ public static class DeckAnalyzer
             ProvidesScaling = IsScaling(internalName, meta),
             StrengthSynergy = CardHeuristics.LooksLikeStrengthSynergy(internalName) ||
                               HasSyn(meta, "strength"),
-            ExhaustSynergy = CardHeuristics.LooksLikeExhaustSynergy(internalName) ||
-                             HasSyn(meta, "exhaust"),
+            // synergy_tags "exhaust" often means "good in exhaust decks", not "this card exhausts".
+            ExhaustSynergy = CardHeuristics.LooksLikeExhaustSynergy(internalName),
             IsHighCost = cost >= 2,
             IsRedundantAttack = IsRedundantAttack(internalName, meta),
             HighImpactFrontload = highImpact && IsFrontload(internalName, meta),
@@ -58,11 +58,15 @@ public static class DeckAnalyzer
         var redundantAttacks = 0;
         var strSyn = false;
         var exhSyn = false;
+        var discardSyn = false;
 
         foreach (var c in deck!)
         {
             var name = c.Name;
             MetadataRepository.TryGetCard(name, out var meta);
+
+            if (CardHeuristics.LooksLikeDiscardSynergy(name))
+                discardSyn = true;
 
             if (IsBlock(name, meta)) block++;
             if (IsDraw(name, meta)) draw++;
@@ -101,6 +105,7 @@ public static class DeckAnalyzer
             RedundantAttackCount = redundantAttacks,
             HasStrengthSynergy = strSyn,
             HasExhaustSynergy = exhSyn,
+            HasDiscardSupport = discardSyn,
             BlockNeed = blockNeed,
             FrontloadNeed = frontNeed,
             DrawNeed = drawNeed,

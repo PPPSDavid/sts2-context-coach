@@ -56,3 +56,21 @@ Output:
 2. Extract into `<Slay the Spire 2>/mods/Sts2ContextCoach/`.
 3. Ensure BaseLib is enabled.
 4. Launch game.
+
+## 6) Bilingual release notes (English + Chinese)
+
+GitHub Releases support Markdown in the description. A practical pattern is **English first**, then a **简体中文** section with the same bullets.
+
+**English — suggested bullets**
+
+- Version bump and any breaking changes (usually none for this mod).
+- Player-visible improvements (overlay, scoring, localization, shop/reward behavior).
+- Maintainer-only changes (metadata pipeline, tests, docs) if they affect contributors.
+
+**简体中文 — 建议要点**
+
+- 版本号与兼容性说明（本 mod 通常向后兼容）。
+- 玩家可见的改进（界面、评分逻辑、中文文案、商店/奖励等）。
+- 维护者相关变更（数据管线、测试、文档），如影响贡献流程可简要说明。
+
+Keep both sections aligned so bilingual players can skim either half and see the same scope.

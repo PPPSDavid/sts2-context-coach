@@ -17,7 +17,10 @@ public static class CardAugmentProbe
         var blob = new StringBuilder(384);
         AppendModelBlob(model, blob, depth: 0, maxDepth: 5);
         if (card != null)
-            AppendNodeBlob(card, blob, depth: 0, maxDepth: 6);
+        {
+            var budget = 160;
+            AppendNodeBlob(card, blob, depth: 0, maxDepth: 4, maxChildrenPerNode: 24, ref budget);
+        }
 
         var s = blob.ToString();
         if (s.Length < 3)
@@ -126,9 +129,16 @@ public static class CardAugmentProbe
         }
     }
 
-    private static void AppendNodeBlob(Node node, StringBuilder sb, int depth, int maxDepth)
+    private static void AppendNodeBlob(
+        Node node,
+        StringBuilder sb,
+        int depth,
+        int maxDepth,
+        int maxChildrenPerNode,
+        ref int remainingNodes)
     {
-        if (depth > maxDepth) return;
+        if (depth > maxDepth || remainingNodes <= 0) return;
+        remainingNodes--;
 
         sb.Append(node.Name.ToString());
         sb.Append(' ');
@@ -147,7 +157,12 @@ public static class CardAugmentProbe
             // ignored
         }
 
+        var k = 0;
         foreach (var child in node.GetChildren())
-            AppendNodeBlob(child, sb, depth + 1, maxDepth);
+        {
+            if (remainingNodes <= 0 || k >= maxChildrenPerNode) break;
+            k++;
+            AppendNodeBlob(child, sb, depth + 1, maxDepth, maxChildrenPerNode, ref remainingNodes);
+        }
     }
 }

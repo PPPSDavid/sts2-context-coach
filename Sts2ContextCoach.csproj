@@ -39,24 +39,36 @@
 
   <ItemGroup>
     <Compile Remove="_reflect\**\*" />
+    <Compile Remove="Sts2ContextCoach.Tests\**\*" />
+    <EmbeddedResource Remove="Sts2ContextCoach.Tests\**\*" />
+    <None Remove="Sts2ContextCoach.Tests\**\*" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="Sts2ContextCoach.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="contextcoach.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="result_cleaned.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="data\cards.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="data\relics.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
-  <!-- Embedded so SlayTheSpire2 does not scan <mod>/Localization/*.json as mod manifests (requires id). -->
+  <!-- Embedded so SlayTheSpire2 does not scan <mod>/**/*.json as extra mod manifests. -->
+  <ItemGroup>
+    <EmbeddedResource Include="data\cards.json">
+      <LogicalName>Sts2ContextCoach.Data.cards.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\relics.json">
+      <LogicalName>Sts2ContextCoach.Data.relics.json</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="data\keywords.json">
+      <LogicalName>Sts2ContextCoach.Data.keywords.json</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+
   <ItemGroup>
     <EmbeddedResource Include="Localization\en.json">
       <LogicalName>Sts2ContextCoach.Localization.en.json</LogicalName>
@@ -83,17 +95,16 @@
     <ItemGroup>
       <_DeployDll Include="$(TargetDir)$(TargetFileName)" />
       <_DeployRootFiles Include="$(TargetDir)Sts2ContextCoach.json" />
+      <_DeployRootFiles Include="$(TargetDir)contextcoach.config" />
       <_DeployRootFiles Include="$(TargetDir)result_cleaned.csv" />
-      <_DeployData Include="$(TargetDir)data\cards.json" />
-      <_DeployData Include="$(TargetDir)data\relics.json" />
     </ItemGroup>
     <MakeDir Directories="$(Sts2ModsDeployDir)" />
-    <!-- Remove stale Localization/ from older deploys (game treats any *.json here as a mod manifest). -->
+    <!-- Remove stale folders from older deploys (game scans *.json under mods/<name>/ as manifests). -->
     <RemoveDir Directories="$(Sts2ModsDeployDir)\Localization" Condition="Exists('$(Sts2ModsDeployDir)\Localization')" />
+    <RemoveDir Directories="$(Sts2ModsDeployDir)\data" Condition="Exists('$(Sts2ModsDeployDir)\data')" />
+    <RemoveDir Directories="$(Sts2ModsDeployDir)\logs" Condition="Exists('$(Sts2ModsDeployDir)\logs')" />
     <Copy SourceFiles="@(_DeployDll)" DestinationFolder="$(Sts2ModsDeployDir)" SkipUnchangedFiles="true" />
     <Copy SourceFiles="@(_DeployRootFiles)" DestinationFolder="$(Sts2ModsDeployDir)" SkipUnchangedFiles="true" />
-    <MakeDir Directories="$(Sts2ModsDeployDir)\data" />
-    <Copy SourceFiles="@(_DeployData)" DestinationFolder="$(Sts2ModsDeployDir)\data" SkipUnchangedFiles="true" />
     <Message Text="[Sts2ContextCoach] Deployed to $(Sts2ModsDeployDir)" Importance="high" />
   </Target>
 </Project>

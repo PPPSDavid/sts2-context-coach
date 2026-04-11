@@ -1,0 +1,48 @@
+---
+description: Use SlayTheSpire2 Godot logs when debugging Context Coach runtime behavior
+alwaysApply: true
+---
+
+# Debugging STS2 Context Coach — use Godot logs
+
+When investigating in-game behavior (LLM, shop probe, game state, overlays), **read the game logs early**, not only the C# source.
+
+## Where to look (keep this list for future sessions)
+
+**Game / engine (all mods, including stack traces for failed manifests):**
+
+| What | Path (Windows) |
+|------|----------------|
+| Current log | `%AppData%\Roaming\SlayTheSpire2\logs\godot.log` |
+| Older sessions | Same folder: `godot2026-*.log` (timestamp in filename) |
+
+**Context Coach–written files (outside `mods/` so STS2 does not treat them as mod manifests):**
+
+| What | Path (Windows) |
+|------|----------------|
+| Writable root | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\` |
+| Telemetry / run folders | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\<run-id>\` (`events.jsonl`, `metadata.json`, `summary.json`) |
+| Active-run pointer | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\active_run.json` |
+| LLM transcripts | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\llm\coach-*.json` (when `llm_log_transcripts` is true in `contextcoach.config`) |
+| Export ZIPs | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\exports\` |
+| Export UI state | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\export_state.json` |
+
+**Mod folder (install location; only read `Sts2ContextCoach.json`, DLL, `contextcoach.config`, CSV — avoid extra `*.json` here):**
+
+- Typical: `<Steam>\steamapps\common\Slay the Spire 2\mods\Sts2ContextCoach\`
+
+Correlate LLM transcript files with `godot.log` lines `[ContextCoach][LLM] transcript` and `[ContextCoach][LLM] POST` / `ok` / `batch failed`.
+
+## What to grep
+
+- `[ContextCoach]` — mod lifecycle, scoring mode, snapshot hints
+- `[ContextCoach][LLM]` — `schedule`, `batchKey`, `candidates=`, `POST`, `ok`, `batch failed`, `debounce superseded`, `shop LLM row` (includes `shopRootBfs=`, `mode=`)
+
+## Patterns that have meant real bugs
+
+- **`shopRootBfs=1`** with paths under `MerchantCardHolder*` → wrong shop BFS root (per-slot “Merchant” match), not full `MerchantRoom`
+- **Alternating `batchKey`** (e.g. 5 cards vs 2) + **`debounce superseded`** → requests never settle; UI stuck on analyzing
+- **`batch failed`** with **`invalid start`** / **`}` is invalid`** → assistant content not clean JSON (prose prefix, truncation, bad quotes)
+- **`overlay shows failure`** → same error surfaced in UI; correlate with preceding `batch failed` line
+
+Do not conclude “the code must be wrong” without checking whether the log shows HTTP success, parse failure, or batch thrash.

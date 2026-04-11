@@ -74,53 +74,19 @@ public static class RecommendationEngine
             reasons.Add(("reason.deck_pressure", pen));
         }
 
-        var analysis = DeckAnalyzer.Analyze(state);
+        var analysis = state.CachedDeckAnalysis ?? DeckAnalyzer.Analyze(state);
         var cand = DeckAnalyzer.EvaluateCandidate(internalName);
         var ironclad = IsIronclad(state);
 
         if (deck != null && deck.Count > 0)
         {
-            if (analysis.BlockNeed > 0.05f && cand.ProvidesBlock)
-            {
-                var w = analysis.BlockNeed * WeightNeedsBlock;
-                ctx += w;
-                reasons.Add(("reason.needs_block", w));
-            }
+            ApplyNeedWeight(analysis.BlockNeed, cand.ProvidesBlock, WeightNeedsBlock, "reason.needs_block", ref ctx, reasons);
+            ApplyNeedWeight(analysis.FrontloadNeed, cand.ProvidesFrontload, WeightNeedsFrontload, "reason.needs_frontload", ref ctx, reasons);
+            ApplyNeedWeight(analysis.DrawNeed, cand.ProvidesDraw, WeightNeedsDraw, "reason.needs_draw", ref ctx, reasons);
+            ApplyNeedWeight(analysis.ScalingNeed, cand.ProvidesScaling, WeightNeedsScaling, "reason.needs_scaling", ref ctx, reasons);
 
-            if (analysis.FrontloadNeed > 0.05f && cand.ProvidesFrontload)
-            {
-                var w = analysis.FrontloadNeed * WeightNeedsFrontload;
-                ctx += w;
-                reasons.Add(("reason.needs_frontload", w));
-            }
-
-            if (analysis.DrawNeed > 0.05f && cand.ProvidesDraw)
-            {
-                var w = analysis.DrawNeed * WeightNeedsDraw;
-                ctx += w;
-                reasons.Add(("reason.needs_draw", w));
-            }
-
-            if (analysis.ScalingNeed > 0.05f && cand.ProvidesScaling)
-            {
-                var w = analysis.ScalingNeed * WeightNeedsScaling;
-                ctx += w;
-                reasons.Add(("reason.needs_scaling", w));
-            }
-
-            if (cand.HighImpactFrontload && analysis.FrontloadNeed > 0.15f)
-            {
-                var w = WeightGoodFrontload * analysis.FrontloadNeed;
-                ctx += w;
-                reasons.Add(("reason.good_frontload", w));
-            }
-
-            if (cand.HighImpactScaling && analysis.ScalingNeed > 0.15f)
-            {
-                var w = WeightGoodScaling * analysis.ScalingNeed;
-                ctx += w;
-                reasons.Add(("reason.good_scaling", w));
-            }
+            ApplyNeedWeight(analysis.FrontloadNeed, cand.HighImpactFrontload, WeightGoodFrontload, "reason.good_frontload", ref ctx, reasons, threshold: 0.15f);
+            ApplyNeedWeight(analysis.ScalingNeed, cand.HighImpactScaling, WeightGoodScaling, "reason.good_scaling", ref ctx, reasons, threshold: 0.15f);
 
             var strMul = ironclad ? 1f : 0.4f;
             if (analysis.HasStrengthSynergy && cand.StrengthSynergy)
@@ -140,20 +106,15 @@ public static class RecommendationEngine
 
             if (analysis.HighCostPressure > 0.05f && cand.IsHighCost)
             {
-                var w = -analysis.HighCostPressure * WeightHighCostPen;
-                ctx += w;
-                reasons.Add(("reason.too_many_high_cost_cards", w));
+                ApplyPenalty(analysis.HighCostPressure, WeightHighCostPen, "reason.too_many_high_cost_cards", ref ctx, reasons);
             }
 
             if (analysis.AttackSpamPressure > 0.05f && cand.IsRedundantAttack)
             {
-                var w = -analysis.AttackSpamPressure * WeightRedundantAttack;
-                ctx += w;
-                reasons.Add(("reason.redundant_attack", w));
+                ApplyPenalty(analysis.AttackSpamPressure, WeightRedundantAttack, "reason.redundant_attack", ref ctx, reasons);
             }
 
-            var hasDiscardSupport = deck.Any(c => CardHeuristics.LooksLikeDiscardSynergy(c.Name));
-            if (hasDiscardSupport && CardHeuristics.LooksLikeDiscardSynergy(internalName))
+            if (analysis.HasDiscardSupport && CardHeuristics.LooksLikeDiscardSynergy(internalName))
             {
                 var bonus = 5f;
                 ctx += bonus;
@@ -161,6 +122,7 @@ public static class RecommendationEngine
             }
         }
 
+        ctx += ScoreDeckMetadataSynergy(state, internalName, reasons);
         ctx += ScoreRelicMetadataSynergy(state, internalName, reasons);
 
         var relics = state.Relics;
@@ -215,7 +177,10 @@ public static class RecommendationEngine
             BaseScore = baseScore,
             ContextScore = ctx,
             ReasonKeys = topReasons.Select(r => r.key).ToList(),
-            ReasonWeights = topReasons.Select(r => r.weight).ToList()
+            ReasonWeights = topReasons.Select(r => r.weight).ToList(),
+            Breakdown = reasons
+                .Select(r => new ScoreBreakdownItem { Key = r.key, Weight = r.weight })
+                .ToList()
         };
     }
 
@@ -261,6 +226,41 @@ public static class RecommendationEngine
         return total >= 5f ? total : 0f;
     }
 
+    private static float ScoreDeckMetadataSynergy(GameState state, string candidateName, List<(string key, float weight)> reasons)
+    {
+        var deck = state.Deck;
+        if (deck == null || deck.Count == 0)
+            return 0f;
+
+        if (!MetadataRepository.TryGetCard(candidateName, out var candidateMeta) || candidateMeta is null)
+            return 0f;
+
+        var candTags = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        foreach (var t in candidateMeta.SynergyTags)
+            candTags.Add(t);
+        if (candTags.Count == 0)
+            return 0f;
+
+        var overlap = 0;
+        foreach (var card in deck)
+        {
+            if (!MetadataRepository.TryGetCard(card.Name, out var meta) || meta is null)
+                continue;
+            foreach (var tag in meta.SynergyTags)
+            {
+                if (candTags.Contains(tag))
+                    overlap++;
+            }
+        }
+
+        // Keep this light: this is supplementary signal for classes like Defect where token fallback is weaker.
+        if (overlap < 2)
+            return 0f;
+        var bonus = MathF.Min(6f, overlap * 1.5f);
+        reasons.Add(("reason.deck_synergy", bonus));
+        return bonus;
+    }
+
     private static void ApplyShopEconomy(
         string internalName,
         GameState state,
@@ -295,7 +295,7 @@ public static class RecommendationEngine
 
         if (gold.HasValue && gold.Value < price)
         {
-            const float w = 22f;
+            const float w = 40f;
             ctx -= w;
             reasons.Add(("reason.cannot_afford", -w));
         }
@@ -318,16 +318,18 @@ public static class RecommendationEngine
             reasons.Add(("reason.shop_discount", w));
         }
 
+        if (eco.RowListedPriceSlotCount >= 2 &&
+            eco.RowMinListedCardPrice is { } rMin &&
+            price == rMin &&
+            canPay)
+        {
+            const float w = 7f;
+            ctx += w;
+            reasons.Add(("reason.shop_row_cheapest", w));
+        }
+
         if (canPay && gold.HasValue && gold.Value > 0)
         {
-            var ratio = price / (float)gold.Value;
-            if (ratio <= 0.14f)
-            {
-                var w = 4f + (1f - ratio) * 8f;
-                ctx += w;
-                reasons.Add(("reason.good_shop_value", w));
-            }
-
             if (gold.Value >= 300 && gold.Value >= price * 2.1f)
             {
                 const float w = 2.5f;
@@ -354,7 +356,6 @@ public static class RecommendationEngine
         {
             var delta = ctx - ctxAtStart;
             var ratioStr = gold is int gv && gv > 0 ? $"{price / (float)gv:F3}" : "?";
-            var skipGoodValue = !canPay || !gold.HasValue || gold.Value <= 0 || price / (float)gold.Value > 0.14f;
             var skipPlenty = !canPay || !gold.HasValue || gold.Value < 300 || gold.Value < price * 2.1f;
             var considerRemovalDetail =
                 removal is { } rm
@@ -363,7 +364,7 @@ public static class RecommendationEngine
                     : "removal=null";
             ContextCoachLogging.VerboseInfo(
                 $"shop-econ card={internalName} price={price} sale={eco.IsDiscounted} gold={gold?.ToString() ?? "?"} " +
-                $"canPay={canPay} ratio={ratioStr} skipGoodShopValue={skipGoodValue} skipPlentyGold={skipPlenty} " +
+                $"canPay={canPay} ratio={ratioStr} skipPlentyGold={skipPlenty} " +
                 $"{considerRemovalDetail} ctxDelta={delta:F2}");
         }
     }
@@ -396,6 +397,16 @@ public static class RecommendationEngine
             total += 8f;
         if (cardMeta.UpgradeMajor is true)
             total += 3.5f;
+
+        if (total <= 0.25f)
+        {
+            var fallback = EstimateUpgradeFallback(cardMeta);
+            if (fallback > 0.01f)
+            {
+                total += fallback;
+                reasons.Add(("reason.upgrade_fallback", fallback));
+            }
+        }
 
         if (total > 0.25f)
         {
@@ -455,6 +466,34 @@ public static class RecommendationEngine
         return null;
     }
 
+    /// <summary>
+    /// Fallback upgrade value when structured upgrade deltas/tier are missing.
+    /// Keeps upgraded cards from looking identical to base versions.
+    /// </summary>
+    private static float EstimateUpgradeFallback(CardMetadataDto cardMeta)
+    {
+        var text = (cardMeta.UpgradedDescription ?? cardMeta.UpgradeSummary ?? "").Trim();
+        if (string.IsNullOrWhiteSpace(text))
+            return 0f;
+
+        var score = 1.2f; // Minimum visible upgrade bump.
+        if (text.Contains("Weak", StringComparison.OrdinalIgnoreCase) ||
+            text.Contains("Vulnerable", StringComparison.OrdinalIgnoreCase))
+            score += 0.9f;
+        if (text.Contains("Draw", StringComparison.OrdinalIgnoreCase))
+            score += 0.6f;
+        if (text.Contains("Block", StringComparison.OrdinalIgnoreCase))
+            score += 0.6f;
+        if (text.Contains("Strength", StringComparison.OrdinalIgnoreCase) ||
+            text.Contains("Dexterity", StringComparison.OrdinalIgnoreCase))
+            score += 0.7f;
+        if (text.Contains("ALL", StringComparison.OrdinalIgnoreCase) ||
+            text.Contains("all enemies", StringComparison.OrdinalIgnoreCase))
+            score += 0.3f;
+
+        return MathF.Min(3.2f, score);
+    }
+
     private static bool IsIronclad(GameState state)
     {
         var c = state.Character;
@@ -462,5 +501,34 @@ public static class RecommendationEngine
 
         return c.Contains("Ironclad", StringComparison.OrdinalIgnoreCase)
                || c.Contains("Iron", StringComparison.OrdinalIgnoreCase);
+    }
+
+    private static void ApplyNeedWeight(
+        float need,
+        bool condition,
+        float weight,
+        string reasonKey,
+        ref float ctx,
+        List<(string key, float weight)> reasons,
+        float threshold = 0.05f)
+    {
+        if (need <= threshold || !condition)
+            return;
+
+        var w = need * weight;
+        ctx += w;
+        reasons.Add((reasonKey, w));
+    }
+
+    private static void ApplyPenalty(
+        float pressure,
+        float weight,
+        string reasonKey,
+        ref float ctx,
+        List<(string key, float weight)> reasons)
+    {
+        var w = -pressure * weight;
+        ctx += w;
+        reasons.Add((reasonKey, w));
     }
 }

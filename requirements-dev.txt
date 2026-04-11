@@ -1,0 +1,6 @@
+# Maintainer stack: install AFTER CUDA PyTorch (see README "Developer environment").
+# Pin order: data_refresh first, then embedding stack + code-review-graph.
+-r tools/data_refresh/requirements.txt
+transformers>=4.51.0
+sentence-transformers>=2.7.0
+code-review-graph[embeddings]

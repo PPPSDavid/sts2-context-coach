@@ -29,8 +29,16 @@ public sealed class CardMetadataDto
     [JsonPropertyName("display_name")]
     public string? DisplayName { get; set; }
 
+    /// <summary>Wiki/game card type: Attack, Skill, Power, etc.</summary>
+    [JsonPropertyName("type")]
+    public string? CardType { get; set; }
+
     [JsonPropertyName("character")]
     public string? Character { get; set; }
+
+    /// <summary>Current card text from metadata (wiki refresh).</summary>
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
 
     /// <summary>Energy cost; null if unknown or X-cost.</summary>
     [JsonPropertyName("cost")]
@@ -52,6 +60,10 @@ public sealed class CardMetadataDto
     /// <summary>Inferred upgraded card text (plus version) for tooling and scoring.</summary>
     [JsonPropertyName("upgraded_description")]
     public string? UpgradedDescription { get; set; }
+
+    /// <summary>Optional human/tool summary when present in JSON.</summary>
+    [JsonPropertyName("notes")]
+    public string? Notes { get; set; }
 
     /// <summary>One-line summary of what + does (LLM or manual).</summary>
     [JsonPropertyName("upgrade_summary")]

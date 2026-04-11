@@ -1,0 +1,20 @@
+# Third-party / game binaries (no source to parse meaningfully)
+lib/**
+
+# Build outputs
+bin/
+obj/
+.vs/
+
+# Python tooling noise
+tools/data_refresh/.venv/
+tools/data_refresh/cache/
+tools/data_refresh/output/
+tools/data_refresh/backups/
+**/__pycache__/
+
+# Local packaging
+release/
+
+# Reflection / generated probe output
+_reflect/

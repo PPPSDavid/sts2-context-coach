@@ -55,6 +55,7 @@ def write_refresh_report(
     card_issues: int,
     relic_issues: int,
     review_queue_size: int,
+    keywords_glossary: dict[str, Any] | None = None,
 ) -> None:
     lines = [
         "# Data refresh report",
@@ -96,5 +97,23 @@ def write_refresh_report(
             "",
         ]
     )
+    if keywords_glossary:
+        lines.extend(
+            [
+                "## Keywords glossary (buffs / debuffs / mechanics)",
+                "",
+                "Mechanical wiki.gg extraction — **no LLM**.",
+                "",
+                f"- Terms: **{keywords_glossary.get('term_count', 0)}**",
+                f"- Detail pages fetched: {keywords_glossary.get('detail_page_urls', 0)}",
+                f"- Table fallback rows: {keywords_glossary.get('table_fallback_rows_added', 0)}",
+                f"- Detail pages supplemented from index tables: {keywords_glossary.get('detail_page_supplements_applied', 0)}",
+                f"- Skipped empty detail pages: {keywords_glossary.get('detail_pages_skipped_empty', 0)}",
+                f"- Generated: `{keywords_glossary.get('generated_at', '')}`",
+                "",
+                "Written to `Data/keywords.json` and `output/keywords.generated.json`.",
+                "",
+            ]
+        )
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")

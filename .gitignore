@@ -20,3 +20,9 @@ tools/data_refresh/backups/
 
 # Local release packaging output
 release/
+
+# code-review-graph local SQLite index (regenerate with `code-review-graph build`)
+.code-review-graph/
+
+# Cursor MCP server path is machine-local (conda / Python interpreter)
+.cursor/mcp.json

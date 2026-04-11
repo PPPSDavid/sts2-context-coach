@@ -36,11 +36,45 @@ class SourceUrls:
     """Primary remote sources (edit config.yaml or env to match live wiki paths)."""
 
     wiki_main: str = "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Main"
+    wiki_acts_list: str = "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Acts"
     wiki_cards_list: str = "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cards_List"
     wiki_relics_list: str = "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
     wiki_character_pages: list[str] = field(
         default_factory=lambda: [
             "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ironclad",
+        ]
+    )
+    wiki_act_pages: list[str] = field(
+        default_factory=lambda: [
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Overgrowth",
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Underdocks",
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hive",
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Glory",
+        ]
+    )
+    wiki_monster_pages: list[str] = field(
+        default_factory=lambda: [
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Living_Fog#Gas_Bomb",
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Nibbit",
+        ]
+    )
+    wiki_event_pages: list[str] = field(
+        default_factory=lambda: [
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Aroma_of_Chaos",
+        ]
+    )
+    wiki_encounter_pages: list[str] = field(default_factory=list)
+    # Index pages whose wikitable "Name" column links to keyword/status detail pages (Debuffs, Buffs).
+    wiki_keyword_index_pages: list[str] = field(
+        default_factory=lambda: [
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Debuffs",
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Buffs",
+        ]
+    )
+    # Extra wiki URLs to fetch (e.g. Orbs for Channel/Evoke); merged with discovered links.
+    wiki_keyword_pages: list[str] = field(
+        default_factory=lambda: [
+            "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Orbs",
         ]
     )
     # Steam news RSS for the game (replace with real AppID when known)

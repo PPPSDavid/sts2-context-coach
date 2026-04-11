@@ -77,6 +77,58 @@ class RawPatchRecord(BaseModel):
     source_fetched_at: str = ""
 
 
+class RawMonsterSkillRecord(BaseModel):
+    name: str
+    summary: str = ""
+    source_url: str = ""
+    source_fetched_at: str = ""
+
+
+class RawMonsterRecord(BaseModel):
+    name: str
+    internal_name: str | None = None
+    act_internal_name: str | None = None
+    shared_across_acts: list[str] = Field(default_factory=list)
+    raw_description: str = ""
+    skills: list[RawMonsterSkillRecord] = Field(default_factory=list)
+    source_url: str = ""
+    source_fetched_at: str = ""
+
+
+class RawEncounterRecord(BaseModel):
+    name: str
+    internal_name: str | None = None
+    act_internal_name: str | None = None
+    shared_across_acts: list[str] = Field(default_factory=list)
+    encounter_type: Literal["normal", "elite", "boss"] = "normal"
+    raw_description: str = ""
+    monsters: list[str] = Field(default_factory=list)
+    source_url: str = ""
+    source_fetched_at: str = ""
+
+
+class RawEventRecord(BaseModel):
+    name: str
+    internal_name: str | None = None
+    act_internal_name: str | None = None
+    shared_across_acts: list[str] = Field(default_factory=list)
+    raw_description: str = ""
+    source_url: str = ""
+    source_fetched_at: str = ""
+
+
+class RawActRecord(BaseModel):
+    name: str
+    internal_name: str | None = None
+    event_names: list[str] = Field(default_factory=list)
+    encounter_names: list[str] = Field(default_factory=list)
+    elite_names: list[str] = Field(default_factory=list)
+    boss_names: list[str] = Field(default_factory=list)
+    monster_names: list[str] = Field(default_factory=list)
+    source_url: str = ""
+    source_fetched_at: str = ""
+
+
 class AffectedEntityRef(BaseModel):
     type: Literal["card", "relic"]
     internal_name: str

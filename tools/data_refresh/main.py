@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import re
 import sys
 from pathlib import Path
 
@@ -16,10 +17,18 @@ if str(_ROOT) not in sys.path:
 from config import load_config  # noqa: E402
 from io_utils import create_backup, ensure_dirs, list_backups, read_json, write_json  # noqa: E402
 from llm_enrichment import build_enricher  # noqa: E402
+from llm_heuristic_review import (  # noqa: E402
+    list_proposals as list_heuristic_proposals,
+    run_heuristic_analysis,
+    set_proposal_status as set_heuristic_proposal_status,
+)
 from merge import build_patch_maps, merge_cards, merge_relics  # noqa: E402
 from models import (  # noqa: E402
     PatchNoteEntry,
     RawCardRecord,
+    RawEncounterRecord,
+    RawEventRecord,
+    RawMonsterRecord,
     RawRelicRecord,
     ReviewQueueFile,
     utc_now_iso,
@@ -27,6 +36,18 @@ from models import (  # noqa: E402
 from parsers.cards_parser import enrich_cards_with_detail_pages, parse_cards_from_wiki_html  # noqa: E402
 from parsers.patch_parser import extract_patch_entities_heuristic, parse_steam_rss  # noqa: E402
 from parsers.relics_parser import parse_relics_from_wiki_html  # noqa: E402
+from keywords_pipeline import run_keywords_refresh  # noqa: E402
+from parsers.world_parser import (  # noqa: E402
+    build_wiki_parse_api_url,
+    enrich_encounters_with_detail_pages,
+    enrich_events_with_detail_pages,
+    enrich_monsters_with_detail_pages,
+    extract_wikitext_from_parse_api_response,
+    extract_act_urls_from_acts_wikitext,
+    extract_act_urls_from_acts_page,
+    parse_act_page,
+    parse_act_wikitext,
+)
 from reporting import write_diff_json, write_refresh_report  # noqa: E402
 from review import apply_approved, approve, list_pending, note, reject  # noqa: E402
 from sources.base import CachedFetcher  # noqa: E402
@@ -82,6 +103,118 @@ def _cfg(config: Path | None) -> object:
     return load_config(config)
 
 
+def _keywords_glossary_summary(kw_stats: dict) -> dict:
+    """Small JSON-safe summary for parsed_raw / metadata_summary / refresh_report."""
+    return {
+        "source": "wiki_gg_mechanical",
+        "generated_at": kw_stats.get("generated_at", ""),
+        "term_count": kw_stats.get("term_count", 0),
+        "detail_page_urls": kw_stats.get("detail_page_urls", 0),
+        "detail_pages_skipped_empty": kw_stats.get("detail_pages_skipped_empty", 0),
+        "table_fallback_rows_added": kw_stats.get("table_fallback_rows_added", 0),
+        "detail_page_supplements_applied": kw_stats.get("detail_page_supplements_applied", 0),
+    }
+
+
+def _build_metadata_summary(
+    cards: list[RawCardRecord],
+    relics: list[RawRelicRecord],
+    acts: list[dict],
+    events: list[dict],
+    encounters: list[dict],
+    monsters: list[dict],
+) -> dict:
+    by_act_events: dict[str, int] = {}
+    by_act_encounters: dict[str, int] = {}
+    by_act_monsters: dict[str, int] = {}
+    for e in events:
+        act = str(e.get("act_internal_name") or "Unknown")
+        by_act_events[act] = by_act_events.get(act, 0) + 1
+    for e in encounters:
+        act = str(e.get("act_internal_name") or "Unknown")
+        by_act_encounters[act] = by_act_encounters.get(act, 0) + 1
+    elite_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "elite")
+    boss_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "boss")
+    normal_encounter_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "normal")
+    monsters_with_skills = 0
+    total_monster_skills = 0
+    events_with_description = sum(1 for e in events if str(e.get("raw_description") or "").strip())
+    encounters_with_description = sum(1 for e in encounters if str(e.get("raw_description") or "").strip())
+    monsters_with_description = sum(1 for m in monsters if str(m.get("raw_description") or "").strip())
+    for m in monsters:
+        skills = m.get("skills") or []
+        if skills:
+            monsters_with_skills += 1
+            total_monster_skills += len(skills)
+        act = str(m.get("act_internal_name") or "Unknown")
+        by_act_monsters[act] = by_act_monsters.get(act, 0) + 1
+
+    return {
+        "generated_at": utc_now_iso(),
+        "counts": {
+            "cards": len(cards),
+            "relics": len(relics),
+            "acts": len(acts),
+            "events": len(events),
+            "encounters": len(encounters),
+            "normal_encounters": normal_encounter_count,
+            "elites": elite_count,
+            "bosses": boss_count,
+            "monsters": len(monsters),
+            "events_with_description": events_with_description,
+            "encounters_with_description": encounters_with_description,
+            "monsters_with_description": monsters_with_description,
+            "monsters_with_skills": monsters_with_skills,
+            "total_monster_skills": total_monster_skills,
+        },
+        "coverage_by_act": {
+            "events": by_act_events,
+            "encounters": by_act_encounters,
+            "monsters": by_act_monsters,
+        },
+        "act_names": [str(a.get("name") or "") for a in acts if a.get("name")],
+    }
+
+
+def _name_from_wiki_url(url: str) -> str:
+    if "Slay_the_Spire_2:" in url:
+        slug = url.split("Slay_the_Spire_2:", 1)[-1]
+    else:
+        slug = url
+    slug = slug.split("#", 1)[0].split("?", 1)[0]
+    slug = slug.replace("_", " ").strip()
+    return slug or url
+
+
+def _annotate_shared_across_acts(acts: list[object], events: list[object], encounters: list[object], monsters: list[object]) -> None:
+    # Build inverse index from per-act name sets.
+    event_index: dict[str, set[str]] = {}
+    encounter_index: dict[str, set[str]] = {}
+    monster_index: dict[str, set[str]] = {}
+    for act in acts:
+        act_name = str(getattr(act, "internal_name", None) or getattr(act, "name", "Unknown"))
+        for n in getattr(act, "event_names", []) or []:
+            event_index.setdefault(str(n).strip().lower(), set()).add(act_name)
+        for n in getattr(act, "encounter_names", []) or []:
+            encounter_index.setdefault(str(n).strip().lower(), set()).add(act_name)
+        for n in getattr(act, "elite_names", []) or []:
+            encounter_index.setdefault(str(n).strip().lower(), set()).add(act_name)
+        for n in getattr(act, "boss_names", []) or []:
+            encounter_index.setdefault(str(n).strip().lower(), set()).add(act_name)
+        for n in getattr(act, "monster_names", []) or []:
+            monster_index.setdefault(str(n).strip().lower(), set()).add(act_name)
+
+    for e in events:
+        key = str(getattr(e, "name", "")).strip().lower()
+        e.shared_across_acts = sorted(event_index.get(key, set()))
+    for e in encounters:
+        key = str(getattr(e, "name", "")).strip().lower()
+        e.shared_across_acts = sorted(encounter_index.get(key, set()))
+    for m in monsters:
+        key = str(getattr(m, "name", "")).strip().lower()
+        m.shared_across_acts = sorted(monster_index.get(key, set()))
+
+
 @app.command()
 def fetch(
     config: Path | None = typer.Option(None, "--config", help="Path to config.yaml"),
@@ -117,7 +250,7 @@ def parse(
     config: Path | None = typer.Option(None, "--config"),
     force: bool = typer.Option(False, "--force"),
 ) -> None:
-    """Fetch (cache) + parse into intermediate JSON."""
+    """Fetch (cache) + parse into intermediate JSON (cards/relics/world + mechanical keywords glossary)."""
 
     cfg = _cfg(config)
     paths = cfg.paths
@@ -134,15 +267,106 @@ def parse(
     raw_cards = _dedupe_records_by_internal_name(raw_cards, "card")
     raw_relics = _dedupe_records_by_internal_name(raw_relics, "relic")
 
+    acts_html = fetcher.get_text(cfg.sources.wiki_acts_list, force=force)
+    acts_wiki = fetcher.get_text(build_wiki_parse_api_url("Slay_the_Spire_2:Acts"), force=force)
+    act_urls = list(
+        dict.fromkeys(
+            cfg.sources.wiki_act_pages
+            + extract_act_urls_from_acts_page(acts_html.text)
+            + extract_act_urls_from_acts_wikitext(extract_wikitext_from_parse_api_response(acts_wiki.text))
+        )
+    )
+    acts = []
+    events = []
+    encounters = []
+    monsters = []
+    for u in act_urls[:12]:
+        page = fetcher.get_text(u, force=force)
+        page_title = u.split("/wiki/", 1)[-1]
+        wiki_json = fetcher.get_text(build_wiki_parse_api_url(page_title), force=force)
+        wikitext = extract_wikitext_from_parse_api_response(wiki_json.text)
+        act, evs, encs, mons = parse_act_wikitext(wikitext, page.url, page.fetched_at)
+        if not evs and not encs and not mons:
+            act, evs, encs, mons = parse_act_page(page.text, page.url, page.fetched_at)
+        acts.append(act)
+        events.extend(evs)
+        encounters.extend(encs)
+        monsters.extend(mons)
+
+    for u in cfg.sources.wiki_monster_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        monsters.append(
+            RawMonsterRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownMonster",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    for u in cfg.sources.wiki_event_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        events.append(
+            RawEventRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownEvent",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    for u in cfg.sources.wiki_encounter_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        encounters.append(
+            RawEncounterRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownEncounter",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    acts = _dedupe_records_by_internal_name(acts, "act")
+    events = _dedupe_records_by_internal_name(events, "event")
+    encounters = _dedupe_records_by_internal_name(encounters, "encounter")
+    monsters = _dedupe_records_by_internal_name(monsters, "monster")
+    _annotate_shared_across_acts(acts, events, encounters, monsters)
+    events = enrich_events_with_detail_pages(events, fetcher, force=force)
+    encounters = enrich_encounters_with_detail_pages(encounters, fetcher, force=force)
+    monsters = enrich_monsters_with_detail_pages(monsters, fetcher, force=force)
+
+    kw_stats = run_keywords_refresh(cfg, fetcher, force=force, write_production=True)
+    kw_sum = _keywords_glossary_summary(kw_stats)
+
     write_json(
         paths.output_dir / "parsed_raw.json",
         {
             "generated_at": utc_now_iso(),
             "cards": [c.model_dump() for c in raw_cards],
             "relics": [r.model_dump() for r in raw_relics],
+            "acts": [a.model_dump() for a in acts],
+            "events": [e.model_dump() for e in events],
+            "encounters": [e.model_dump() for e in encounters],
+            "monsters": [m.model_dump() for m in monsters],
+            "keywords_glossary": kw_sum,
         },
     )
-    typer.echo(f"Parsed {len(raw_cards)} cards, {len(raw_relics)} relics -> output/parsed_raw.json")
+    summary = _build_metadata_summary(
+        cards=raw_cards,
+        relics=raw_relics,
+        acts=[a.model_dump() for a in acts],
+        events=[e.model_dump() for e in events],
+        encounters=[e.model_dump() for e in encounters],
+        monsters=[m.model_dump() for m in monsters],
+    )
+    summary["keywords_glossary"] = kw_sum
+    write_json(paths.output_dir / "metadata_summary.json", summary)
+    typer.echo(
+        "Parsed "
+        f"{len(raw_cards)} cards, {len(raw_relics)} relics, "
+        f"{len(acts)} acts, {len(events)} events, {len(encounters)} encounters, {len(monsters)} monsters "
+        f"-> output/parsed_raw.json | keywords glossary: {kw_sum['term_count']} terms (mechanical) -> Data/keywords.json"
+    )
 
 
 @app.command()
@@ -173,6 +397,96 @@ def enrich(
     typer.echo(f"LLM proposals written ({len(ce)} cards, {len(relics)} relic slots checked).")
 
 
+@app.command("heuristics-analyze")
+def heuristics_analyze(
+    config: Path | None = typer.Option(None, "--config"),
+    logs_dir: Path = typer.Option(Path("logs"), "--logs-dir", help="Directory containing run log folders"),
+    runs_limit: int = typer.Option(40, "--runs-limit", min=1, max=200),
+) -> None:
+    """Use LLM to propose scoring heuristic changes from run telemetry."""
+
+    cfg = _cfg(config)
+    project_root = Path(cfg.paths.project_root)
+    resolved_logs = logs_dir if logs_dir.is_absolute() else project_root / logs_dir
+    result = run_heuristic_analysis(
+        llm_cfg=cfg.llm,
+        project_root=project_root,
+        output_dir=cfg.paths.output_dir,
+        logs_dir=resolved_logs,
+        runs_limit=runs_limit,
+    )
+    typer.echo(
+        "Heuristic analysis complete. "
+        f"proposals={result.proposal_count} llm_used={result.llm_used} "
+        f"json={result.proposals_path} report={result.report_path} "
+        f"review_script={result.review_script_path}"
+    )
+
+
+@app.command("heuristics-list")
+def heuristics_list(config: Path | None = typer.Option(None, "--config")) -> None:
+    """List LLM heuristic proposals and review status."""
+
+    cfg = _cfg(config)
+    proposals_path = cfg.paths.output_dir / "heuristic_proposals.json"
+    rows = list_heuristic_proposals(proposals_path)
+    if not rows:
+        typer.echo("No heuristic proposals found. Run `python main.py heuristics-analyze` first.")
+        return
+    for p in rows:
+        typer.echo(
+            f"{p.get('id')} [{p.get('review_status')}] "
+            f"{p.get('title')} | risk={p.get('risk')} conf={p.get('confidence')}"
+        )
+
+
+@app.command("keywords-refresh")
+def keywords_refresh_cmd(
+    config: Path | None = typer.Option(None, "--config"),
+    force: bool = typer.Option(False, "--force", "-f", help="Bypass HTTP cache TTL"),
+) -> None:
+    """Fetch STS2 wiki keyword/status pages (mechanical only) and write Data/keywords.json + output/."""
+    cfg = _cfg(config)
+    ensure_dirs(cfg.paths.output_dir, cfg.paths.cache_dir)
+    fetcher = CachedFetcher(cfg.paths.cache_dir, cfg.fetch)
+    for idx_url in cfg.sources.wiki_keyword_index_pages:
+        typer.echo(f"Discovering links from {idx_url}")
+    stats = run_keywords_refresh(cfg, fetcher, force=force, write_production=True)
+    typer.echo(
+        f"Wrote {stats['term_count']} keyword row(s) -> {cfg.paths.data_dir / 'keywords.json'} "
+        f"and {cfg.paths.output_dir / 'keywords.generated.json'}"
+    )
+    if stats.get("table_fallback_rows_added"):
+        typer.echo(f"Table fallback rows added: {stats['table_fallback_rows_added']}")
+    if stats.get("detail_page_supplements_applied"):
+        typer.echo(f"Detail pages supplemented from table: {stats['detail_page_supplements_applied']}")
+    if stats.get("detail_pages_skipped_empty"):
+        typer.echo(f"Skipped {stats['detail_pages_skipped_empty']} detail URL(s) with empty lead section.")
+
+
+@app.command("heuristics-set")
+def heuristics_set(
+    id: str = typer.Option(..., "--id", help="Proposal id"),
+    status: str = typer.Option(..., "--status", help="needs_review|approved|rejected"),
+    note: str = typer.Option("", "--note"),
+    config: Path | None = typer.Option(None, "--config"),
+) -> None:
+    """Update review status for one heuristic proposal."""
+
+    cfg = _cfg(config)
+    proposals_path = cfg.paths.output_dir / "heuristic_proposals.json"
+    ok = set_heuristic_proposal_status(
+        proposals_path=proposals_path,
+        proposal_id=id,
+        status=status,
+        note=note or None,
+    )
+    if not ok:
+        typer.echo(f"Proposal id not found: {id}", err=True)
+        raise typer.Exit(1)
+    typer.echo("Updated.")
+
+
 @app.command()
 def diff(
     config: Path | None = typer.Option(None, "--config"),
@@ -185,10 +499,14 @@ def diff(
     prod_r = read_json(paths.relics_production) or {}
     gen_c = read_json(paths.output_dir / "cards.generated.json")
     gen_r = read_json(paths.output_dir / "relics.generated.json")
+    gen_kw = read_json(paths.output_dir / "keywords.generated.json")
+    prod_kw = read_json(paths.data_dir / "keywords.json") or {"schema_version": 1, "keywords": []}
     if gen_c:
         write_diff_json(paths.output_dir / "cards.diff.json", prod_c, gen_c)
     if gen_r:
         write_diff_json(paths.output_dir / "relics.diff.json", prod_r, gen_r)
+    if gen_kw:
+        write_diff_json(paths.output_dir / "keywords.diff.json", prod_kw, gen_kw)
     typer.echo("Diff files updated (if generated JSON exists).")
 
 
@@ -219,7 +537,7 @@ def refresh_cmd(
     safe: bool = typer.Option(False, "--safe/--no-safe", help="Use safe review-gated merge mode"),
     force: bool = typer.Option(False, "--force"),
 ) -> None:
-    """Run full pipeline: fetch, parse, merge, optional LLM, outputs + report + review queue."""
+    """Run full pipeline: fetch, parse, merge, optional LLM for cards/relics only, mechanical keywords, report."""
 
     cfg = _cfg(config)
     if safe:
@@ -250,14 +568,115 @@ def refresh_cmd(
     raw_cards = _dedupe_records_by_internal_name(raw_cards, "card")
     raw_relics = _dedupe_records_by_internal_name(raw_relics, "relic")
 
+    acts_html = fetcher.get_text(cfg.sources.wiki_acts_list, force=force)
+    acts_wiki = fetcher.get_text(build_wiki_parse_api_url("Slay_the_Spire_2:Acts"), force=force)
+    act_urls = list(
+        dict.fromkeys(
+            cfg.sources.wiki_act_pages
+            + extract_act_urls_from_acts_page(acts_html.text)
+            + extract_act_urls_from_acts_wikitext(extract_wikitext_from_parse_api_response(acts_wiki.text))
+        )
+    )
+    acts = []
+    events = []
+    encounters = []
+    monsters = []
+    for u in act_urls[:12]:
+        page = fetcher.get_text(u, force=force)
+        page_title = u.split("/wiki/", 1)[-1]
+        wiki_json = fetcher.get_text(build_wiki_parse_api_url(page_title), force=force)
+        wikitext = extract_wikitext_from_parse_api_response(wiki_json.text)
+        act, evs, encs, mons = parse_act_wikitext(wikitext, page.url, page.fetched_at)
+        if not evs and not encs and not mons:
+            act, evs, encs, mons = parse_act_page(page.text, page.url, page.fetched_at)
+        acts.append(act)
+        events.extend(evs)
+        encounters.extend(encs)
+        monsters.extend(mons)
+
+    for u in cfg.sources.wiki_monster_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        monsters.append(
+            RawMonsterRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownMonster",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    for u in cfg.sources.wiki_event_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        events.append(
+            RawEventRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownEvent",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    for u in cfg.sources.wiki_encounter_pages:
+        page = fetcher.get_text(u, force=force)
+        name = _name_from_wiki_url(u)
+        encounters.append(
+            RawEncounterRecord(
+                name=name,
+                internal_name=re.sub(r"[^a-zA-Z0-9]+", "", name) or "UnknownEncounter",
+                source_url=page.url,
+                source_fetched_at=page.fetched_at,
+            )
+        )
+    acts = _dedupe_records_by_internal_name(acts, "act")
+    events = _dedupe_records_by_internal_name(events, "event")
+    encounters = _dedupe_records_by_internal_name(encounters, "encounter")
+    monsters = _dedupe_records_by_internal_name(monsters, "monster")
+    _annotate_shared_across_acts(acts, events, encounters, monsters)
+    events = enrich_events_with_detail_pages(events, fetcher, force=force)
+    encounters = enrich_encounters_with_detail_pages(encounters, fetcher, force=force)
+    monsters = enrich_monsters_with_detail_pages(monsters, fetcher, force=force)
+
+    prod_kw_snapshot = read_json(paths.data_dir / "keywords.json") or {"schema_version": 1, "keywords": []}
+    kw_stats = run_keywords_refresh(cfg, fetcher, force=force, write_production=True)
+    kw_sum = _keywords_glossary_summary(kw_stats)
+    gen_kw_doc = read_json(paths.output_dir / "keywords.generated.json") or {}
+    if gen_kw_doc:
+        write_diff_json(paths.output_dir / "keywords.diff.json", prod_kw_snapshot, gen_kw_doc)
+
     write_json(
         paths.output_dir / "parsed_raw.json",
         {
             "generated_at": utc_now_iso(),
             "cards": [c.model_dump() for c in raw_cards],
             "relics": [r.model_dump() for r in raw_relics],
+            "acts": [a.model_dump() for a in acts],
+            "events": [e.model_dump() for e in events],
+            "encounters": [e.model_dump() for e in encounters],
+            "monsters": [m.model_dump() for m in monsters],
+            "keywords_glossary": kw_sum,
         },
     )
+    write_json(
+        paths.output_dir / "world.generated.json",
+        {
+            "schema_version": 1,
+            "generated_at": utc_now_iso(),
+            "acts": [a.model_dump() for a in acts],
+            "events": [e.model_dump() for e in events],
+            "encounters": [e.model_dump() for e in encounters],
+            "monsters": [m.model_dump() for m in monsters],
+        },
+    )
+    summary = _build_metadata_summary(
+        cards=raw_cards,
+        relics=raw_relics,
+        acts=[a.model_dump() for a in acts],
+        events=[e.model_dump() for e in events],
+        encounters=[e.model_dump() for e in encounters],
+        monsters=[m.model_dump() for m in monsters],
+    )
+    summary["keywords_glossary"] = kw_sum
+    write_json(paths.output_dir / "metadata_summary.json", summary)
 
     prod_cards_doc = read_json(paths.cards_production) or {"schema_version": 1, "cards": []}
     prod_relics_doc = read_json(paths.relics_production) or {"schema_version": 1, "relics": []}
@@ -343,11 +762,16 @@ def refresh_cmd(
         len([i for i in issues_c if i.level == "error"]),
         len([i for i in issues_r if i.level == "error"]),
         len(rq.items),
+        keywords_glossary=kw_sum,
     )
 
     write_json(paths.output_dir / "fetch_manifest.json", {"generated_at": utc_now_iso(), "entries": fetch_summary})
 
-    typer.echo(f"Refresh complete. Review queue: {len(rq.items)} items. Report: {paths.output_dir / 'refresh_report.md'}")
+    typer.echo(
+        f"Refresh complete. Review queue: {len(rq.items)} items. "
+        f"Keywords glossary: {kw_sum['term_count']} terms (mechanical, no LLM). "
+        f"Report: {paths.output_dir / 'refresh_report.md'}"
+    )
 
 
 review_app = typer.Typer(help="Review queue commands")

@@ -24,6 +24,7 @@ class WikiGgSource:
     def _all_urls(self) -> list[tuple[str, str]]:
         pairs: list[tuple[str, str]] = [
             ("main", self.urls.wiki_main),
+            ("acts", self.urls.wiki_acts_list),
             ("cards", self.urls.wiki_cards_list),
             ("relics", self.urls.wiki_relics_list),
         ]

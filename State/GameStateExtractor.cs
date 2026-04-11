@@ -15,6 +15,14 @@ public static class GameStateExtractor
 
     private static List<object>? _cachedStaticRoots;
 
+    private static ulong _describeFrame;
+    private static ulong _describeCardId;
+    private static string _describePath = "";
+
+    private static ulong _rewardFrame;
+    private static ulong _rewardParentId;
+    private static List<CardInstance>? _rewardCache;
+
     public static void ClearReflectionCaches() => _cachedStaticRoots = null;
 
     /// <summary>Per-card snapshot: shared global run state + this row’s reward context. Cheap every tick.</summary>
@@ -30,19 +38,8 @@ public static class GameStateExtractor
         {
             if (TryFillFromSaveManager(state))
             {
-                var finalProvenance = "SaveManager";
-                // In multiplayer, save-backed CharacterId can lag/stale; prefer live runtime character when available.
-                if (TryResolveLiveCharacterFromStaticRoots(typeof(NCard).Assembly, out var liveChar) &&
-                    !string.IsNullOrWhiteSpace(liveChar) &&
-                    !string.Equals(state.Character, liveChar, StringComparison.OrdinalIgnoreCase))
-                {
-                    ContextCoachLogging.VerboseInfo(
-                        $"Overriding SaveManager character '{state.Character ?? "?"}' with live runtime character '{liveChar}'.");
-                    state.Character = liveChar;
-                    finalProvenance = "SaveManager+LiveChar";
-                }
-
-                provenance = finalProvenance;
+                // Character + deck alignment for local player happens inside TryFillFromSaveManager (live character probe).
+                provenance = "SaveManager";
                 WarnIfIncomplete(state);
                 return state;
             }
@@ -128,6 +125,23 @@ public static class GameStateExtractor
             }
 
             MapSerializableRun(run, state);
+            // Multiplayer: save "Players" order may not be the local client. Re-map deck/relics/vitals to the
+            // serialized player whose CharacterId matches the live runtime character (same probe as overlay).
+            if (TryResolveLiveCharacterFromStaticRoots(asm, out var liveChar) && !string.IsNullOrWhiteSpace(liveChar))
+            {
+                if (!TryApplySerializablePlayerMatchingCharacter(state, run, liveChar))
+                {
+                    if (!string.Equals(state.Character, liveChar, StringComparison.OrdinalIgnoreCase))
+                    {
+                        Log.Warn(
+                            "[ContextCoach] SaveManager: could not match a serialized player to the local character; " +
+                            "deck/relics may belong to another player in multiplayer.");
+                    }
+
+                    state.Character = liveChar;
+                }
+            }
+
             var useful = state.Deck is { Count: > 0 } || state.Gold != null || state.Hp != null;
             if (!useful)
                 ContextCoachLogging.VerboseInfo("SaveData mapped but deck empty and gold/hp null (unexpected layout?).");
@@ -143,6 +157,7 @@ public static class GameStateExtractor
     private static void MapSerializableRun(object run, GameState state)
     {
         var t = run.GetType();
+        TryAssignRunIdentity(run, state);
         if (t.GetProperty("Ascension")?.GetValue(run) is int asc)
             state.Ascension = asc;
         if (t.GetProperty("CurrentActIndex")?.GetValue(run) is int actIdx)
@@ -155,18 +170,78 @@ public static class GameStateExtractor
             if (n > 0) state.Floor = n;
         }
 
-        if (t.GetProperty("Players")?.GetValue(run) is not IEnumerable players)
+        if (t.GetProperty("Players")?.GetValue(run) is not IEnumerable playersEnum)
             return;
 
-        object? player = null;
-        foreach (var p in players)
+        var playerObjs = new List<object>();
+        foreach (var p in playersEnum)
         {
-            player = p;
-            break;
+            if (p != null) playerObjs.Add(p);
         }
 
-        if (player == null) return;
+        state.SavePlayerCount = playerObjs.Count;
+        if (playerObjs.Count == 0) return;
+        ApplySerializablePlayerToState(state, playerObjs[0]);
+    }
 
+    /// <summary>Best-effort run boundary marker so LLM coach_history does not leak across runs in one game session.</summary>
+    private static void TryAssignRunIdentity(object run, GameState state)
+    {
+        var t = run.GetType();
+        ReadOnlySpan<string> names =
+        [
+            "RunGuid", "RunId", "SaveGuid", "SessionGuid", "PlaythroughGuid",
+            "RandomSeed", "RunRandomSeed", "MapRandomSeed", "Seed"
+        ];
+        foreach (var name in names)
+        {
+            var p = t.GetProperty(name, Flags);
+            object? v;
+            try
+            {
+                v = p?.GetValue(run);
+            }
+            catch
+            {
+                continue;
+            }
+
+            if (v == null) continue;
+            if (v is string s && !string.IsNullOrWhiteSpace(s))
+            {
+                state.RunIdentity = s.Trim();
+                return;
+            }
+
+            if (v is Guid g)
+            {
+                state.RunIdentity = g.ToString("N");
+                return;
+            }
+
+            if (v is int i)
+            {
+                state.RunIdentity = $"{name}:{i}";
+                return;
+            }
+
+            if (v is long l)
+            {
+                state.RunIdentity = $"{name}:{l}";
+                return;
+            }
+
+            if (v is uint ui)
+            {
+                state.RunIdentity = $"{name}:{ui}";
+                return;
+            }
+        }
+    }
+
+    /// <summary>Copy one <c>SerializablePlayer</c> snapshot into <paramref name="state"/> (deck, relics, vitals, character).</summary>
+    private static void ApplySerializablePlayerToState(GameState state, object player)
+    {
         var pt = player.GetType();
         if (pt.GetProperty("Gold")?.GetValue(player) is int gold)
             state.Gold = gold;
@@ -181,13 +256,39 @@ public static class GameStateExtractor
         if (!string.IsNullOrEmpty(charEntry))
             state.Character = charEntry;
 
-        var deck = MapSerializableCards(pt.GetProperty("Deck")?.GetValue(player));
+        var deck = MapBestDeckFromSerializablePlayer(player);
         if (deck.Count > 0)
             state.Deck = deck;
 
         var relics = MapSerializableRelics(pt.GetProperty("Relics")?.GetValue(player));
         if (relics.Count > 0)
             state.Relics = relics;
+    }
+
+    /// <summary>When co-op lists multiple players, pick the save row whose character matches the local runtime character.</summary>
+    private static bool TryApplySerializablePlayerMatchingCharacter(GameState state, object run, string targetCharacter)
+    {
+        if (string.IsNullOrWhiteSpace(targetCharacter))
+            return false;
+
+        var t = run.GetType();
+        if (t.GetProperty("Players")?.GetValue(run) is not IEnumerable players)
+            return false;
+
+        foreach (var p in players)
+        {
+            if (p == null) continue;
+            var pt = p.GetType();
+            var charEntry = CardIdNormalizer.FromModelIdEntry(ModelIdEntry(pt.GetProperty("CharacterId")?.GetValue(p)));
+            if (string.IsNullOrEmpty(charEntry))
+                continue;
+            if (!string.Equals(charEntry, targetCharacter, StringComparison.OrdinalIgnoreCase))
+                continue;
+            ApplySerializablePlayerToState(state, p);
+            return true;
+        }
+
+        return false;
     }
 
     private static string? ModelIdEntry(object? modelId)
@@ -201,7 +302,8 @@ public static class GameStateExtractor
     private static List<CardInstance> MapSerializableCards(object? deckObj)
     {
         var list = new List<CardInstance>();
-        if (deckObj is not IEnumerable en) return list;
+        var en = TryUnwrapSavedEnumerable(deckObj);
+        if (en == null) return list;
 
         foreach (var item in en)
         {
@@ -215,6 +317,125 @@ public static class GameStateExtractor
         }
 
         return list;
+    }
+
+    /// <summary>
+    /// <c>SerializablePlayer.Deck</c> is not always the Master Deck (multiplayer / pile semantics). Prefer
+    /// <c>AllCards</c> and similar when present — matches in-game master deck / reward context better.
+    /// </summary>
+    private static List<CardInstance> MapBestDeckFromSerializablePlayer(object player)
+    {
+        var pt = player.GetType();
+        List<CardInstance>? best = null;
+        var bestPri = int.MinValue;
+        var bestProp = "";
+
+        foreach (var prop in pt.GetProperties(Flags))
+        {
+            if (!prop.CanRead || prop.GetIndexParameters().Length != 0) continue;
+            var n = prop.Name;
+            var pri = SerializablePlayerDeckListPriority(n);
+            if (pri < 0) continue;
+
+            object? rawVal;
+            try
+            {
+                rawVal = prop.GetValue(player);
+            }
+            catch
+            {
+                continue;
+            }
+
+            var en = TryUnwrapSavedEnumerable(rawVal);
+            if (en == null) continue;
+
+            var cards = MapSerializableCards(en);
+            if (cards.Count == 0 || cards.Count > 600)
+                continue;
+
+            if (pri > bestPri)
+            {
+                bestPri = pri;
+                best = cards;
+                bestProp = n;
+            }
+        }
+
+        if (best != null && bestPri >= 95 &&
+            !string.Equals(bestProp, "Deck", StringComparison.OrdinalIgnoreCase))
+        {
+            ContextCoachLogging.VerboseInfo(
+                $"SaveManager deck from SerializablePlayer.{bestProp} ({best.Count} cards), not Deck.");
+        }
+
+        if (best is not { Count: > 0 })
+        {
+            object? fallback;
+            try
+            {
+                fallback = pt.GetProperty("Deck", Flags)?.GetValue(player);
+            }
+            catch
+            {
+                fallback = null;
+            }
+
+            best = MapSerializableCards(fallback);
+        }
+
+        return best ?? [];
+    }
+
+    private static int SerializablePlayerDeckListPriority(string propName)
+    {
+        if (propName.Contains("Relic", StringComparison.OrdinalIgnoreCase)) return -1;
+        if (propName.Contains("Potion", StringComparison.OrdinalIgnoreCase)) return -1;
+        if (propName.Equals("Potions", StringComparison.OrdinalIgnoreCase)) return -1;
+        if (propName.Contains("History", StringComparison.OrdinalIgnoreCase)) return -1;
+        if (propName.Contains("Reward", StringComparison.OrdinalIgnoreCase)) return -1;
+        if (propName.Contains("Shop", StringComparison.OrdinalIgnoreCase)) return -1;
+
+        if (propName.Equals("AllCards", StringComparison.OrdinalIgnoreCase)) return 100;
+        if (propName.Equals("MasterDeck", StringComparison.OrdinalIgnoreCase)) return 99;
+        if (propName.Contains("MasterDeck", StringComparison.OrdinalIgnoreCase)) return 98;
+        if (propName.Equals("DeckCards", StringComparison.OrdinalIgnoreCase)) return 96;
+        if (propName.Contains("Permanent", StringComparison.OrdinalIgnoreCase) &&
+            propName.Contains("Deck", StringComparison.OrdinalIgnoreCase)) return 94;
+        if (propName.Equals("MainDeck", StringComparison.OrdinalIgnoreCase)) return 92;
+
+        if (propName.Equals("Deck", StringComparison.OrdinalIgnoreCase)) return 40;
+
+        if (propName.Contains("DrawPile", StringComparison.OrdinalIgnoreCase)) return 12;
+        if (propName.Contains("DiscardPile", StringComparison.OrdinalIgnoreCase)) return 12;
+        if (propName.Contains("Exhaust", StringComparison.OrdinalIgnoreCase) &&
+            propName.Contains("Pile", StringComparison.OrdinalIgnoreCase)) return 10;
+        if (propName.Contains("Hand", StringComparison.OrdinalIgnoreCase) &&
+            (propName.Contains("Card", StringComparison.OrdinalIgnoreCase) ||
+             propName.Contains("Pile", StringComparison.OrdinalIgnoreCase))) return 8;
+
+        if (propName.Contains("Deck", StringComparison.OrdinalIgnoreCase)) return 35;
+        if (propName.Contains("Pile", StringComparison.OrdinalIgnoreCase) &&
+            propName.Contains("Card", StringComparison.OrdinalIgnoreCase)) return 6;
+
+        return -1;
+    }
+
+    private static IEnumerable? TryUnwrapSavedEnumerable(object? value)
+    {
+        if (value == null) return null;
+        if (value is string) return null;
+        if (value is IEnumerable en)
+            return en;
+
+        var t = value.GetType();
+        foreach (var propName in new[] { "Value", "CurrentValue" })
+        {
+            if (t.GetProperty(propName, Flags)?.GetValue(value) is IEnumerable inner && inner is not string)
+                return inner;
+        }
+
+        return null;
     }
 
     private static List<string> MapSerializableRelics(object? relicObj)
@@ -247,7 +468,10 @@ public static class GameStateExtractor
             Act = global.Act,
             Floor = global.Floor,
             Ascension = global.Ascension,
-            MaxEnergy = global.MaxEnergy
+            MaxEnergy = global.MaxEnergy,
+            RunIdentity = global.RunIdentity,
+            SavePlayerCount = global.SavePlayerCount,
+            CachedDeckAnalysis = global.CachedDeckAnalysis
         };
 
         if (anchor == null) return state;
@@ -291,27 +515,36 @@ public static class GameStateExtractor
 
     private static string DescribeScreen(NCard card)
     {
-        var parts = new List<string>();
-        Node? n = card.GetParent();
-        while (n != null && parts.Count < 12)
-        {
-            parts.Add(n.Name.ToString());
-            n = n.GetParent();
-        }
+        var frame = Engine.GetProcessFrames();
+        var cid = card.GetInstanceId();
+        if (_describeFrame == frame && _describeCardId == cid && _describePath.Length > 0)
+            return _describePath;
 
-        parts.Reverse();
-        return string.Join("/", parts);
+        _describePath = CombatScreenHeuristic.BuildAncestorPath(card);
+        _describeFrame = frame;
+        _describeCardId = cid;
+        return _describePath;
     }
+
+    private const int MaxNeighborRewardCards = 64;
 
     private static List<CardInstance>? CollectNeighborRewardCards(NCard anchor)
     {
         var parent = anchor.GetParent();
         if (parent == null) return null;
 
+        var frame = Engine.GetProcessFrames();
+        var pid = parent.GetInstanceId();
+        if (_rewardFrame == frame && _rewardParentId == pid && _rewardCache != null)
+            return _rewardCache;
+
         var list = new List<CardInstance>();
+        var nCardCap = 0;
         foreach (var child in parent.GetChildren())
         {
             if (child is not NCard nc) continue;
+            if (++nCardCap > MaxNeighborRewardCards)
+                break;
             var name = CardModelReflection.GetInternalName(nc);
             if (string.IsNullOrEmpty(name)) continue;
             list.Add(new CardInstance
@@ -321,7 +554,10 @@ public static class GameStateExtractor
             });
         }
 
-        return list.Count > 0 ? list : null;
+        _rewardCache = list.Count > 0 ? list : null;
+        _rewardFrame = frame;
+        _rewardParentId = pid;
+        return _rewardCache;
     }
 
     private static IEnumerable<object> FindStaticRoots(Assembly asm)

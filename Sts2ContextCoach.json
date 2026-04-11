@@ -3,7 +3,7 @@
   "name": "STS2 Context Coach",
   "author": "sts2-context-coach",
   "description": "Context-aware card recommendations on rewards (base + dynamic scores).",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "has_pck": false,
   "has_dll": true,
   "dependencies": ["BaseLib"],

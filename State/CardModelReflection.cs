@@ -29,7 +29,26 @@ public static class CardModelReflection
 
     public static string? GetInternalName(object? model) => model?.GetType().Name;
 
-    public static bool IsUpgraded(NCard card) => IsUpgraded(GetModel(card));
+    public static bool IsUpgraded(NCard card)
+    {
+        var model = GetModel(card);
+        if (IsUpgraded(model))
+            return true;
+
+        // Fallback for card UIs where model flags are absent but visible title indicates plus version.
+        try
+        {
+            var title = card.GetType().GetProperty("CardTitle", Flags)?.GetValue(card)?.ToString();
+            if (!string.IsNullOrWhiteSpace(title) && title.Contains("+", StringComparison.Ordinal))
+                return true;
+        }
+        catch
+        {
+            // ignored
+        }
+
+        return false;
+    }
 
     public static bool IsUpgraded(object? model)
     {
@@ -43,6 +62,39 @@ public static class CardModelReflection
                 try
                 {
                     return p.GetValue(model) is true;
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+        }
+
+        foreach (var name in new[] { "CurrentUpgradeLevel", "UpgradeLevel", "TimesUpgraded", "UpgradeCount" })
+        {
+            var p = t.GetProperty(name, Flags);
+            if (p != null && p.CanRead)
+            {
+                try
+                {
+                    var value = p.GetValue(model);
+                    if (ToInt(value) > 0)
+                        return true;
+                }
+                catch
+                {
+                    // ignored
+                }
+            }
+
+            var f = t.GetField(name, Flags);
+            if (f != null)
+            {
+                try
+                {
+                    var value = f.GetValue(model);
+                    if (ToInt(value) > 0)
+                        return true;
                 }
                 catch
                 {
@@ -79,5 +131,17 @@ public static class CardModelReflection
         }
 
         return null;
+    }
+
+    private static int ToInt(object? value)
+    {
+        return value switch
+        {
+            int i => i,
+            short s => s,
+            long l when l is <= int.MaxValue and >= int.MinValue => (int)l,
+            byte b => b,
+            _ => 0
+        };
     }
 }
