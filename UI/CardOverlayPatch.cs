@@ -287,7 +287,13 @@ public static class CardOverlayPatch
                     augmentBonus,
                     augmentReason);
 
-                TryLogDecision(isShop && !isGridOrDeck ? "shop" : "card_reward", internalName, score, state, shopEco);
+                TryLogDecision(
+                    isShop && !isGridOrDeck ? "shop" : "card_reward",
+                    internalName,
+                    score,
+                    state,
+                    shopEco,
+                    coachRow);
 
                 var sm = (ContextCoachConfig.Current.ScoringMode ?? "heuristic").Trim();
                 if (!string.Equals(_lastLoggedScoringMode, sm, StringComparison.OrdinalIgnoreCase))
@@ -717,31 +723,69 @@ public static class CardOverlayPatch
         string cardInternalName,
         ScoreResult score,
         GameState state,
-        ShopEconomyContext? shopEco)
+        ShopEconomyContext? shopEco,
+        IReadOnlyList<LlmCoachCandidate>? coachRow)
     {
         try
         {
-            var candidates = (state.RewardCards ?? new List<CardInstance>())
-                .Select(c => c.Name)
-                .Where(n => !string.IsNullOrWhiteSpace(n))
-                .Distinct(StringComparer.Ordinal)
-                .ToList();
-            if (candidates.Count == 0)
-                candidates.Add(cardInternalName);
-
-            var map = new Dictionary<string, ScoreResult>(StringComparer.Ordinal)
-            {
-                [cardInternalName] = score
-            };
-
             var source = decisionType == "shop" && shopEco.HasValue
                 ? $"shop(price={shopEco.Value.CardPrice?.ToString() ?? "?"},sale={shopEco.Value.IsDiscounted})"
                 : "overlay";
 
+            var map = new Dictionary<string, ScoreResult>(StringComparer.Ordinal);
+            List<string> candidatesOrdered = [];
+
+            if (coachRow is { Count: > 0 })
+            {
+                foreach (var c in coachRow)
+                {
+                    if (string.IsNullOrWhiteSpace(c.InternalName))
+                        continue;
+                    if (!map.TryGetValue(c.InternalName, out var existing) ||
+                        c.Heuristic.ContextScore > existing.ContextScore)
+                        map[c.InternalName] = c.Heuristic;
+                }
+
+                var seenRow = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                foreach (var c in coachRow)
+                {
+                    if (string.IsNullOrWhiteSpace(c.InternalName) || !seenRow.Add(c.InternalName))
+                        continue;
+                    candidatesOrdered.Add(c.InternalName);
+                }
+            }
+            else if (string.Equals(decisionType, "card_reward", StringComparison.OrdinalIgnoreCase) &&
+                     state.RewardCards is { Count: > 0 } reward)
+            {
+                foreach (var c in reward)
+                {
+                    if (string.IsNullOrWhiteSpace(c.Name))
+                        continue;
+                    var cost = ResolveCostForTelemetry(c.Name, c.Upgraded);
+                    map[c.Name] = RecommendationEngine.ScoreCard(c.Name, c.Upgraded, cost, state, null, 0f, null);
+                }
+
+                var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+                foreach (var c in reward)
+                {
+                    if (string.IsNullOrWhiteSpace(c.Name) || !seen.Add(c.Name))
+                        continue;
+                    candidatesOrdered.Add(c.Name);
+                }
+            }
+            else
+            {
+                candidatesOrdered.Add(cardInternalName);
+                map[cardInternalName] = score;
+            }
+
+            if (candidatesOrdered.Count == 0)
+                candidatesOrdered.Add(cardInternalName);
+
             RunLogger.LogDecision(
                 decisionType,
                 state,
-                candidates,
+                candidatesOrdered,
                 map,
                 playerChoice: null,
                 source: source);
@@ -750,6 +794,23 @@ public static class CardOverlayPatch
         {
             Log.Warn($"[ContextCoach] decision log skipped: {ex.Message}");
         }
+    }
+
+    private static int? ResolveCostForTelemetry(string internalName, bool upgraded)
+    {
+        int? cst = null;
+        if (!MetadataRepository.TryGetCard(internalName, out var meta) || meta == null)
+            return null;
+        if (upgraded && meta.Cost is int bcUp)
+        {
+            var u = bcUp + (meta.UpgradeCostDelta ?? 0);
+            if (u is >= 0 and <= 9)
+                cst = u;
+        }
+        else if (!upgraded && meta.Cost is int bc && bc is >= 0 and <= 9)
+            cst = bc;
+
+        return cst;
     }
 
     private static void EnsureExportUi(Node anyNodeInTree)
@@ -842,7 +903,8 @@ public static class CardOverlayPatch
                 {
                     Name = "ContextCoachExportDialog",
                     Title = "Context Coach Export",
-                    DialogText = "Exported a local ZIP with gameplay-only data (events, summary, metadata). No system identity or file paths are included. Please manually attach the ZIP in the issue form."
+                    DialogText =
+                        "Exported a local ZIP with gameplay-only data (events, summary, metadata; plus run/llm/*.json when llm_mirror_transcripts_into_run_folder is true in contextcoach.config). No system identity or file paths are included. Please manually attach the ZIP in the issue form."
                 };
                 layer.AddChild(dialog);
 
@@ -854,8 +916,11 @@ public static class CardOverlayPatch
                         if (!string.IsNullOrWhiteSpace(zip))
                         {
                             var runCount = Math.Max(1, RunLogger.LastExportedRunCount);
+                            var llmZipNote = ContextCoachConfig.Current.LlmMirrorTranscriptsIntoRunFolder
+                                ? "Each run may include llm/coach-*.json (LLM prompts/responses) when LLM was used."
+                                : "LLM correlation is in events.jsonl (llm_coach_batch / llm_deck_summary). Set llm_mirror_transcripts_into_run_folder to also bundle per-request transcript JSON.";
                             dialog.DialogText =
-                                $"Export complete.\n{zip}\n\nIncludes unpublished run logs: {runCount} run(s)\nEach run contains events.jsonl, summary.json, metadata.json\nGameplay data only. No auto-upload.\nPlease attach this ZIP manually in the issue form.";
+                                $"Export complete.\n{zip}\n\nIncludes unpublished run logs: {runCount} run(s)\nEach run contains events.jsonl, summary.json, metadata.json.\n{llmZipNote}\nGameplay data only. No auto-upload.\nPlease attach this ZIP manually in the issue form.";
                         }
                         else
                         {

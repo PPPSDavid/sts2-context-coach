@@ -38,6 +38,9 @@ public sealed class ContextCoachConfig
     /// <summary>Write prompt + raw API JSON under AppData (no API key stored).</summary>
     public bool LlmLogTranscripts { get; set; } = true;
 
+    /// <summary>Also copy each transcript into the active run folder under <c>llm/</c> so Export ZIP can bundle them.</summary>
+    public bool LlmMirrorTranscriptsIntoRunFolder { get; set; } = false;
+
     /// <summary>Optional OpenRouter attribution header (URL).</summary>
     public string? LlmHttpReferer { get; set; }
 

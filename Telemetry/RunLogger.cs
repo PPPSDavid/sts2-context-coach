@@ -179,6 +179,135 @@ internal static class RunLogger
         }
     }
 
+    /// <summary>Correlates in-game LLM coach HTTP calls with <c>godot.log</c> and optional transcript files.</summary>
+    public static void LogLlmCoachBatch(
+        GameState state,
+        string corr,
+        string decisionType,
+        string batchKey,
+        string model,
+        int requestBodyBytes,
+        string outcome,
+        string? transcriptBasename,
+        string? errorDetail,
+        IReadOnlyList<(string internalName, bool upgraded, int? coachScore)>? llmTop)
+    {
+        if (!IsEnabled)
+            return;
+        EnsureInitialized(state);
+        if (_runId == null)
+            return;
+
+        lock (Gate)
+        {
+            try
+            {
+                EmitEvent(new
+                {
+                    event_type = "llm_coach_batch",
+                    run_id = _runId,
+                    timestamp = DateTimeOffset.UtcNow,
+                    corr,
+                    decision_type = decisionType,
+                    batch_key = batchKey,
+                    model,
+                    request_body_bytes = requestBodyBytes,
+                    outcome,
+                    transcript_file = transcriptBasename,
+                    error = TruncateTelemetryString(errorDetail, 480),
+                    llm_top = llmTop is { Count: > 0 }
+                        ? llmTop.Select(x => new
+                        {
+                            internal_name = x.internalName,
+                            upgraded = x.upgraded,
+                            coach_score = x.coachScore
+                        }).ToList()
+                        : null,
+                    game_state = ToSnapshot(state)
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"[ContextCoach] RunLogger llm_coach_batch failed: {ex.Message}");
+            }
+        }
+    }
+
+    /// <summary>Deck profile / strategic summary LLM call (separate HTTP path from row coach).</summary>
+    public static void LogLlmDeckSummary(
+        GameState state,
+        string corr,
+        string deckSignature,
+        string model,
+        int requestBodyBytes,
+        string outcome,
+        string? transcriptBasename,
+        string? errorDetail)
+    {
+        if (!IsEnabled)
+            return;
+        EnsureInitialized(state);
+        if (_runId == null)
+            return;
+
+        lock (Gate)
+        {
+            try
+            {
+                EmitEvent(new
+                {
+                    event_type = "llm_deck_summary",
+                    run_id = _runId,
+                    timestamp = DateTimeOffset.UtcNow,
+                    corr,
+                    deck_signature = deckSignature,
+                    model,
+                    request_body_bytes = requestBodyBytes,
+                    outcome,
+                    transcript_file = transcriptBasename,
+                    error = TruncateTelemetryString(errorDetail, 480),
+                    game_state = ToSnapshot(state)
+                });
+            }
+            catch (Exception ex)
+            {
+                Log.Warn($"[ContextCoach] RunLogger llm_deck_summary failed: {ex.Message}");
+            }
+        }
+    }
+
+    /// <summary>Copies a global transcript into <c>{run}/llm/</c> when <see cref="ContextCoachConfig.LlmMirrorTranscriptsIntoRunFolder"/> is enabled.</summary>
+    public static void TryMirrorLlmTranscript(string transcriptAbsolutePath, string basename)
+    {
+        if (!IsEnabled || !ContextCoachConfig.Current.LlmMirrorTranscriptsIntoRunFolder)
+            return;
+        if (!File.Exists(transcriptAbsolutePath))
+            return;
+
+        try
+        {
+            lock (Gate)
+            {
+                if (_runDir == null)
+                    return;
+                var destDir = Path.Combine(_runDir, "llm");
+                Directory.CreateDirectory(destDir);
+                File.Copy(transcriptAbsolutePath, Path.Combine(destDir, basename), overwrite: true);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warn($"[ContextCoach] LLM transcript mirror skipped: {ex.Message}");
+        }
+    }
+
+    private static string? TruncateTelemetryString(string? s, int maxLen)
+    {
+        if (string.IsNullOrEmpty(s))
+            return s;
+        return s.Length <= maxLen ? s : s[..maxLen];
+    }
+
     public static void ObserveRunState(GameState state)
     {
         if (!IsEnabled)
@@ -628,6 +757,7 @@ internal static class RunLogger
                 AddIfExists(archive, Path.Combine(runDir, "summary.json"), "summary.json");
                 AddIfExists(archive, Path.Combine(runDir, "metadata.json"), "metadata.json");
                 AddIfExists(archive, Path.Combine(runDir, "events.jsonl"), "events.jsonl");
+                AddLlmTranscriptEntries(archive, runDir, "");
             }
             MarkRunExported(id, zipPath);
             LastExportedRunCount = 1;
@@ -677,6 +807,7 @@ internal static class RunLogger
                     AddIfExists(archive, Path.Combine(dir, "summary.json"), $"{runId}/summary.json");
                     AddIfExists(archive, Path.Combine(dir, "metadata.json"), $"{runId}/metadata.json");
                     AddIfExists(archive, Path.Combine(dir, "events.jsonl"), $"{runId}/events.jsonl");
+                    AddLlmTranscriptEntries(archive, dir, $"{runId}/");
                     state.ExportedRunIds.Add(runId);
                 }
             }
@@ -1226,6 +1357,18 @@ internal static class RunLogger
     {
         if (File.Exists(path))
             zip.CreateEntryFromFile(path, entryName, CompressionLevel.Optimal);
+    }
+
+    private static void AddLlmTranscriptEntries(ZipArchive zip, string runDir, string entryPrefix)
+    {
+        var llmDir = Path.Combine(runDir, "llm");
+        if (!Directory.Exists(llmDir))
+            return;
+        foreach (var path in Directory.GetFiles(llmDir, "*.json").OrderBy(x => x, StringComparer.Ordinal))
+        {
+            var name = Path.GetFileName(path);
+            AddIfExists(zip, path, $"{entryPrefix}llm/{name}");
+        }
     }
 
     private static Dictionary<string, int> BuildDeckMultiset(GameState state)

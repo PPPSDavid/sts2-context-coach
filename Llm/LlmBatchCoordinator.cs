@@ -292,6 +292,20 @@ public static class LlmBatchCoordinator
             if (version != _scheduleVersion)
             {
                 Log.Info($"[ContextCoach][LLM] debounce superseded corr={corr} (version mismatch)");
+                var modelDeb = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
+                    ? "openai/gpt-4o-mini"
+                    : ContextCoachConfig.Current.LlmModel.Trim();
+                RunLogger.LogLlmCoachBatch(
+                    globalState,
+                    corr,
+                    decisionType,
+                    batchKey,
+                    modelDeb,
+                    0,
+                    "debounce_superseded",
+                    null,
+                    "version mismatch after debounce",
+                    null);
                 return;
             }
         }
@@ -351,6 +365,9 @@ public static class LlmBatchCoordinator
         GameState globalState,
         IReadOnlyList<LlmCoachCandidate> candidates)
     {
+        var model = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
+            ? "openai/gpt-4o-mini"
+            : ContextCoachConfig.Current.LlmModel.Trim();
         var apiKey = ContextCoachConfig.TryGetLlmApiKey();
         if (apiKey == null)
         {
@@ -362,6 +379,9 @@ public static class LlmBatchCoordinator
                 _pendingSinceTicks = 0;
             }
 
+            RunLogger.LogLlmCoachBatch(
+                globalState, corr, decisionType, batchKey, model, 0,
+                "api_key_missing", null, "API key missing", null);
             return;
         }
 
@@ -374,9 +394,6 @@ public static class LlmBatchCoordinator
 
         var baseUrl = (ContextCoachConfig.Current.LlmBaseUrl ?? "https://openrouter.ai/api/v1").TrimEnd('/');
         var url = baseUrl + "/chat/completions";
-        var model = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
-            ? "openai/gpt-4o-mini"
-            : ContextCoachConfig.Current.LlmModel.Trim();
 
         var system = BuildSystemPrompt(LocalizationManager.Language);
         var (user, keywordHintCount) = BuildUserPayload(decisionType, globalState, candidates);
@@ -400,6 +417,7 @@ public static class LlmBatchCoordinator
         };
 
         var json = JsonSerializer.Serialize(body, JsonOpt);
+        var reqBytes = Encoding.UTF8.GetByteCount(json);
         using var req = new HttpRequestMessage(HttpMethod.Post, url);
         req.Headers.TryAddWithoutValidation("User-Agent", "Sts2ContextCoach/0.1 (SlayTheSpire2-mod)");
         req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
@@ -411,81 +429,127 @@ public static class LlmBatchCoordinator
             req.Headers.TryAddWithoutValidation("X-Title", title.Trim());
         req.Content = new StringContent(json, Encoding.UTF8, "application/json");
 
-        Log.Info($"[ContextCoach][LLM] POST corr={corr} model={model} timeout={timeoutSec}s bytes={json.Length}");
+        Log.Info($"[ContextCoach][LLM] POST corr={corr} model={model} timeout={timeoutSec}s bytes={reqBytes}");
 
-        string raw;
+        string? transcriptBasename = null;
         try
         {
-            using var resp = await Http.SendAsync(req, HttpCompletionOption.ResponseHeadersRead, cts.Token)
-                .ConfigureAwait(false);
-            raw = await resp.Content.ReadAsStringAsync(cts.Token).ConfigureAwait(false);
-
-            if (!resp.IsSuccessStatusCode)
+            string raw;
+            try
             {
-                Log.Warn($"[ContextCoach][LLM] HTTP {(int)resp.StatusCode} corr={corr} body_head={Truncate(raw, 400)}");
-                throw new InvalidOperationException($"HTTP {(int)resp.StatusCode}: {Truncate(raw, 200)}");
+                using var resp = await Http.SendAsync(req, HttpCompletionOption.ResponseHeadersRead, cts.Token)
+                    .ConfigureAwait(false);
+                raw = await resp.Content.ReadAsStringAsync(cts.Token).ConfigureAwait(false);
+
+                if (!resp.IsSuccessStatusCode)
+                {
+                    Log.Warn($"[ContextCoach][LLM] HTTP {(int)resp.StatusCode} corr={corr} body_head={Truncate(raw, 400)}");
+                    throw new InvalidOperationException($"HTTP {(int)resp.StatusCode}: {Truncate(raw, 200)}");
+                }
             }
-        }
-        catch (OperationCanceledException oce) when (cts.IsCancellationRequested)
-        {
-            Log.Warn($"[ContextCoach][LLM] timed out corr={corr} after {timeoutSec}s ({oce.GetType().Name})");
-            throw new InvalidOperationException($"LLM request timed out after {timeoutSec}s.", oce);
-        }
-
-        var content = ExtractAssistantContent(raw);
-        if (string.IsNullOrWhiteSpace(content))
-        {
-            Log.Warn($"[ContextCoach][LLM] empty assistant content corr={corr} body_head={Truncate(raw, 400)}");
-            throw new InvalidOperationException("Empty assistant message");
-        }
-
-        LlmTranscriptLogger.TryWrite(corr, model, system, user, raw, content);
-
-        var parsed = ParseRankings(content, candidates);
-        if (parsed.Count == 0)
-        {
-            Log.Warn($"[ContextCoach][LLM] parse produced 0 rows corr={corr} content_head={Truncate(content, 500)}");
-            throw new InvalidOperationException("LLM JSON did not match any candidate");
-        }
-
-        lock (Gate)
-        {
-            if (seq != _requestSeq)
+            catch (OperationCanceledException oce) when (cts.IsCancellationRequested)
             {
-                Log.Info($"[ContextCoach][LLM] drop stale response corr={corr}");
-                return;
+                Log.Warn($"[ContextCoach][LLM] timed out corr={corr} after {timeoutSec}s ({oce.GetType().Name})");
+                throw new InvalidOperationException($"LLM request timed out after {timeoutSec}s.", oce);
             }
 
-            _adviceByKey = parsed;
-            _lastCandidates = candidates;
-            _status = LlmOverlayBatchStatus.Ready;
-            _lastError = null;
-            _lastGoodBatchKey = batchKey;
-            _lastGoodDeckSnapshot = new Dictionary<string, int>(deckCounts, StringComparer.OrdinalIgnoreCase);
-            _lastGoodCandidateNames = candidateNameSet;
-            _lastGoodBatchSummary = batchSummary;
-            _pendingSinceTicks = 0;
-        }
+            var content = ExtractAssistantContent(raw);
+            if (string.IsNullOrWhiteSpace(content))
+            {
+                Log.Warn($"[ContextCoach][LLM] empty assistant content corr={corr} body_head={Truncate(raw, 400)}");
+                throw new InvalidOperationException("Empty assistant message");
+            }
 
-        var ranked = ToRankedList(parsed, candidates);
-        CoachPickHistory.AppendVerdict(decisionType, batchSummary, ranked);
-        Log.Info($"[ContextCoach][LLM] ok corr={corr} parsed={parsed.Count} top={(ranked.Count > 0 ? ranked[0].name : "?")}");
+            transcriptBasename = LlmTranscriptLogger.TryWrite(corr, model, system, user, raw, content);
+
+            var parsed = ParseRankings(content, candidates);
+            if (parsed.Count == 0)
+            {
+                Log.Warn($"[ContextCoach][LLM] parse produced 0 rows corr={corr} content_head={Truncate(content, 500)}");
+                throw new InvalidOperationException("LLM JSON did not match any candidate");
+            }
+
+            var topTelemetry = BuildCoachTopTelemetry(parsed, candidates);
+
+            lock (Gate)
+            {
+                if (seq != _requestSeq)
+                {
+                    Log.Info($"[ContextCoach][LLM] drop stale response corr={corr}");
+                    RunLogger.LogLlmCoachBatch(
+                        globalState,
+                        corr,
+                        decisionType,
+                        batchKey,
+                        model,
+                        reqBytes,
+                        "stale_response",
+                        transcriptBasename,
+                        null,
+                        topTelemetry);
+                    return;
+                }
+
+                _adviceByKey = parsed;
+                _lastCandidates = candidates;
+                _status = LlmOverlayBatchStatus.Ready;
+                _lastError = null;
+                _lastGoodBatchKey = batchKey;
+                _lastGoodDeckSnapshot = new Dictionary<string, int>(deckCounts, StringComparer.OrdinalIgnoreCase);
+                _lastGoodCandidateNames = candidateNameSet;
+                _lastGoodBatchSummary = batchSummary;
+                _pendingSinceTicks = 0;
+            }
+
+            var ranked = ToRankedList(parsed, candidates);
+            CoachPickHistory.AppendVerdict(decisionType, batchSummary, ranked);
+            Log.Info($"[ContextCoach][LLM] ok corr={corr} parsed={parsed.Count} top={(ranked.Count > 0 ? ranked[0].name : "?")}");
+            RunLogger.LogLlmCoachBatch(
+                globalState,
+                corr,
+                decisionType,
+                batchKey,
+                model,
+                reqBytes,
+                "ok",
+                transcriptBasename,
+                null,
+                topTelemetry);
+        }
+        catch (Exception ex)
+        {
+            RunLogger.LogLlmCoachBatch(
+                globalState,
+                corr,
+                decisionType,
+                batchKey,
+                model,
+                reqBytes,
+                ClassifyCoachBatchException(ex),
+                transcriptBasename,
+                ex.Message,
+                null);
+            throw;
+        }
     }
 
     private static async Task<LlmDeckProfile> ExecuteDeckProfileHttpAsync(string corr, string signature, GameState state)
     {
+        var model = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
+            ? "openai/gpt-4o-mini"
+            : ContextCoachConfig.Current.LlmModel.Trim();
         var apiKey = ContextCoachConfig.TryGetLlmApiKey();
         if (apiKey == null)
+        {
+            RunLogger.LogLlmDeckSummary(state, corr, signature, model, 0, "api_key_missing", null, "API key missing");
             throw new InvalidOperationException("API key missing");
+        }
 
         var timeoutSec = ContextCoachConfig.EffectiveLlmTimeoutSeconds;
         using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeoutSec));
 
         var baseUrl = (ContextCoachConfig.Current.LlmBaseUrl ?? "https://openrouter.ai/api/v1").TrimEnd('/');
         var url = baseUrl + "/chat/completions";
-        var model = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
-            ? "openai/gpt-4o-mini"
-            : ContextCoachConfig.Current.LlmModel.Trim();
 
         var system = BuildDeckSummarySystemPrompt(LocalizationManager.Language);
         var user = BuildDeckSummaryUserPayload(state);
@@ -505,37 +569,105 @@ public static class LlmBatchCoordinator
         };
 
         var json = JsonSerializer.Serialize(body, JsonOpt);
-        using var req = new HttpRequestMessage(HttpMethod.Post, url);
-        req.Headers.TryAddWithoutValidation("User-Agent", "Sts2ContextCoach/0.1 (SlayTheSpire2-mod)");
-        req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
-        var referer = ContextCoachConfig.Current.LlmHttpReferer;
-        if (!string.IsNullOrWhiteSpace(referer))
-            req.Headers.TryAddWithoutValidation("HTTP-Referer", referer.Trim());
-        var title = ContextCoachConfig.Current.LlmAppTitle;
-        if (!string.IsNullOrWhiteSpace(title))
-            req.Headers.TryAddWithoutValidation("X-Title", title.Trim());
-        req.Content = new StringContent(json, Encoding.UTF8, "application/json");
-
-        Log.Info($"[ContextCoach][LLM] deck-summary POST corr={corr} model={model} timeout={timeoutSec}s bytes={json.Length}");
-
-        string raw;
-        using (var resp = await Http.SendAsync(req, HttpCompletionOption.ResponseHeadersRead, cts.Token).ConfigureAwait(false))
+        var reqBytes = Encoding.UTF8.GetByteCount(json);
+        string? transcriptBasename = null;
+        try
         {
-            raw = await resp.Content.ReadAsStringAsync(cts.Token).ConfigureAwait(false);
-            if (!resp.IsSuccessStatusCode)
+            using var req = new HttpRequestMessage(HttpMethod.Post, url);
+            req.Headers.TryAddWithoutValidation("User-Agent", "Sts2ContextCoach/0.1 (SlayTheSpire2-mod)");
+            req.Headers.Authorization = new AuthenticationHeaderValue("Bearer", apiKey);
+            var referer = ContextCoachConfig.Current.LlmHttpReferer;
+            if (!string.IsNullOrWhiteSpace(referer))
+                req.Headers.TryAddWithoutValidation("HTTP-Referer", referer.Trim());
+            var title = ContextCoachConfig.Current.LlmAppTitle;
+            if (!string.IsNullOrWhiteSpace(title))
+                req.Headers.TryAddWithoutValidation("X-Title", title.Trim());
+            req.Content = new StringContent(json, Encoding.UTF8, "application/json");
+
+            Log.Info($"[ContextCoach][LLM] deck-summary POST corr={corr} model={model} timeout={timeoutSec}s bytes={reqBytes}");
+
+            string raw;
+            try
             {
-                Log.Warn($"[ContextCoach][LLM] deck-summary HTTP {(int)resp.StatusCode} corr={corr} body_head={Truncate(raw, 400)}");
-                throw new InvalidOperationException($"HTTP {(int)resp.StatusCode}: {Truncate(raw, 200)}");
+                using var resp = await Http.SendAsync(req, HttpCompletionOption.ResponseHeadersRead, cts.Token)
+                    .ConfigureAwait(false);
+                raw = await resp.Content.ReadAsStringAsync(cts.Token).ConfigureAwait(false);
+                if (!resp.IsSuccessStatusCode)
+                {
+                    Log.Warn($"[ContextCoach][LLM] deck-summary HTTP {(int)resp.StatusCode} corr={corr} body_head={Truncate(raw, 400)}");
+                    throw new InvalidOperationException($"HTTP {(int)resp.StatusCode}: {Truncate(raw, 200)}");
+                }
             }
+            catch (OperationCanceledException oce) when (cts.IsCancellationRequested)
+            {
+                Log.Warn($"[ContextCoach][LLM] deck-summary timed out corr={corr} ({oce.GetType().Name})");
+                throw new InvalidOperationException($"LLM deck summary timed out after {timeoutSec}s.", oce);
+            }
+
+            var content = ExtractAssistantContent(raw);
+            if (string.IsNullOrWhiteSpace(content))
+                throw new InvalidOperationException("Empty assistant message");
+
+            transcriptBasename = LlmTranscriptLogger.TryWrite(corr, model, system, user, raw, content);
+
+            var profile = ParseDeckProfile(content, signature, state.Floor);
+            RunLogger.LogLlmDeckSummary(
+                state, corr, signature, model, reqBytes, "ok", transcriptBasename, null);
+            return profile;
         }
+        catch (Exception ex)
+        {
+            RunLogger.LogLlmDeckSummary(
+                state,
+                corr,
+                signature,
+                model,
+                reqBytes,
+                ClassifyDeckSummaryException(ex),
+                transcriptBasename,
+                ex.Message);
+            throw;
+        }
+    }
 
-        var content = ExtractAssistantContent(raw);
-        if (string.IsNullOrWhiteSpace(content))
-            throw new InvalidOperationException("Empty assistant message");
+    private static List<(string internalName, bool upgraded, int? coachScore)> BuildCoachTopTelemetry(
+        IReadOnlyDictionary<string, LlmCardAdvice> parsed,
+        IReadOnlyList<LlmCoachCandidate> candidates) =>
+        candidates
+            .Select(c => (c.InternalName, c.Upgraded, parsed.TryGetValue(c.AdviceMapKey, out var a) ? a.CoachScore : (int?)null))
+            .Where(x => x.Item3.HasValue)
+            .OrderByDescending(x => x.Item3 ?? -1)
+            .Take(5)
+            .Select(x => (x.InternalName, x.Upgraded, x.Item3))
+            .ToList();
 
-        LlmTranscriptLogger.TryWrite(corr, model, system, user, raw, content);
+    private static string ClassifyCoachBatchException(Exception ex)
+    {
+        if (ex.Message.Contains("timed out", StringComparison.OrdinalIgnoreCase))
+            return "timeout";
+        if (ex.Message.StartsWith("HTTP ", StringComparison.Ordinal))
+            return "http_error";
+        if (ex.Message.Contains("Empty assistant", StringComparison.OrdinalIgnoreCase))
+            return "empty_assistant";
+        if (ex.Message.Contains("did not match any candidate", StringComparison.OrdinalIgnoreCase) ||
+            ex.Message.Contains("not valid JSON", StringComparison.OrdinalIgnoreCase) ||
+            ex.Message.Contains("Missing rankings", StringComparison.OrdinalIgnoreCase))
+            return "parse_error";
+        return "error";
+    }
 
-        return ParseDeckProfile(content, signature, state.Floor);
+    private static string ClassifyDeckSummaryException(Exception ex)
+    {
+        if (ex.Message.Contains("timed out", StringComparison.OrdinalIgnoreCase))
+            return "timeout";
+        if (ex.Message.StartsWith("HTTP ", StringComparison.Ordinal))
+            return "http_error";
+        if (ex.Message.Contains("Empty assistant", StringComparison.OrdinalIgnoreCase))
+            return "empty_assistant";
+        if (ex.Message.Contains("Deck summary JSON was empty", StringComparison.OrdinalIgnoreCase) ||
+            ex.Message.Contains("JSON", StringComparison.OrdinalIgnoreCase))
+            return "parse_error";
+        return "error";
     }
 
     private static List<(string name, string note, int? score)> ToRankedList(
@@ -1015,7 +1147,7 @@ Rules:
         }
     }
 
-    private static Dictionary<string, LlmCardAdvice> ParseRankings(string content, IReadOnlyList<LlmCoachCandidate> candidates)
+    internal static Dictionary<string, LlmCardAdvice> ParseRankings(string content, IReadOnlyList<LlmCoachCandidate> candidates)
     {
         var slice = StripMarkdownFence(content).Trim();
         var options = new JsonDocumentOptions
@@ -1055,7 +1187,14 @@ Rules:
             using var doc = JsonDocument.Parse(chunk, options);
             if (!doc.RootElement.TryGetProperty("rankings", out var arr) || arr.ValueKind != JsonValueKind.Array)
                 throw new InvalidOperationException("Missing rankings[]");
-            return BuildAdviceMap(arr, candidates);
+            var finalMap = BuildAdviceMap(arr, candidates);
+            if (finalMap.Count == 0)
+                throw new InvalidOperationException("LLM JSON did not match any candidate");
+            return finalMap;
+        }
+        catch (InvalidOperationException)
+        {
+            throw;
         }
         catch (JsonException ex)
         {
