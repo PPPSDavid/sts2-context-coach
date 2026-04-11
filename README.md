@@ -22,9 +22,10 @@ For most players, this mod is **plug-and-play**: download a release zip, extract
 3. Confirm these files exist:
    - `Sts2ContextCoach.dll`
    - `Sts2ContextCoach.json`
+   - `contextcoach.config`
    - `result_cleaned.csv`
-   - `data/cards.json`
-   - `data/relics.json`
+   
+   Card, relic, and keyword metadata are **embedded in the DLL** so Slay the Spire 2 does not treat loose `*.json` under `mods/` as extra mod manifests. You should **not** need a `data/` folder in the install directory for normal play.
 4. Ensure [BaseLib](https://github.com/Alchyr/BaseLib-StS2) is installed/enabled.
 5. Launch game.
 
