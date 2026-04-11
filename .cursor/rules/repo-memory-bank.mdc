@@ -23,7 +23,7 @@ Use this as baseline context in every session.
 ## Repo map
 
 - Runtime C# mod: `ModMain.cs`, `UI/`, `Scoring/`, `State/`, `Llm/`, `Telemetry/`, `Data/`, `Localization/`.
-- Maintainer tooling: `tools/data_refresh/` (Python metadata refresh/review pipeline).
+- Maintainer tooling: `tools/data_refresh/` (Python metadata refresh/review pipeline), `tools/run_insights/` (telemetry → staging insights JSON).
 - Build/deploy metadata in `Sts2ContextCoach.csproj`, release scripts in `tools/release/`.
 
 ## Critical working norms
@@ -32,6 +32,10 @@ Use this as baseline context in every session.
 - For in-game bugs, inspect Godot and ContextCoach logs before assuming source-code faults.
 - Keep runtime network dependencies optional; users should be able to play without LLM setup.
 - Never commit API keys or secret config values.
+
+## Review ritual (when the user asks for review / self-review)
+
+Use three short voices after meaningful changes: **Implementer** (tests, maintainability, straightforward fixes), **Architect** (evolution, performance, data volume), **Critic** (edge cases, privacy, false conclusions from biased telemetry). Keep each to concrete bullets tied to this repo.
 
 ## Primary references
 

@@ -18,6 +18,9 @@ tools/data_refresh/cache/
 tools/data_refresh/output/
 tools/data_refresh/backups/
 
+# run_insights CLI default output
+tools/run_insights/out/
+
 # Local release packaging output (repo root only; do not match tools/release/)
 /release/
 

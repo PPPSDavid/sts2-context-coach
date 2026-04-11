@@ -34,6 +34,8 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - `Telemetry/`
   - Runtime config and structured run logging.
   - Useful for diagnostics, tuning, and post-run analysis.
+  - `events.jsonl` may include `llm_coach_batch` / `llm_deck_summary` rows (corr id, batch key or deck signature, transcript basename, outcome) to correlate with Godot `[ContextCoach][LLM]` lines and `logs/llm/coach-*.json`.
+  - Card reward / shop `decision` events record **full-row** `engine_scores` when the overlay has a coach row (or reward-card heuristics when not).
 - `Data/`
   - Shipped metadata and loaders (`cards.json`, `relics.json`, `keywords.json`).
   - Includes glossary/repository classes and normalization helpers.
@@ -42,6 +44,9 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - `tools/data_refresh/`
   - Python pipeline for fetching/parsing/merging/reviewing metadata updates.
   - Not required for normal gameplay users.
+- `tools/run_insights/`
+  - Python CLI (`python -m tools.run_insights`, `PYTHONPATH=.`) reads `events.jsonl` or export ZIPs and writes **staging** pick-aggregate JSON (does not rewrite `Data/cards.json`).
+  - Unit tests: `python -m unittest discover -s tools/run_insights/tests -p "test_*.py"`.
 - `Sts2ContextCoach.Tests/`
   - xUnit regression tests for pure, runtime-safe scoring and data normalization behavior.
   - References the mod project while staying outside runtime packaging/deploy artifacts.
@@ -51,6 +56,7 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - Production mod loads from shipped metadata (`Data/*.json`) embedded in the assembly to avoid STS2 scanning extra JSON manifests under mod folders.
 - Runtime still ships key root files in mod directory: `Sts2ContextCoach.dll`, `Sts2ContextCoach.json`, `contextcoach.config`, `result_cleaned.csv`.
 - LLM is optional at runtime (`scoring_mode`, API-key settings in `contextcoach.config`).
+- Optional `llm_mirror_transcripts_into_run_folder` copies each `coach-*.json` transcript into the active run’s `llm/` folder so **Export & Share** ZIPs can include them alongside `events.jsonl`.
 
 ## Build and deploy workflow
 
@@ -100,6 +106,7 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 
 ## Changelog
 
+- 2026-04-11: LLM observability + telemetry: `events.jsonl` gains `llm_coach_batch` / `llm_deck_summary`; reward/shop decisions log full-row `engine_scores`; optional `llm_mirror_transcripts_into_run_folder` + export ZIP `llm/` entries; `tools/run_insights` CLI for staging insights from exports; Cursor **three-expert review ritual** documented in `.cursor/rules/repo-memory-bank.mdc`.
 - 2026-04-11: Added `Diagnostics/CoachGameLog` so metadata JSON ingestion can log under `dotnet test` without initializing Godot-backed `MegaCrit.Sts2.Core.Logging.Log` (fixes xUnit host AV on Windows); README gained a contributor “quick map” + explicit headless-test note; `.cursor/mcp.json` gitignored as machine-local.
 - 2026-04-11: `tools/release/build-release.ps1` now packages `dll` + manifest + `contextcoach.config` + `result_cleaned.csv` only (metadata is embedded in the DLL); `Sts2ContextCoach.csproj` assembly/file version aligned with `Sts2ContextCoach.json` for v0.1.3.
 - 2026-04-11: Fixed root `.gitignore` `release/` rule to `/release/` so `tools/release/*.ps1` is trackable while zip output stays ignored.

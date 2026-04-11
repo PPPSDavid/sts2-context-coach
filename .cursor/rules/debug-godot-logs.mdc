@@ -21,7 +21,7 @@ When investigating in-game behavior (LLM, shop probe, game state, overlays), **r
 | What | Path (Windows) |
 |------|----------------|
 | Writable root | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\` |
-| Telemetry / run folders | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\<run-id>\` (`events.jsonl`, `metadata.json`, `summary.json`) |
+| Telemetry / run folders | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\<run-id>\` (`events.jsonl`, `metadata.json`, `summary.json`; optional `llm/` when `llm_mirror_transcripts_into_run_folder` is true) |
 | Active-run pointer | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\active_run.json` |
 | LLM transcripts | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\logs\llm\coach-*.json` (when `llm_log_transcripts` is true in `contextcoach.config`) |
 | Export ZIPs | `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\exports\` |
@@ -31,12 +31,13 @@ When investigating in-game behavior (LLM, shop probe, game state, overlays), **r
 
 - Typical: `<Steam>\steamapps\common\Slay the Spire 2\mods\Sts2ContextCoach\`
 
-Correlate LLM transcript files with `godot.log` lines `[ContextCoach][LLM] transcript` and `[ContextCoach][LLM] POST` / `ok` / `batch failed`.
+Correlate LLM transcript files with `godot.log` lines `[ContextCoach][LLM] transcript` and `[ContextCoach][LLM] POST` / `ok` / `batch failed`. Match **`corr=`** in the log to `corr` in `events.jsonl` **`llm_coach_batch`** / **`llm_deck_summary`** rows and to the transcript filename suffix (`coach-*-{corr}.json`).
 
 ## What to grep
 
 - `[ContextCoach]` — mod lifecycle, scoring mode, snapshot hints
 - `[ContextCoach][LLM]` — `schedule`, `batchKey`, `candidates=`, `POST`, `ok`, `batch failed`, `debounce superseded`, `shop LLM row` (includes `shopRootBfs=`, `mode=`)
+- In `events.jsonl`, grep `"event_type":"llm_coach_batch"` / `"llm_deck_summary"` for structured outcomes and `transcript_file` basename
 
 ## Patterns that have meant real bugs
 
