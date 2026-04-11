@@ -103,6 +103,7 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - 2026-04-11: Added `Diagnostics/CoachGameLog` so metadata JSON ingestion can log under `dotnet test` without initializing Godot-backed `MegaCrit.Sts2.Core.Logging.Log` (fixes xUnit host AV on Windows); README gained a contributor “quick map” + explicit headless-test note; `.cursor/mcp.json` gitignored as machine-local.
 - 2026-04-11: `tools/release/build-release.ps1` now packages `dll` + manifest + `contextcoach.config` + `result_cleaned.csv` only (metadata is embedded in the DLL); `Sts2ContextCoach.csproj` assembly/file version aligned with `Sts2ContextCoach.json` for v0.1.3.
 - 2026-04-11: Fixed root `.gitignore` `release/` rule to `/release/` so `tools/release/*.ps1` is trackable while zip output stays ignored.
+- 2026-04-11: Added `docs/RELEASE_NOTES_v0.1.3.md` as the canonical English + 简体中文 text for the GitHub Release body.
 - 2026-04-08: Created initial memory bank and always-on rule so future sessions load repo context by default.
 - 2026-04-08: Added explicit auto-update protocol so future sessions refresh this memory when structure/goals/usage evolve.
 - 2026-04-08: Added `Sts2ContextCoach.Tests` xUnit workflow and documented `dotnet test` command to guard behavior during refactors.
