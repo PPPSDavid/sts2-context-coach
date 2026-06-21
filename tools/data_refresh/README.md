@@ -141,7 +141,7 @@ Exact supported card/relic tag vocabulary is documented in `SUPPORTED_TAGS.md` a
 - `refresh` does **not** modify production JSON.
 - `apply-approved` writes production only after explicit approvals; it creates a backup first.
 - Manual fields can be listed per-entity under `_meta.manual_override_fields` (future use); merge already respects `manual_override_fields` when present.
-- `heuristics-analyze` only writes review artifacts (`output/heuristic_proposals.json`, `output/heuristic_proposals.md`) and a helper script (`tools/data_refresh/review_heuristic_proposals.ps1`); it does not change runtime scoring code. It calls the LLM whenever the key referenced by `llm.api_key_env` is set, **even if** `llm.enabled` is false (so you can keep card/tag `enrich` off while still reviewing heuristics).
+- `heuristics-analyze` only writes review artifacts (`output/heuristic_proposals.json`, `output/heuristic_proposals.md`) and a helper script (`tools/data_refresh/review_heuristic_proposals.ps1`); it does not change runtime scoring code.
 
 ## Rollback
 

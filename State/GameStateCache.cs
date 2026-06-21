@@ -3,7 +3,6 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using Sts2ContextCoach.Diagnostics;
 using Sts2ContextCoach.Llm;
 using Sts2ContextCoach.Scoring;
-using Sts2ContextCoach.Telemetry;
 
 namespace Sts2ContextCoach.State;
 
@@ -13,10 +12,6 @@ namespace Sts2ContextCoach.State;
 public static class GameStateCache
 {
     private static readonly object Gate = new();
-    /// <summary>
-    /// Ensures only one thread runs reflection + deck analysis at a time (game objects are not thread-safe).
-    /// </summary>
-    private static readonly object BuildLock = new();
     private static long _lastRefreshMs;
     private static GameState? _global;
 
@@ -30,39 +25,7 @@ public static class GameStateCache
     public static GameState GetStateForCard(NCard? anchor)
     {
         var shared = GetOrRefreshGlobal();
-        // Victory/defeat screens often have no shop/reward NCard timers; sample the scene tree here.
-        try
-        {
-            RunLogger.TryProbeTerminalFromSceneTree(shared);
-        }
-        catch (Exception ex)
-        {
-            Log.Warn($"[ContextCoach] TryProbeTerminalFromSceneTree failed: {ex.Message}");
-        }
-
         return GameStateExtractor.MergePerCard(shared, anchor);
-    }
-
-    /// <summary>
-    /// Periodic tick when logging is on: refreshes shared state, probes the full UI tree for terminal
-    /// screens, and runs <see cref="RunLogger.ObserveRunState"/> so runs can close even if no
-    /// <see cref="NCard"/> overlay is active (empty hand / pure end-of-run UI).
-    /// </summary>
-    public static void TickRunTelemetryHeartbeat()
-    {
-        if (!RunLogger.IsEnabled)
-            return;
-
-        try
-        {
-            var shared = GetOrRefreshGlobal();
-            RunLogger.TryProbeTerminalFromSceneTree(shared);
-            RunLogger.ObserveRunState(shared);
-        }
-        catch (Exception ex)
-        {
-            Log.Warn($"[ContextCoach] TickRunTelemetryHeartbeat failed: {ex.Message}");
-        }
     }
 
     private static GameState GetOrRefreshGlobal()
@@ -72,38 +35,11 @@ public static class GameStateCache
         {
             if (_global != null && now - _lastRefreshMs < RefreshIntervalMs)
                 return _global;
-        }
 
-        // Reflection + deck analysis can take tens–hundreds of ms. Do not hold Gate during the work
-        // (so readers are not queued behind a long critical section), but serialize builds: game
-        // / Godot-backed reflection is not safe to run concurrently from multiple overlay threads.
-        string provenance;
-        GameState built;
-        lock (BuildLock)
-        {
-            lock (Gate)
-            {
-                if (_global != null && Environment.TickCount64 - _lastRefreshMs < RefreshIntervalMs)
-                    return _global;
-            }
-
-            var buildStarted = Environment.TickCount64;
-            built = GameStateExtractor.BuildGlobalReflectionState(out provenance);
-            built.CachedDeckAnalysis = DeckAnalyzer.Analyze(built);
-            var buildMs = Environment.TickCount64 - buildStarted;
-            if (buildMs > 1500)
-                Log.Warn($"[ContextCoach] GameStateCache reflection+analyze slow: {buildMs}ms (threshold 1500ms)");
-        }
-
-        lock (Gate)
-        {
-            var now2 = Environment.TickCount64;
-            if (_global != null && now2 - _lastRefreshMs < RefreshIntervalMs)
-                return _global;
-
-            MaybeResetCoachHistoryForNewRun(built);
-            _global = built;
-            _lastRefreshMs = Environment.TickCount64;
+            _lastRefreshMs = now;
+            _global = GameStateExtractor.BuildGlobalReflectionState(out var provenance);
+            MaybeResetCoachHistoryForNewRun(_global);
+            _global.CachedDeckAnalysis = DeckAnalyzer.Analyze(_global);
             if (ContextCoachLogging.Verbose)
                 Log.Info($"[ContextCoach] {ContextCoachLogging.FormatSnapshot(_global, provenance)} (interval={RefreshIntervalMs}ms)");
             return _global;

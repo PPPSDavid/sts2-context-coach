@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from config import GENERATOR_VERSION
 from deepdiff import DeepDiff
+
+from config import GENERATOR_VERSION
 from io_utils import write_json
 
 
@@ -44,7 +45,7 @@ def _summarize_diff(diff: Any) -> dict[str, Any]:
 
 
 def _utc() -> str:
-    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def write_refresh_report(

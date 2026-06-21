@@ -226,11 +226,7 @@ def _apply_wiki_card(
                         changed_fields=[field],
                         previous={"display_name": old},
                         proposed={"display_name": new_val},
-                        provenance={
-                            "source": "wiki",
-                            "confidence": 1.0,
-                            "derived_from": "parsed_source",
-                        },
+                        provenance={"source": "wiki", "confidence": 1.0, "derived_from": "parsed_source"},
                         confidence=1.0,
                         reason="Wiki display name differs from production",
                     )
@@ -250,11 +246,7 @@ def _apply_wiki_card(
                     changed_fields=[field],
                     previous={field: old},
                     proposed={field: new_val},
-                    provenance={
-                        "source": "wiki",
-                        "confidence": 1.0,
-                        "derived_from": "parsed_source",
-                    },
+                    provenance={"source": "wiki", "confidence": 1.0, "derived_from": "parsed_source"},
                     confidence=1.0,
                     reason=f"Wiki suggests different {field}",
                 )
@@ -366,11 +358,7 @@ def _apply_llm_card(
                     changed_fields=[field],
                     previous={field: old},
                     proposed={field: new_val},
-                    provenance={
-                        "source": "llm",
-                        "confidence": llm.confidence,
-                        "derived_from": "inferred",
-                    },
+                    provenance={"source": "llm", "confidence": llm.confidence, "derived_from": "inferred"},
                     confidence=llm.confidence,
                     reason="LLM proposed value — requires approval in safe/suggest mode",
                 )
@@ -429,11 +417,7 @@ def merge_relics(
                         changed_fields=["display_name"],
                         previous={"display_name": base.get("display_name")},
                         proposed={"display_name": new_dn},
-                        provenance={
-                            "source": "wiki",
-                            "confidence": 1.0,
-                            "derived_from": "parsed_source",
-                        },
+                        provenance={"source": "wiki", "confidence": 1.0, "derived_from": "parsed_source"},
                         confidence=1.0,
                         reason="Wiki display name differs",
                     )
@@ -465,11 +449,7 @@ def merge_relics(
                             changed_fields=[field],
                             previous={field: old},
                             proposed={field: new_val},
-                            provenance={
-                                "source": "llm",
-                                "confidence": llm.confidence,
-                                "derived_from": "inferred",
-                            },
+                            provenance={"source": "llm", "confidence": llm.confidence, "derived_from": "inferred"},
                             confidence=llm.confidence,
                             reason="LLM proposed relic field",
                         )

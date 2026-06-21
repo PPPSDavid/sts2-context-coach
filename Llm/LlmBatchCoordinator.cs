@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Linq;
 using System.Threading;
@@ -150,10 +149,6 @@ public static class LlmBatchCoordinator
         var batchKey = ComputeBatchKey(decisionType, globalState, candidates);
         var corr = Guid.NewGuid().ToString("N")[..8];
 
-        IReadOnlyDictionary<string, int>? inferDeckBefore = null;
-        IReadOnlyCollection<string>? inferNames = null;
-        string? inferSummary = null;
-
         lock (Gate)
         {
             var nowTicks = Environment.TickCount64;
@@ -190,26 +185,15 @@ public static class LlmBatchCoordinator
                 _lastGoodDeckSnapshot != null &&
                 _lastGoodCandidateNames is { Count: > 0 })
             {
-                inferDeckBefore = new Dictionary<string, int>(_lastGoodDeckSnapshot, StringComparer.OrdinalIgnoreCase);
-                inferNames = new HashSet<string>(_lastGoodCandidateNames, StringComparer.OrdinalIgnoreCase);
-                inferSummary = _lastGoodBatchSummary;
+                CoachPickHistory.TryInferPick(
+                    globalState.Deck,
+                    _lastGoodDeckSnapshot,
+                    _lastGoodCandidateNames,
+                    _lastGoodBatchSummary);
                 _lastGoodBatchKey = null;
                 _lastGoodDeckSnapshot = null;
                 _lastGoodCandidateNames = null;
                 _lastGoodBatchSummary = null;
-            }
-        }
-
-        if (inferDeckBefore != null && inferNames != null && inferNames.Count > 0)
-            CoachPickHistory.TryInferPick(globalState.Deck, inferDeckBefore, inferNames, inferSummary);
-
-        lock (Gate)
-        {
-            if (string.Equals(_uiBatchKey, batchKey, StringComparison.Ordinal) &&
-                (_status == LlmOverlayBatchStatus.Ready || _status == LlmOverlayBatchStatus.Pending ||
-                 _status == LlmOverlayBatchStatus.Failed))
-            {
-                return;
             }
 
             var ver = ++_scheduleVersion;
@@ -303,31 +287,27 @@ public static class LlmBatchCoordinator
             return;
         }
 
-        var superseded = false;
         lock (Gate)
         {
             if (version != _scheduleVersion)
-                superseded = true;
-        }
-
-        if (superseded)
-        {
-            Log.Info($"[ContextCoach][LLM] debounce superseded corr={corr} (version mismatch)");
-            var modelDeb = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
-                ? "openai/gpt-4o-mini"
-                : ContextCoachConfig.Current.LlmModel.Trim();
-            RunLogger.LogLlmCoachBatch(
-                globalState,
-                corr,
-                decisionType,
-                batchKey,
-                modelDeb,
-                0,
-                "debounce_superseded",
-                null,
-                "version mismatch after debounce",
-                null);
-            return;
+            {
+                Log.Info($"[ContextCoach][LLM] debounce superseded corr={corr} (version mismatch)");
+                var modelDeb = string.IsNullOrWhiteSpace(ContextCoachConfig.Current.LlmModel)
+                    ? "openai/gpt-4o-mini"
+                    : ContextCoachConfig.Current.LlmModel.Trim();
+                RunLogger.LogLlmCoachBatch(
+                    globalState,
+                    corr,
+                    decisionType,
+                    batchKey,
+                    modelDeb,
+                    0,
+                    "debounce_superseded",
+                    null,
+                    "version mismatch after debounce",
+                    null);
+                return;
+            }
         }
 
         var seq = Interlocked.Increment(ref _requestSeq);
@@ -807,13 +787,7 @@ keyword_hints lists glossary entries only for keywords that appear in on-screen 
 Each metadata_hint may include wiki card_type, description text, card_type_tags, synergy_tags, role_tags, and upgrade notes — prefer description + tags over guessing effects.
 Do not claim the deck has a specific strategy/synergy unless it is explicitly supported by deck_summary, relics, or coach_history.
 If evidence is weak/absent, use uncertainty language instead of asserting a strategy.
-
-coach_note style (mandatory):
-- Do not answer by paraphrasing metadata_hint.description or restating generic card text — the player can read the card.
-- Every coach_note must tie the pick to this run: cite at least one concrete hook from deck_summary, deck_profile.summary_lines (when present), relics, coach_history, or non-trivial hp/act/floor context when it changes the recommendation.
-- When decision is "shop" and the top-level gold field is a number: for each candidate with numeric shop_price, if shop_price > gold then say clearly it is not affordable now and add one short clause on whether it is still a long-term priority or should be ignored; if shop_price <= gold, you may briefly mention tight gold vs other shop rows or removal when relevant.
-
-For each card: assign coach_score 0–100 (higher = better pick now) and a very short coach_note (one line, about max ~120 UTF-8 characters — stay concise).
+For each card: assign coach_score 0–100 (higher = better pick now) and a very short coach_note (one line, max ~100 chars).
 coach_note must be valid inside JSON: no double-quote characters, no line breaks, no trailing backslash — use plain text only.
 Consider synergy with deck + relics, curve, win condition, and gold when shop_price is present.
 shop_price is merchant gold only — never describe it as combat energy (E) or conflate it with energy_cost.

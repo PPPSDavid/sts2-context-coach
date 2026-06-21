@@ -86,8 +86,7 @@ def discover_keyword_page_urls(html: str, page_url: str) -> list[str]:
         if not header_row:
             continue
         headers = [
-            re.sub(r"\s+", " ", th.get_text(" ", strip=True)).lower()
-            for th in header_row.find_all(["th", "td"])
+            re.sub(r"\s+", " ", th.get_text(" ", strip=True)).lower() for th in header_row.find_all(["th", "td"])
         ]
         name_idx = None
         for i, h in enumerate(headers):
@@ -216,9 +215,7 @@ def _compose_inline_definition(description: str, notes: str, stacking: str, caps
     return f"{base} {suf}".strip()
 
 
-def _status_table_column_indices(
-    headers: list[str],
-) -> tuple[int | None, int | None, int | None, int | None, int | None]:
+def _status_table_column_indices(headers: list[str]) -> tuple[int | None, int | None, int | None, int | None, int | None]:
     name_i = desc_i = notes_i = stacking_i = caps_i = None
     for i, h in enumerate(headers):
         if h == "name":
@@ -272,8 +269,7 @@ def iter_buff_debuff_wiki_rows(html: str, *, base_url: str) -> list[dict[str, st
         if not header_row:
             continue
         headers = [
-            re.sub(r"\s+", " ", th.get_text(" ", strip=True)).lower()
-            for th in header_row.find_all(["th", "td"])
+            re.sub(r"\s+", " ", th.get_text(" ", strip=True)).lower() for th in header_row.find_all(["th", "td"])
         ]
         name_i, desc_i, notes_i, stacking_i, caps_i = _status_table_column_indices(headers)
         if name_i is None or desc_i is None:
@@ -293,14 +289,8 @@ def iter_buff_debuff_wiki_rows(html: str, *, base_url: str) -> list[dict[str, st
             seen_keys.add(key)
 
             desc = _cell_plain_text(tds[desc_i])
-            notes = (
-                _cell_plain_text(tds[notes_i]) if notes_i is not None and notes_i < len(tds) else ""
-            )
-            stacking = (
-                _cell_plain_text(tds[stacking_i])
-                if stacking_i is not None and stacking_i < len(tds)
-                else ""
-            )
+            notes = _cell_plain_text(tds[notes_i]) if notes_i is not None and notes_i < len(tds) else ""
+            stacking = _cell_plain_text(tds[stacking_i]) if stacking_i is not None and stacking_i < len(tds) else ""
             caps = _cell_plain_text(tds[caps_i]) if caps_i is not None and caps_i < len(tds) else ""
 
             rows.append(

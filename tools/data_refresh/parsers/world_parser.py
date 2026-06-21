@@ -8,13 +8,8 @@ from typing import Any
 from urllib.parse import quote_plus
 
 from bs4 import BeautifulSoup
-from models import (
-    RawActRecord,
-    RawEncounterRecord,
-    RawEventRecord,
-    RawMonsterRecord,
-    RawMonsterSkillRecord,
-)
+
+from models import RawActRecord, RawEncounterRecord, RawEventRecord, RawMonsterRecord, RawMonsterSkillRecord
 
 
 def _guess_internal_name(display: str) -> str:
@@ -78,7 +73,7 @@ def extract_act_urls_from_acts_page(acts_html: str) -> list[str]:
         href = _absolute_wiki_url(a.get("href"))
         if not href or "Slay_the_Spire_2:" not in href:
             continue
-        title = a.get("title") or a.get_text(" ", strip=True) or ""
+        title = (a.get("title") or a.get_text(" ", strip=True) or "")
         title_l = title.lower()
         slug = href.split("Slay_the_Spire_2:", 1)[-1].split("#", 1)[0].split("?", 1)[0]
         slug_l = slug.lower()
@@ -248,9 +243,7 @@ def parse_act_page(
                 )
                 act.event_names.append(text)
         elif "elite" in section:
-            if not any(
-                e.name.lower() == text.lower() and e.encounter_type == "elite" for e in encounters
-            ):
+            if not any(e.name.lower() == text.lower() and e.encounter_type == "elite" for e in encounters):
                 encounters.append(
                     RawEncounterRecord(
                         name=text,
@@ -263,9 +256,7 @@ def parse_act_page(
                 )
                 act.elite_names.append(text)
         elif "boss" in section:
-            if not any(
-                e.name.lower() == text.lower() and e.encounter_type == "boss" for e in encounters
-            ):
+            if not any(e.name.lower() == text.lower() and e.encounter_type == "boss" for e in encounters):
                 encounters.append(
                     RawEncounterRecord(
                         name=text,
@@ -300,11 +291,7 @@ def parse_act_page(
             title = (a.get("title") or name or "").lower()
             if not href or not name or "Slay_the_Spire_2:" not in href:
                 continue
-            if (
-                "category:" in href.lower()
-                or "cards_list" in href.lower()
-                or "relics_list" in href.lower()
-            ):
+            if "category:" in href.lower() or "cards_list" in href.lower() or "relics_list" in href.lower():
                 continue
 
             if "monster" in title or "enemy" in title or "boss" in title:
@@ -478,9 +465,7 @@ def parse_act_wikitext(
     return act, events, encounters, monsters
 
 
-def enrich_events_with_detail_pages(
-    events: list[RawEventRecord], fetcher: Any, force: bool = False
-) -> list[RawEventRecord]:
+def enrich_events_with_detail_pages(events: list[RawEventRecord], fetcher: Any, force: bool = False) -> list[RawEventRecord]:
     out: list[RawEventRecord] = []
     seen: set[str] = set()
     for e in events:
@@ -518,9 +503,7 @@ def enrich_encounters_with_detail_pages(
     return out
 
 
-def enrich_monsters_with_detail_pages(
-    monsters: list[RawMonsterRecord], fetcher: Any, force: bool = False
-) -> list[RawMonsterRecord]:
+def enrich_monsters_with_detail_pages(monsters: list[RawMonsterRecord], fetcher: Any, force: bool = False) -> list[RawMonsterRecord]:
     out: list[RawMonsterRecord] = []
     seen: set[str] = set()
     for m in monsters:
@@ -562,9 +545,7 @@ def _extract_monster_detail(html: str) -> tuple[list[RawMonsterSkillRecord], str
         if node.name in {"h2", "h3"}:
             section = node.get_text(" ", strip=True).lower()
             continue
-        if node.name == "li" and (
-            "move" in section or "intent" in section or "skill" in section or "ability" in section
-        ):
+        if node.name == "li" and ("move" in section or "intent" in section or "skill" in section or "ability" in section):
             line = re.sub(r"\s+", " ", node.get_text(" ", strip=True)).strip()
             if not line:
                 continue
@@ -630,9 +611,7 @@ def _fetch_entity_wikitext(fetcher: Any, url: str, force: bool = False) -> str:
     return extract_wikitext_from_parse_api_response(cc.text)
 
 
-def _resolve_monster_wikitext(
-    fetcher: Any, monster: RawMonsterRecord, force: bool = False
-) -> tuple[str | None, str]:
+def _resolve_monster_wikitext(fetcher: Any, monster: RawMonsterRecord, force: bool = False) -> tuple[str | None, str]:
     # 1) Try direct title first; this is cheapest and most accurate.
     direct_wikitext = _fetch_entity_wikitext(fetcher, monster.source_url, force=force)
     if _extract_summary_from_wikitext(direct_wikitext):

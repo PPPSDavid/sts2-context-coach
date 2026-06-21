@@ -8,6 +8,7 @@ import time
 from typing import Any
 
 import requests
+
 from config import LlmConfig
 from models import LlmCardEnrichment, LlmRelicEnrichment, RawCardRecord, RawRelicRecord
 from tag_vocabulary import (
@@ -121,10 +122,10 @@ class LlmEnricher:
             "- notes must be short and factual.\n"
             "- If description does not clearly support a label, leave it out.\n"
             "Few-shot examples:\n"
-            'INPUT: {"name":"Hemokinesis","description":"Lose 2 HP. Deal 14 damage."}\n'
-            'OUTPUT: {"tags":["attack","frontload"],"synergy_tags":["attack"],"role_tags":["frontload"],"impact_level":"medium","notes":"Direct frontloaded damage with HP cost.","confidence":0.78}\n'
-            'INPUT: {"name":"Shrug It Off","description":"Gain 8 Block. Draw 1 card."}\n'
-            'OUTPUT: {"tags":["block","draw"],"synergy_tags":["block","draw"],"role_tags":["sustain","consistency"],"impact_level":"medium","notes":"Efficient defense plus cantrip draw.","confidence":0.9}\n'
+            "INPUT: {\"name\":\"Hemokinesis\",\"description\":\"Lose 2 HP. Deal 14 damage.\"}\n"
+            "OUTPUT: {\"tags\":[\"attack\",\"frontload\"],\"synergy_tags\":[\"attack\"],\"role_tags\":[\"frontload\"],\"impact_level\":\"medium\",\"notes\":\"Direct frontloaded damage with HP cost.\",\"confidence\":0.78}\n"
+            "INPUT: {\"name\":\"Shrug It Off\",\"description\":\"Gain 8 Block. Draw 1 card.\"}\n"
+            "OUTPUT: {\"tags\":[\"block\",\"draw\"],\"synergy_tags\":[\"block\",\"draw\"],\"role_tags\":[\"sustain\",\"consistency\"],\"impact_level\":\"medium\",\"notes\":\"Efficient defense plus cantrip draw.\",\"confidence\":0.9}\n"
             f"Classify this card:\n{user}"
         )
         data = self._chat(system, prompt)
@@ -161,10 +162,10 @@ class LlmEnricher:
             "- Do not emit broad catch-all tag sets; include only directly supported tags.\n"
             "- confidence must be 0..1.\n"
             "Few-shot examples:\n"
-            'INPUT: {"name":"Bag of Preparation","description":"At the start of each combat, draw 2 additional cards."}\n'
-            'OUTPUT: {"tags":["draw"],"synergy_tags":["draw"],"notes":"Improves opening hand consistency.","confidence":0.93}\n'
-            'INPUT: {"name":"Burning Blood","description":"At the end of combat, heal 6 HP."}\n'
-            'OUTPUT: {"tags":["block"],"synergy_tags":[],"notes":"Post-combat sustain, not direct combat synergy.","confidence":0.62}\n'
+            "INPUT: {\"name\":\"Bag of Preparation\",\"description\":\"At the start of each combat, draw 2 additional cards.\"}\n"
+            "OUTPUT: {\"tags\":[\"draw\"],\"synergy_tags\":[\"draw\"],\"notes\":\"Improves opening hand consistency.\",\"confidence\":0.93}\n"
+            "INPUT: {\"name\":\"Burning Blood\",\"description\":\"At the end of combat, heal 6 HP.\"}\n"
+            "OUTPUT: {\"tags\":[\"block\"],\"synergy_tags\":[],\"notes\":\"Post-combat sustain, not direct combat synergy.\",\"confidence\":0.62}\n"
             f"Classify this relic:\n{user}"
         )
         data = self._chat(system, prompt)
@@ -259,21 +260,21 @@ class LlmEnricher:
             "- Mechanical upgrade_* number/boolean fields: prefer null (pipeline fills from wiki when possible).\n"
             "Few-shot:\n"
             "INPUT CARD: Hemokinesis | 'Lose 2 HP. Deal 14 damage.'\n"
-            'OUTPUT: {"internal_name":"Hemokinesis","tags":["attack","frontload"],"synergy_tags":["attack"],'
+            "OUTPUT: {\"internal_name\":\"Hemokinesis\",\"tags\":[\"attack\",\"frontload\"],\"synergy_tags\":[\"attack\"],"
             '"role_tags":["frontload"],"impact_level":"medium","notes":"Direct damage with HP cost.",'
             '"confidence":0.78,"upgraded_description":null,"upgrade_summary":"More damage; same downside.",'
             '"upgrade_cost_delta":null,"upgrade_block_delta":null,"upgrade_draw_delta":null,"upgrade_damage_delta":null,'
             '"upgrade_removes_exhaust":null,"upgrade_major":false,"upgrade_tier":"B",'
             '"enchantment_potential_tier":"B","enchantment_tier_by_kind":{"attack":"B","remove_exhaust":"A"}}\n'
             "INPUT CARD: ShrugItOff | 'Gain 8 Block. Draw 1 card.' | upgraded: 'Gain 11 Block. Draw 1 card.'\n"
-            'OUTPUT: {"internal_name":"ShrugItOff","tags":["block","draw"],"synergy_tags":["block","draw"],'
+            "OUTPUT: {\"internal_name\":\"ShrugItOff\",\"tags\":[\"block\",\"draw\"],\"synergy_tags\":[\"block\",\"draw\"],"
             '"role_tags":["sustain","consistency"],"impact_level":"medium","notes":"Defense plus cantrip draw.",'
             '"confidence":0.88,"upgraded_description":null,"upgrade_summary":"Extra block improves/defends a common pick.",'
             '"upgrade_cost_delta":null,"upgrade_block_delta":null,"upgrade_draw_delta":null,"upgrade_damage_delta":null,'
             '"upgrade_removes_exhaust":null,"upgrade_major":false,"upgrade_tier":"B",'
             '"enchantment_potential_tier":"B","enchantment_tier_by_kind":{"block":"B","draw":"B"}}\n'
             "INPUT CARD: Prepared (Silent) | 'Draw 1 card. Discard 1 card.' | upgraded: 'Draw 2 cards. Discard 2 cards.'\n"
-            'OUTPUT: {"internal_name":"Prepared","tags":["skill","draw","discard"],"synergy_tags":["draw","discard"],'
+            "OUTPUT: {\"internal_name\":\"Prepared\",\"tags\":[\"skill\",\"draw\",\"discard\"],\"synergy_tags\":[\"draw\",\"discard\"],"
             '"role_tags":["consistency","setup"],"impact_level":"medium","notes":"Cycles hand and fuels discard synergies.",'
             '"confidence":0.86,"upgraded_description":null,'
             '"upgrade_summary":"Both draw and discard climb 1→2: more chips to strip and better odds to hit discard payoffs (e.g. Sly) while this common skill usually costs 0 so tempo stays free.",'
@@ -282,7 +283,7 @@ class LlmEnricher:
             '"enchantment_potential_tier":"S","enchantment_tier_by_kind":{"draw":"S","energy":"A","remove_exhaust":"A"}}\n'
             "INPUT CARD: Voltaic (Defect) | base has Exhaust | 'Channel Lightning equal to the Lightning already Channeled this combat. Exhaust .' "
             "| upgraded: 'Channel Lightning equal to the Lightning already Channeled this combat.'\n"
-            'OUTPUT: {"internal_name":"Voltaic","tags":["skill","scaling","exhaust"],"synergy_tags":["scaling","exhaust"],'
+            "OUTPUT: {\"internal_name\":\"Voltaic\",\"tags\":[\"skill\",\"scaling\",\"exhaust\"],\"synergy_tags\":[\"scaling\",\"exhaust\"],"
             '"role_tags":["setup","scaling"],"impact_level":"high","notes":"Channels Lightning based on prior channels; exhaust gates repeats.",'
             '"confidence":0.9,"upgraded_description":null,'
             '"upgrade_summary":"Removing Exhaust lets you replay it every cycle; each play channels more Lightning than the last, so orbs snowball exponentially through the fight.",'
@@ -306,9 +307,7 @@ class LlmEnricher:
                 continue
             parsed = LlmCardEnrichment.model_validate(row)
             parsed.tags = normalize_tag_list(parsed.tags, SUPPORTED_CARD_TAGS)
-            parsed.synergy_tags = normalize_tag_list(
-                parsed.synergy_tags, SUPPORTED_CARD_SYNERGY_TAGS
-            )
+            parsed.synergy_tags = normalize_tag_list(parsed.synergy_tags, SUPPORTED_CARD_SYNERGY_TAGS)
             parsed.role_tags = normalize_tag_list(parsed.role_tags, SUPPORTED_CARD_ROLE_TAGS)
             if parsed.impact_level and parsed.impact_level.lower() in SUPPORTED_IMPACT_LEVELS:
                 parsed.impact_level = parsed.impact_level.lower()
@@ -325,13 +324,7 @@ class LlmEnricher:
             for k, v in (parsed.enchantment_tier_by_kind or {}).items():
                 nk = str(k).strip().lower()
                 tv = str(v).strip().upper()
-                if nk in {"attack", "block", "draw", "energy", "remove_exhaust"} and tv in {
-                    "D",
-                    "C",
-                    "B",
-                    "A",
-                    "S",
-                }:
+                if nk in {"attack", "block", "draw", "energy", "remove_exhaust"} and tv in {"D", "C", "B", "A", "S"}:
                     clean_kind[nk] = tv
             parsed.enchantment_tier_by_kind = clean_kind
             out[iid] = parsed
@@ -377,13 +370,7 @@ class LlmEnricher:
                 if not isinstance(parsed, dict):
                     raise ValueError("LLM response must be a JSON object")
                 return parsed
-            except (
-                requests.Timeout,
-                requests.ConnectionError,
-                ValueError,
-                KeyError,
-                RuntimeError,
-            ) as e:
+            except (requests.Timeout, requests.ConnectionError, ValueError, KeyError, RuntimeError) as e:
                 last_err = e
                 if attempt < 2:
                     time.sleep(1.5 * (attempt + 1))
@@ -412,9 +399,7 @@ class AnthropicEnricher(LlmEnricher):
     """Optional alternate provider — stub hooks for future Messages API."""
 
     def _chat(self, system: str, user: str) -> dict[str, Any]:
-        raise NotImplementedError(
-            "Set provider to openai_compatible or implement AnthropicEnricher"
-        )
+        raise NotImplementedError("Set provider to openai_compatible or implement AnthropicEnricher")
 
 
 def build_enricher(cfg: LlmConfig) -> LlmEnricher:

@@ -43,9 +43,6 @@ internal static class RunLogger
     private static long _lastWriteSummaryMs;
     /// <summary>Many card overlays call ObserveRunState on independent timers; coalesce to one pass per interval.</summary>
     private static long _lastObserveRunStateMs;
-
-    /// <summary>Scene-tree terminal probe from <see cref="GameStateCache"/> (independent of card overlay ticks).</summary>
-    private static long _lastTerminalSceneProbeMs;
     private static string? _metadataWrittenCharacter;
     private static readonly HashSet<string> SeenDecisionFingerprints = new(StringComparer.Ordinal);
     private static readonly List<PendingDecision> PendingRewardDecisions = [];
@@ -69,8 +66,6 @@ internal static class RunLogger
                     return;
                 if (TryResumeActiveRunLocked(state))
                     return;
-                if (LooksLikeTerminalEndScreen(state))
-                    return;
                 InitializeRunLocked(state);
             }
             catch (Exception ex)
@@ -78,25 +73,6 @@ internal static class RunLogger
                 Log.Warn($"[ContextCoach] RunLogger init failed: {ex.Message}");
             }
         }
-    }
-
-    /// <summary>Avoid creating a fresh run log while the player is still on post-run victory/defeat UI.</summary>
-    private static bool LooksLikeTerminalEndScreen(GameState state)
-    {
-        try
-        {
-            var path = CombatScreenHeuristic.BuildGlobalUiPath();
-            if (RunOutcomeClassifier.Classify(state.Hp, path) != null)
-                return true;
-            if (RunOutcomeClassifier.Classify(state.Hp, state.CurrentScreen) != null)
-                return true;
-        }
-        catch
-        {
-            // If Godot scene tree is unavailable, do not block initialization.
-        }
-
-        return false;
     }
 
     public static void LogDecision(
@@ -379,66 +355,6 @@ internal static class RunLogger
         }
     }
 
-    /// <summary>
-    /// Samples the live Godot scene tree for victory/defeat UI and closes the run log when matched.
-    /// Call this from <see cref="Sts2ContextCoach.State.GameStateCache"/> so wins are not missed when no <c>NCard</c> overlay fires.
-    /// </summary>
-    public static void TryProbeTerminalFromSceneTree(GameState runSnapshot)
-    {
-        if (!IsEnabled)
-            return;
-
-        EnsureInitialized(runSnapshot);
-        if (_runId == null)
-            return;
-
-        var path = CombatScreenHeuristic.BuildGlobalUiPath();
-        if (string.IsNullOrWhiteSpace(path))
-            return;
-
-        var probe = ShallowCopyForTerminalProbe(runSnapshot, path);
-
-        lock (Gate)
-        {
-            try
-            {
-                if (_runFinishedLogged)
-                    return;
-
-                var nowProbe = Environment.TickCount64;
-                if (_lastTerminalSceneProbeMs != 0 && nowProbe - _lastTerminalSceneProbeMs < 350)
-                    return;
-                _lastTerminalSceneProbeMs = nowProbe;
-
-                DetectAndRotateRun(probe);
-                TryAutoCloseTerminalRun(probe);
-            }
-            catch (Exception ex)
-            {
-                Log.Warn($"[ContextCoach] RunLogger terminal scene probe failed: {ex.Message}");
-            }
-        }
-    }
-
-    private static GameState ShallowCopyForTerminalProbe(GameState s, string currentScreen) => new()
-    {
-        Character = s.Character,
-        Hp = s.Hp,
-        MaxHp = s.MaxHp,
-        Gold = s.Gold,
-        Deck = s.Deck,
-        Relics = s.Relics,
-        Act = s.Act,
-        Floor = s.Floor,
-        Ascension = s.Ascension,
-        MaxEnergy = s.MaxEnergy,
-        RunIdentity = s.RunIdentity,
-        SavePlayerCount = s.SavePlayerCount,
-        CachedDeckAnalysis = s.CachedDeckAnalysis,
-        CurrentScreen = currentScreen,
-        RewardCards = null
-    };
-
     private static void DetectAndRotateRun(GameState state)
     {
         if (_runId == null || _runFinishedLogged)
@@ -466,9 +382,26 @@ internal static class RunLogger
         _runOutcome = "user_gave_up";
         WriteSummary(state, "user_gave_up");
         ClearActiveRunPointer();
-        Log.Info($"[ContextCoach][run-log] run_finished status=user_gave_up run_id={_runId}");
 
-        ResetSessionAfterRunClosed();
+        _runId = null;
+        _runDir = null;
+        _eventsPath = null;
+        _runFinishedLogged = false;
+        _runOutcome = "active";
+        _eventCount = 0;
+        _decisionCount = 0;
+        _combatCount = 0;
+        _decisionSeq = 0;
+        _combatActive = false;
+        _combatEnterStreak = 0;
+        _combatExitStreak = 0;
+        _combatTurns = 0;
+        _combatStartHp = 0;
+        _lastEncounter = null;
+        _lastDeckCounts = null;
+        PendingRewardDecisions.Clear();
+        DecisionAttribution.Clear();
+
         InitializeRunLocked(state);
     }
 
@@ -502,36 +435,6 @@ internal static class RunLogger
         {
             Log.Warn($"[ContextCoach] ClearActiveRunPointer failed: {ex.Message}");
         }
-    }
-
-    /// <summary>Clears in-memory run session after a terminal <c>run_finished</c> so a new run can log in-process.</summary>
-    private static void ResetSessionAfterRunClosed()
-    {
-        _runId = null;
-        _runDir = null;
-        _eventsPath = null;
-        _runFinishedLogged = false;
-        _runOutcome = "active";
-        _eventCount = 0;
-        _decisionCount = 0;
-        _combatCount = 0;
-        _decisionSeq = 0;
-        _combatActive = false;
-        _combatEnterStreak = 0;
-        _combatExitStreak = 0;
-        _combatTurns = 0;
-        _combatStartHp = 0;
-        _lastEncounter = null;
-        _lastDeckCounts = null;
-        PendingRewardDecisions.Clear();
-        DecisionAttribution.Clear();
-        SeenDecisionFingerprints.Clear();
-        _lastHp = null;
-        _lastFloor = null;
-        _metadataWrittenCharacter = null;
-        _lastWriteSummaryMs = 0;
-        _lastObserveRunStateMs = 0;
-        _lastTerminalSceneProbeMs = 0;
     }
 
     private static bool TryResumeActiveRunLocked(GameState state)
@@ -945,7 +848,6 @@ internal static class RunLogger
 
             try
             {
-                var finishedRunId = _runId;
                 UpdateDecisionAttribution(state, forceSnapshot: true);
                 EmitEvent(new
                 {
@@ -959,8 +861,6 @@ internal static class RunLogger
                 _runOutcome = status;
                 WriteSummary(state, status);
                 ClearActiveRunPointer();
-                Log.Info($"[ContextCoach][run-log] run_finished status={status} run_id={finishedRunId}");
-                ResetSessionAfterRunClosed();
             }
             catch (Exception ex)
             {
@@ -1217,7 +1117,6 @@ internal static class RunLogger
         if (terminal == null)
             return;
 
-        var finishedRunId = _runId;
         UpdateDecisionAttribution(state, forceSnapshot: true);
         EmitEvent(new
         {
@@ -1231,12 +1130,30 @@ internal static class RunLogger
         _runOutcome = terminal;
         WriteSummary(state, terminal);
         ClearActiveRunPointer();
-        Log.Info($"[ContextCoach][run-log] run_finished status={terminal} run_id={finishedRunId}");
-        ResetSessionAfterRunClosed();
     }
 
-    private static string? DetectTerminalStatus(GameState state) =>
-        RunOutcomeClassifier.Classify(state.Hp, state.CurrentScreen);
+    private static string? DetectTerminalStatus(GameState state)
+    {
+        if (state.Hp is <= 0)
+            return "defeat";
+
+        var screen = state.CurrentScreen ?? "";
+        // Do not use bare "win" — it matches "Window" in many Godot UI paths and falsely ends the run.
+        if (screen.Contains("victory", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("credits", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("RunComplete", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("run_complete", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("NeoVictory", StringComparison.OrdinalIgnoreCase))
+            return "victory";
+
+        if (screen.Contains("defeat", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("death", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("gameover", StringComparison.OrdinalIgnoreCase) ||
+            screen.Contains("GameOver", StringComparison.OrdinalIgnoreCase))
+            return "defeat";
+
+        return null;
+    }
 
     private static void EmitEvent(object payload)
     {

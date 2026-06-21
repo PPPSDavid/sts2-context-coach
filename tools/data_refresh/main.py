@@ -16,7 +16,6 @@ if str(_ROOT) not in sys.path:
 
 from config import load_config  # noqa: E402
 from io_utils import create_backup, ensure_dirs, list_backups, read_json, write_json  # noqa: E402
-from keywords_pipeline import run_keywords_refresh  # noqa: E402
 from llm_enrichment import build_enricher  # noqa: E402
 from llm_heuristic_review import (  # noqa: E402
     list_proposals as list_heuristic_proposals,
@@ -34,20 +33,18 @@ from models import (  # noqa: E402
     ReviewQueueFile,
     utc_now_iso,
 )
-from parsers.cards_parser import (  # noqa: E402
-    enrich_cards_with_detail_pages,
-    parse_cards_from_wiki_html,
-)
+from parsers.cards_parser import enrich_cards_with_detail_pages, parse_cards_from_wiki_html  # noqa: E402
 from parsers.patch_parser import extract_patch_entities_heuristic, parse_steam_rss  # noqa: E402
 from parsers.relics_parser import parse_relics_from_wiki_html  # noqa: E402
+from keywords_pipeline import run_keywords_refresh  # noqa: E402
 from parsers.world_parser import (  # noqa: E402
     build_wiki_parse_api_url,
     enrich_encounters_with_detail_pages,
     enrich_events_with_detail_pages,
     enrich_monsters_with_detail_pages,
-    extract_act_urls_from_acts_page,
-    extract_act_urls_from_acts_wikitext,
     extract_wikitext_from_parse_api_response,
+    extract_act_urls_from_acts_wikitext,
+    extract_act_urls_from_acts_page,
     parse_act_page,
     parse_act_wikitext,
 )
@@ -138,18 +135,12 @@ def _build_metadata_summary(
         by_act_encounters[act] = by_act_encounters.get(act, 0) + 1
     elite_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "elite")
     boss_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "boss")
-    normal_encounter_count = sum(
-        1 for e in encounters if str(e.get("encounter_type") or "normal") == "normal"
-    )
+    normal_encounter_count = sum(1 for e in encounters if str(e.get("encounter_type") or "normal") == "normal")
     monsters_with_skills = 0
     total_monster_skills = 0
     events_with_description = sum(1 for e in events if str(e.get("raw_description") or "").strip())
-    encounters_with_description = sum(
-        1 for e in encounters if str(e.get("raw_description") or "").strip()
-    )
-    monsters_with_description = sum(
-        1 for m in monsters if str(m.get("raw_description") or "").strip()
-    )
+    encounters_with_description = sum(1 for e in encounters if str(e.get("raw_description") or "").strip())
+    monsters_with_description = sum(1 for m in monsters if str(m.get("raw_description") or "").strip())
     for m in monsters:
         skills = m.get("skills") or []
         if skills:
@@ -195,9 +186,7 @@ def _name_from_wiki_url(url: str) -> str:
     return slug or url
 
 
-def _annotate_shared_across_acts(
-    acts: list[object], events: list[object], encounters: list[object], monsters: list[object]
-) -> None:
+def _annotate_shared_across_acts(acts: list[object], events: list[object], encounters: list[object], monsters: list[object]) -> None:
     # Build inverse index from per-act name sets.
     event_index: dict[str, set[str]] = {}
     encounter_index: dict[str, set[str]] = {}
@@ -242,11 +231,7 @@ def fetch(
     comm = CommunityGuidesSource(fetcher, guide_urls=[])
 
     manifest: list[dict[str, str | bool | None]] = []
-    for url, cc in {
-        **wiki.fetch_all(force=force),
-        **steam.fetch_all(force=force),
-        **comm.fetch_all(force=force),
-    }.items():
+    for url, cc in {**wiki.fetch_all(force=force), **steam.fetch_all(force=force), **comm.fetch_all(force=force)}.items():
         manifest.append(
             {
                 "url": url,
@@ -256,13 +241,8 @@ def fetch(
                 "error": cc.error,
             }
         )
-    write_json(
-        paths.output_dir / "fetch_manifest.json",
-        {"generated_at": utc_now_iso(), "entries": manifest},
-    )
-    typer.echo(
-        f"Fetch complete. {len(manifest)} URLs. Manifest: {paths.output_dir / 'fetch_manifest.json'}"
-    )
+    write_json(paths.output_dir / "fetch_manifest.json", {"generated_at": utc_now_iso(), "entries": manifest})
+    typer.echo(f"Fetch complete. {len(manifest)} URLs. Manifest: {paths.output_dir / 'fetch_manifest.json'}")
 
 
 @app.command()
@@ -276,15 +256,14 @@ def parse(
     paths = cfg.paths
     ensure_dirs(paths.output_dir, paths.cache_dir)
     fetcher = CachedFetcher(paths.cache_dir, cfg.fetch)
+    wiki = WikiGgSource(fetcher, cfg.sources)
 
     cards_html = fetcher.get_text(cfg.sources.wiki_cards_list, force=force)
     relics_html = fetcher.get_text(cfg.sources.wiki_relics_list, force=force)
 
     raw_cards = parse_cards_from_wiki_html(cards_html.text, cards_html.url, cards_html.fetched_at)
     raw_cards = enrich_cards_with_detail_pages(raw_cards, fetcher, max_fetch=300, force=force)
-    raw_relics = parse_relics_from_wiki_html(
-        relics_html.text, relics_html.url, relics_html.fetched_at
-    )
+    raw_relics = parse_relics_from_wiki_html(relics_html.text, relics_html.url, relics_html.fetched_at)
     raw_cards = _dedupe_records_by_internal_name(raw_cards, "card")
     raw_relics = _dedupe_records_by_internal_name(raw_relics, "relic")
 
@@ -294,9 +273,7 @@ def parse(
         dict.fromkeys(
             cfg.sources.wiki_act_pages
             + extract_act_urls_from_acts_page(acts_html.text)
-            + extract_act_urls_from_acts_wikitext(
-                extract_wikitext_from_parse_api_response(acts_wiki.text)
-            )
+            + extract_act_urls_from_acts_wikitext(extract_wikitext_from_parse_api_response(acts_wiki.text))
         )
     )
     acts = []
@@ -423,9 +400,7 @@ def enrich(
 @app.command("heuristics-analyze")
 def heuristics_analyze(
     config: Path | None = typer.Option(None, "--config"),
-    logs_dir: Path = typer.Option(
-        Path("logs"), "--logs-dir", help="Directory containing run log folders"
-    ),
+    logs_dir: Path = typer.Option(Path("logs"), "--logs-dir", help="Directory containing run log folders"),
     runs_limit: int = typer.Option(40, "--runs-limit", min=1, max=200),
 ) -> None:
     """Use LLM to propose scoring heuristic changes from run telemetry."""
@@ -484,13 +459,9 @@ def keywords_refresh_cmd(
     if stats.get("table_fallback_rows_added"):
         typer.echo(f"Table fallback rows added: {stats['table_fallback_rows_added']}")
     if stats.get("detail_page_supplements_applied"):
-        typer.echo(
-            f"Detail pages supplemented from table: {stats['detail_page_supplements_applied']}"
-        )
+        typer.echo(f"Detail pages supplemented from table: {stats['detail_page_supplements_applied']}")
     if stats.get("detail_pages_skipped_empty"):
-        typer.echo(
-            f"Skipped {stats['detail_pages_skipped_empty']} detail URL(s) with empty lead section."
-        )
+        typer.echo(f"Skipped {stats['detail_pages_skipped_empty']} detail URL(s) with empty lead section.")
 
 
 @app.command("heuristics-set")
@@ -593,9 +564,7 @@ def refresh_cmd(
 
     raw_cards = parse_cards_from_wiki_html(cards_html.text, cards_html.url, cards_html.fetched_at)
     raw_cards = enrich_cards_with_detail_pages(raw_cards, fetcher, max_fetch=300, force=force)
-    raw_relics = parse_relics_from_wiki_html(
-        relics_html.text, relics_html.url, relics_html.fetched_at
-    )
+    raw_relics = parse_relics_from_wiki_html(relics_html.text, relics_html.url, relics_html.fetched_at)
     raw_cards = _dedupe_records_by_internal_name(raw_cards, "card")
     raw_relics = _dedupe_records_by_internal_name(raw_relics, "relic")
 
@@ -605,9 +574,7 @@ def refresh_cmd(
         dict.fromkeys(
             cfg.sources.wiki_act_pages
             + extract_act_urls_from_acts_page(acts_html.text)
-            + extract_act_urls_from_acts_wikitext(
-                extract_wikitext_from_parse_api_response(acts_wiki.text)
-            )
+            + extract_act_urls_from_acts_wikitext(extract_wikitext_from_parse_api_response(acts_wiki.text))
         )
     )
     acts = []
@@ -669,10 +636,7 @@ def refresh_cmd(
     encounters = enrich_encounters_with_detail_pages(encounters, fetcher, force=force)
     monsters = enrich_monsters_with_detail_pages(monsters, fetcher, force=force)
 
-    prod_kw_snapshot = read_json(paths.data_dir / "keywords.json") or {
-        "schema_version": 1,
-        "keywords": [],
-    }
+    prod_kw_snapshot = read_json(paths.data_dir / "keywords.json") or {"schema_version": 1, "keywords": []}
     kw_stats = run_keywords_refresh(cfg, fetcher, force=force, write_production=True)
     kw_sum = _keywords_glossary_summary(kw_stats)
     gen_kw_doc = read_json(paths.output_dir / "keywords.generated.json") or {}
@@ -723,9 +687,7 @@ def refresh_cmd(
 
     known_names_cards = {str(c.get("internal_name")) for c in prod_cards if c.get("internal_name")}
     known_names_cards |= {c.internal_name for c in raw_cards if c.internal_name}
-    known_names_relics = {
-        str(r.get("internal_name")) for r in prod_relics if r.get("internal_name")
-    }
+    known_names_relics = {str(r.get("internal_name")) for r in prod_relics if r.get("internal_name")}
     known_names_relics |= {r.internal_name for r in raw_relics if r.internal_name}
 
     rss = fetcher.get_text(cfg.sources.steam_news_rss, force=force)
@@ -753,9 +715,7 @@ def refresh_cmd(
         # Full parsed coverage for refresh output (not just currently shipped production entities).
         llm_card_targets = [c for c in raw_cards if c.internal_name]
         llm_relic_targets = [r for r in raw_relics if r.internal_name]
-        typer.echo(
-            f"LLM cards: class-batched enrichment across {len(llm_card_targets)} target cards"
-        )
+        typer.echo(f"LLM cards: class-batched enrichment across {len(llm_card_targets)} target cards")
         llm_cards.update(enricher.enrich_cards(llm_card_targets))
         typer.echo(f"LLM relics: enriching up to {cfg.llm.max_items_per_run} target relics")
         llm_relics.update(enricher.enrich_relics(llm_relic_targets))
@@ -776,17 +736,11 @@ def refresh_cmd(
     )
 
     cards_gen = {"schema_version": prod_cards_doc.get("schema_version", 1), "cards": merged_cards}
-    relics_gen = {
-        "schema_version": prod_relics_doc.get("schema_version", 1),
-        "relics": merged_relics,
-    }
+    relics_gen = {"schema_version": prod_relics_doc.get("schema_version", 1), "relics": merged_relics}
 
     write_json(paths.output_dir / "cards.generated.json", cards_gen)
     write_json(paths.output_dir / "relics.generated.json", relics_gen)
-    write_json(
-        paths.output_dir / "patch_notes.generated.json",
-        {"schema_version": 1, "patches": patches_out},
-    )
+    write_json(paths.output_dir / "patch_notes.generated.json", {"schema_version": 1, "patches": patches_out})
 
     write_diff_json(paths.output_dir / "cards.diff.json", prod_cards_doc, cards_gen)
     write_diff_json(paths.output_dir / "relics.diff.json", prod_relics_doc, relics_gen)
@@ -811,10 +765,7 @@ def refresh_cmd(
         keywords_glossary=kw_sum,
     )
 
-    write_json(
-        paths.output_dir / "fetch_manifest.json",
-        {"generated_at": utc_now_iso(), "entries": fetch_summary},
-    )
+    write_json(paths.output_dir / "fetch_manifest.json", {"generated_at": utc_now_iso(), "entries": fetch_summary})
 
     typer.echo(
         f"Refresh complete. Review queue: {len(rq.items)} items. "

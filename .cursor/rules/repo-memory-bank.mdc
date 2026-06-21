@@ -1,27 +1,48 @@
 ---
-description: Load repo memory bank and session-start checklist for STS2 Context Coach
+description: Repo memory bank for STS2 Context Coach architecture and workflow
 alwaysApply: true
 ---
 
-# Repo memory bank (always read first)
+# STS2 Context Coach - Always-on Memory
 
-Before exploring or editing, read **`docs/REPO_MEMORY_BANK.md`** for goals, architecture, diagnostics paths, and safety conventions.
+Use this as baseline context in every session.
 
-## Session start
+## Auto-update requirement (always)
 
-1. Read **`docs/REPO_MEMORY_BANK.md`** and skim **`README.md`** Maintainer Notes if touching build/data.
-2. Prefer **code-review-graph MCP tools** before Grep/Glob/Read for exploration (see **`AGENTS.md`**).
-3. Check active changes (`git status` / `detect_changes`) before large edits.
-4. For runtime bugs: Godot log `%AppData%\Roaming\SlayTheSpire2\logs\godot.log` and Context Coach root `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\`.
+- Treat `docs/REPO_MEMORY_BANK.md` as a living source of truth.
+- When a task changes repo structure, goals, usage patterns, major workflows, or debugging paths, update the memory bank in the same session before finishing.
+- Keep updates short and factual; prefer additive edits over rewrites.
+- Add a one-line entry to the memory bank changelog section for each meaningful update (date + what changed + why).
+- If a session has no meaningful architecture/workflow change, do not edit the memory bank.
 
-## Three-expert review (substantive changes)
+## Mission
 
-Before claiming a scoring/state/LLM/telemetry change is done, sanity-check three lenses:
+- Maintain a stable Slay the Spire 2 recommendation overlay mod.
+- Preserve gameplay-safe heuristic scoring while supporting optional LLM-assisted coaching.
 
-1. **Player runtime** — Works with LLM off? No unsafe concurrent reflection in `GameStateCache`? Overlay/settings stable?
-2. **Data & scoring** — Pure logic covered by xUnit? Metadata merges stay conservative? Localization intact?
-3. **Maintainer ops** — Validation commands run? Memory bank / agent docs updated if workflows changed?
+**GitHub:** https://github.com/PPPSDavid/sts2-context-coach
 
-## Memory bank maintenance
+## Repo map
 
-When architecture, goals, diagnostics, or agent workflows change materially, update **`docs/REPO_MEMORY_BANK.md`** (concise, operational) and add a changelog entry.
+- Runtime C# mod: `ModMain.cs`, `UI/`, `Scoring/`, `State/`, `Llm/`, `Telemetry/`, `Data/`, `Localization/`.
+- Maintainer tooling: `tools/data_refresh/` (Python metadata refresh/review pipeline), `tools/run_insights/` (telemetry → staging insights JSON).
+- Build/deploy metadata in `Sts2ContextCoach.csproj`, release scripts in `tools/release/`.
+
+## Critical working norms
+
+- Treat this repo as often intentionally dirty; do not revert unrelated changes.
+- For in-game bugs, inspect Godot and ContextCoach logs before assuming source-code faults.
+- Keep runtime network dependencies optional; users should be able to play without LLM setup.
+- Never commit API keys or secret config values.
+
+## Review ritual (when the user asks for review / self-review)
+
+Use three short voices after meaningful changes: **Implementer** (tests, maintainability, straightforward fixes), **Architect** (evolution, performance, data volume), **Critic** (edge cases, privacy, false conclusions from biased telemetry). Keep each to concrete bullets tied to this repo.
+
+## Primary references
+
+- Agent onboarding: `AGENTS.md`
+- Human memory bank: `docs/REPO_MEMORY_BANK.md`
+- User-facing overview: `README.md`
+- Validation loop: `.cursor/rules/agent-validation.mdc`
+- Debug rule: `.cursor/rules/debug-godot-logs.mdc`

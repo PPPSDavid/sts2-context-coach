@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Iterable
+from typing import Iterable
 
 # Core tags used by DeckAnalyzer / RecommendationEngine behavior.
 ENGINE_CRITICAL_CARD_TAGS = {
@@ -96,3 +96,4 @@ def normalize_tag_list(values: Iterable[str], allowed: set[str] | list[str]) -> 
         seen.add(t)
         out.append(t)
     return out
+

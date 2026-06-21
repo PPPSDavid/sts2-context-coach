@@ -3,10 +3,10 @@
 Run (from any shell that can invoke base Python):
   D:\\miniconda\\python.exe tools/restore_pluggy_miniconda.py
 """
-
 from __future__ import annotations
 
 import shutil
+import sys
 import tempfile
 import urllib.request
 import zipfile

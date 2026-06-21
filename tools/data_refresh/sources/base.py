@@ -7,8 +7,10 @@ import json
 import time
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import requests
+
 from config import FetchConfig
 from models import utc_now_iso
 

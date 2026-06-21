@@ -210,8 +210,8 @@ def _apply_yaml(
         if hasattr(fetch, k) and v is not None:
             setattr(fetch, k, v)
 
-    llm_raw = raw.get("llm") or {}
-    for k, v in llm_raw.items():
+    l = raw.get("llm") or {}
+    for k, v in l.items():
         if hasattr(llm, k) and v is not None:
             setattr(llm, k, v)
 

@@ -1,33 +1,35 @@
-# Build / IDE
 bin/
 obj/
+lib/*.dll
 .vs/
 *.user
 *.suo
-
-# Release zips (scripts under tools/release/ stay tracked)
-/release/
-
-# Local machine config (game paths, deploy targets)
 local.props
+_reflect/
 
-# Game / modding binaries (populate via setup-lib.ps1)
-lib/
-
-# Code-review-graph local index
-.code-review-graph/
-
-# Python
-__pycache__/
-*.py[cod]
+# Secrets / machine-local config
+tools/data_refresh/config.yaml
+tools/data_refresh/.env
+tools/data_refresh/.venv/
+**/__pycache__/
+*.pyc
 *.egg-info/
 .venv/
 venv/
 
-# data_refresh secrets and cache
-tools/data_refresh/config.yaml
+# Generated data-refresh artifacts
 tools/data_refresh/cache/
-tools/data_refresh/.venv/
+tools/data_refresh/output/
+tools/data_refresh/backups/
+
+# run_insights CLI default output
+tools/run_insights/out/
+
+# Local release packaging output (repo root only; do not match tools/release/)
+/release/
+
+# code-review-graph local SQLite index (regenerate with `code-review-graph build`)
+.code-review-graph/
 
 # OS
 Thumbs.db

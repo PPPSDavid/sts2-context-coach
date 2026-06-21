@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import json
 import shutil
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -31,7 +31,7 @@ def ensure_dirs(*paths: Path) -> None:
 
 
 def backup_timestamp() -> str:
-    return datetime.now(UTC).strftime("%Y%m%d_%H%M%S")
+    return datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
 
 
 def create_backup(
@@ -48,14 +48,12 @@ def create_backup(
         shutil.copy2(cards_src, dest / "cards.json")
     if relics_src.exists():
         shutil.copy2(relics_src, dest / "relics.json")
-    write_json(
-        dest / "manifest.json", {"created_at": utc_iso(), "files": ["cards.json", "relics.json"]}
-    )
+    write_json(dest / "manifest.json", {"created_at": utc_iso(), "files": ["cards.json", "relics.json"]})
     return dest
 
 
 def utc_iso() -> str:
-    return datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ")
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
 def list_backups(backups_root: Path) -> list[tuple[str, Path]]:
@@ -65,3 +63,4 @@ def list_backups(backups_root: Path) -> list[tuple[str, Path]]:
     for child in sorted(backups_root.iterdir(), reverse=True):
         if child.is_dir() and (child / "manifest.json").exists():
             out.append((child.name, child))
+    return out

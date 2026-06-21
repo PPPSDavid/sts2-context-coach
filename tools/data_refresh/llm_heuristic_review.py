@@ -10,6 +10,7 @@ from pathlib import Path
 from typing import Any
 
 import requests
+
 from config import LlmConfig
 from models import utc_now_iso
 
@@ -40,8 +41,7 @@ def run_heuristic_analysis(
         runs_limit=runs_limit,
     )
 
-    # Card/tag enrichment still respects ``llm.enabled``; heuristic review only needs a key.
-    llm_used = _heuristic_llm_available(llm_cfg)
+    llm_used = _llm_enabled(llm_cfg)
     proposals: list[dict[str, Any]] = []
     llm_error: str | None = None
     if llm_used:
@@ -120,9 +120,7 @@ def _build_input_bundle(
 ) -> dict[str, Any]:
     rules = {
         "card_heuristics_cs": _safe_read(project_root / "Scoring" / "CardHeuristics.cs", 24000),
-        "recommendation_engine_cs": _safe_read(
-            project_root / "Scoring" / "RecommendationEngine.cs", 50000
-        ),
+        "recommendation_engine_cs": _safe_read(project_root / "Scoring" / "RecommendationEngine.cs", 50000),
     }
     world = _read_json_file(output_dir / "world.generated.json")
     meta_summary = _read_json_file(output_dir / "metadata_summary.json")
@@ -141,116 +139,17 @@ def _build_input_bundle(
     }
 
 
-def _last_run_finished_status(events: list[dict[str, Any]]) -> str | None:
-    """Last ``run_finished`` ``status`` in file order (within the sampled lines)."""
-    last: str | None = None
-    for ev in events:
-        if str(ev.get("event_type") or "").strip() != "run_finished":
-            continue
-        st = str(ev.get("status") or "").strip()
-        if st:
-            last = st
-    return last
-
-
-def _resolve_run_outcome(*, summary: dict[str, Any], events: list[dict[str, Any]]) -> str:
-    terminal = _last_run_finished_status(events)
-    if terminal:
-        return terminal
-    s = str(summary.get("run_outcome") or "").strip()
-    return s if s else "unknown"
-
-
-def _accumulate_engine_score_reasons(
-    events: list[dict[str, Any]], reason_key_counts: dict[str, int]
-) -> None:
-    """``engine_scores`` rows use ``score_breakdown[].reason`` (legacy flat ``score_breakdown[].key`` supported)."""
-    for ev in events:
-        if str(ev.get("event_type") or "").strip() != "decision":
-            continue
-        scores = ev.get("engine_scores")
-        if isinstance(scores, dict):
-            for _opt, payload in scores.items():
-                if not isinstance(payload, dict):
-                    continue
-                for b in payload.get("score_breakdown") or []:
-                    if not isinstance(b, dict):
-                        continue
-                    key = str(b.get("reason") or b.get("key") or "").strip()
-                    if key:
-                        reason_key_counts[key] = reason_key_counts.get(key, 0) + 1
-            continue
-        for b in ev.get("score_breakdown") or []:
-            if not isinstance(b, dict):
-                continue
-            key = str(b.get("reason") or b.get("key") or "").strip()
-            if key:
-                reason_key_counts[key] = reason_key_counts.get(key, 0) + 1
-
-
-def _infer_acceptance_from_choices(events: list[dict[str, Any]]) -> tuple[int, int]:
-    """
-    Join ``decision`` + ``decision_choice`` on ``decision_id`` (reward picks with
-    ``deck_diff_inferred``). Returns ``(accepted_count, total_with_recommendation)``.
-    """
-    decisions: dict[str, dict[str, Any]] = {}
-    for ev in events:
-        if ev.get("event_type") != "decision":
-            continue
-        did = ev.get("decision_id")
-        if isinstance(did, str):
-            decisions[did] = ev
-
-    accepted = 0
-    total = 0
-    for ev in events:
-        if ev.get("event_type") != "decision_choice":
-            continue
-        did = ev.get("decision_id")
-        pick = ev.get("player_choice")
-        if not isinstance(did, str) or not isinstance(pick, str) or not pick.strip():
-            continue
-        parent = decisions.get(did)
-        if parent is None:
-            continue
-        rec = parent.get("recommended_choice")
-        if not isinstance(rec, str) or not rec.strip():
-            continue
-        total += 1
-        if pick.strip() == rec.strip():
-            accepted += 1
-    return accepted, total
-
-
-def _inline_decision_acceptance(events: list[dict[str, Any]]) -> tuple[int, int]:
-    """Counts ``decision`` rows where ``player_choice`` was known at log time."""
-    accepted = 0
-    known = 0
-    for ev in events:
-        if ev.get("event_type") != "decision":
-            continue
-        pc = ev.get("player_choice")
-        if not isinstance(pc, str) or not pc.strip():
-            continue
-        if not isinstance(ev.get("accepted_recommendation"), bool):
-            continue
-        known += 1
-        if bool(ev.get("accepted_recommendation")):
-            accepted += 1
-    return accepted, known
-
-
 def _summarize_runs(*, logs_dir: Path, runs_limit: int) -> dict[str, Any]:
-    run_dirs = [p for p in logs_dir.glob("*/") if p.is_dir() and (p / "events.jsonl").is_file()]
+    run_dirs = [p for p in logs_dir.glob("*/") if p.is_dir()]
     run_dirs.sort(key=lambda p: p.stat().st_mtime, reverse=True)
     run_dirs = run_dirs[: max(0, runs_limit)]
 
     runs: list[dict[str, Any]] = []
     outcome_counts: dict[str, int] = {}
-    event_type_counts: dict[str, int] = {}
+    decision_type_counts: dict[str, int] = {}
     reason_key_counts: dict[str, int] = {}
-    choice_acc, choice_tot = 0, 0
-    inline_acc, inline_tot = 0, 0
+    accepted = 0
+    accepted_known = 0
     events_total = 0
 
     for run_dir in run_dirs:
@@ -259,85 +158,46 @@ def _summarize_runs(*, logs_dir: Path, runs_limit: int) -> dict[str, Any]:
         events = _read_jsonl(run_dir / "events.jsonl", max_lines=2500)
         events_total += len(events)
 
-        outcome = _resolve_run_outcome(summary=summary, events=events)
+        outcome = str(summary.get("run_outcome") or "").strip() or "unknown"
         outcome_counts[outcome] = outcome_counts.get(outcome, 0) + 1
 
         sampled_decisions = 0
         for ev in events:
             ev_type = str(ev.get("event_type") or ev.get("type") or "").strip()
-            if ev_type:
-                event_type_counts[ev_type] = event_type_counts.get(ev_type, 0) + 1
-            if ev_type == "decision":
+            if "decision" in ev_type:
                 sampled_decisions += 1
-
-        _accumulate_engine_score_reasons(events, reason_key_counts)
-        ca, ct = _infer_acceptance_from_choices(events)
-        choice_acc += ca
-        choice_tot += ct
-        ia, it = _inline_decision_acceptance(events)
-        inline_acc += ia
-        inline_tot += it
-
-        final_state = summary.get("final_state")
-        fs = final_state if isinstance(final_state, dict) else {}
-        character = metadata.get("character") or fs.get("character") or summary.get("character")
-        ascension = metadata.get("ascension")
-        if ascension is None:
-            ascension = (
-                fs.get("ascension")
-                if isinstance(fs.get("ascension"), (int, float))
-                else summary.get("ascension")
-            )
+                decision_type_counts[ev_type] = decision_type_counts.get(ev_type, 0) + 1
+            if isinstance(ev.get("accepted_recommendation"), bool):
+                accepted_known += 1
+                if bool(ev.get("accepted_recommendation")):
+                    accepted += 1
+            for b in ev.get("score_breakdown") or []:
+                if not isinstance(b, dict):
+                    continue
+                key = str(b.get("key") or "").strip()
+                if key:
+                    reason_key_counts[key] = reason_key_counts.get(key, 0) + 1
 
         runs.append(
             {
                 "run_id": run_dir.name,
-                "character": character,
-                "ascension": ascension,
+                "character": metadata.get("character") or summary.get("character"),
+                "ascension": metadata.get("ascension") or summary.get("ascension"),
                 "run_outcome": outcome,
-                "summary_run_outcome": str(summary.get("run_outcome") or "").strip() or None,
                 "decisions_sampled": sampled_decisions,
             }
         )
 
-    if choice_tot > 0:
-        acc_rate_obs = choice_tot
-        acc_rate = choice_acc / choice_tot
-        acc_src = "decision_choice_vs_recommended"
-    elif inline_tot > 0:
-        acc_rate_obs = inline_tot
-        acc_rate = inline_acc / inline_tot
-        acc_src = "inline_player_choice"
-    else:
-        legacy_known = 0
-        legacy_acc = 0
-        for run_dir in run_dirs:
-            events = _read_jsonl(run_dir / "events.jsonl", max_lines=2500)
-            for ev in events:
-                if ev.get("event_type") != "decision":
-                    continue
-                if not isinstance(ev.get("accepted_recommendation"), bool):
-                    continue
-                legacy_known += 1
-                if bool(ev.get("accepted_recommendation")):
-                    legacy_acc += 1
-        acc_rate_obs = legacy_known
-        acc_rate = (legacy_acc / legacy_known) if legacy_known else None
-        acc_src = "legacy_decision_bool"
-
-    decision_types = {k: v for k, v in event_type_counts.items() if k.startswith("decision")}
     top_reasons = sorted(reason_key_counts.items(), key=lambda kv: kv[1], reverse=True)[:25]
     return {
         "runs_count": len(runs),
         "events_count": events_total,
         "runs": runs[:20],
         "run_outcomes": outcome_counts,
-        "event_type_counts": event_type_counts,
-        "decision_types": decision_types,
+        "decision_types": decision_type_counts,
         "top_reason_keys": [{"key": k, "count": v} for k, v in top_reasons],
-        "accepted_recommendation_rate": acc_rate,
-        "accepted_recommendation_observations": acc_rate_obs,
-        "accepted_recommendation_source": acc_src,
+        "accepted_recommendation_rate": (accepted / accepted_known) if accepted_known else None,
+        "accepted_recommendation_observations": accepted_known,
     }
 
 
@@ -454,11 +314,6 @@ def _safe_float(value: Any, *, default: float) -> float:
 
 def _llm_enabled(cfg: LlmConfig) -> bool:
     return bool(cfg.enabled and os.environ.get(cfg.api_key_env, "").strip())
-
-
-def _heuristic_llm_available(cfg: LlmConfig) -> bool:
-    """True when Chat Completions can be called (API key in env). Independent of ``llm.enabled``."""
-    return bool(os.environ.get(cfg.api_key_env, "").strip())
 
 
 def _read_json_file(path: Path) -> dict[str, Any]:

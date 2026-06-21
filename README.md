@@ -135,26 +135,7 @@ python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
 
 Run **`conda env create`** only the first time; if the env already exists, start at **`conda activate`**. To start over: `conda env remove -n sts2-context-coach -y`, then repeat the block. **`tools\dev\setup-conda-env.ps1`** and **`tools\dev\recreate-conda-env.ps1`** automate the same steps.
 
-**Python formatting (Ruff):** after **`pip install -r requirements-dev.txt`**, from the repo root run **`ruff format .`** (formatter) and optionally **`ruff check .`** (lint). Configuration lives in **`pyproject.toml`**. In VS Code / Cursor, install the **Ruff** extension (**`charliermarsh.ruff`**); the workspace prefers it as the default Python formatter (see **`.vscode/settings.json`**). Tasks **“ruff format (repo)”** and **“ruff check (repo)”** are in **`.vscode/tasks.json`**.
-
-**Cursor + code-review-graph:** the repo includes a **project-level** **`.cursor/mcp.json`** (tracked) so the **`code-review-graph`** MCP server is registered whenever you open this folder. Cursor starts it with **`powershell.exe -File tools/dev/crg_mcp_serve.ps1`**, which finds **`conda.exe`** (via **`CONDA_EXE`**, **`Get-Command conda.exe`**, **`CONDA_ROOT`**, or common install locations) and runs **`conda run -n sts2-context-coach … -m code_review_graph serve`**. That avoids an empty **`command`** when the GUI process does not inherit **`CONDA_EXE`** (which surfaces on Windows as **`. is not recognized`**). After **`pip install`**, run **`tools\dev\install_crg_st_cache_patch.ps1`** once so a **`.pth`** hook loads **`crg_st_model_cache.py`**; keep **`CRG_APPLY_ST_CACHE_PATCH=1`** in MCP `env` so **`SentenceTransformer` is cached across tool calls** instead of reloading every semantic search. Leave the server **enabled** under **Settings → Features → Model Context Protocol** (default is on until you toggle it off).
-
-**Linux / macOS (and anyone not using the Windows default):** the checked-in **`.cursor/mcp.json`** calls **`powershell.exe`**, which is Windows-only. Use the same **`env`** block but swap **`command`** / **`args`** for the POSIX launcher **`tools/dev/crg_mcp_serve.sh`** (it resolves **`bin/conda`**, **`CONDA_EXE`**, **`PATH`**, **`CONDA_ROOT`**, and common install prefixes). After clone, ensure it is executable: **`chmod +x tools/dev/crg_mcp_serve.sh`**. Example server entry:
-
-```json
-"code-review-graph": {
-  "command": "bash",
-  "args": ["${workspaceFolder}/tools/dev/crg_mcp_serve.sh"],
-  "type": "stdio",
-  "env": {
-    "CRG_EMBEDDING_MODEL": "Qwen/Qwen3-Embedding-0.6B",
-    "CRG_APPLY_ST_CACHE_PATCH": "1",
-    "TOKENIZERS_PARALLELISM": "false"
-  }
-}
-```
-
-If **`conda`** is already on **`PATH`** for the Cursor process, you can instead set **`"command": "conda"`** with **`"args": ["run","-n","sts2-context-coach","--no-capture-output","python","-m","code_review_graph","serve"]`** and the same **`env`**.
+**Cursor + code-review-graph:** the repo includes an example **`.cursor/mcp.json`**; point `command` at your env’s **`python.exe`** and use **`args`: `["-m","code_review_graph","serve"]`** so the MCP server pins that interpreter. After **`pip install`**, run **`tools\dev\install_crg_st_cache_patch.ps1`** once so a **`.pth`** hook loads **`crg_st_model_cache.py`**; keep **`CRG_APPLY_ST_CACHE_PATCH=1`** in MCP `env` (as in the example) so **`SentenceTransformer` is cached across tool calls** instead of reloading every semantic search.
 
 **Why Task Manager may show low GPU use:** most hybrid-search time is **CPU** (SQLite + Python cosine over all stored vectors). The GPU only runs a **short** embedding forward pass per query. The cache patch removes the biggest avoidable cost (reloading the model each call). **`tools\dev\run_bench_st_cache.bat`** prints first vs second query timing on your machine.
 

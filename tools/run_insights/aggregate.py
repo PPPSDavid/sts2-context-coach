@@ -107,15 +107,9 @@ def aggregate_pick_stats(
         "schema_version": 1,
         "summary": {
             "decision_events": sum(1 for e in events if e.get("event_type") == "decision"),
-            "decision_choice_events": sum(
-                1 for e in events if e.get("event_type") == "decision_choice"
-            ),
-            "llm_coach_batch_events": sum(
-                1 for e in events if e.get("event_type") == "llm_coach_batch"
-            ),
-            "llm_deck_summary_events": sum(
-                1 for e in events if e.get("event_type") == "llm_deck_summary"
-            ),
+            "decision_choice_events": sum(1 for e in events if e.get("event_type") == "decision_choice"),
+            "llm_coach_batch_events": sum(1 for e in events if e.get("event_type") == "llm_coach_batch"),
+            "llm_deck_summary_events": sum(1 for e in events if e.get("event_type") == "llm_deck_summary"),
             "cards_tracked": len(cards_out),
         },
         "cards": cards_out,

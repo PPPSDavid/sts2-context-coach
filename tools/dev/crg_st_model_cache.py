@@ -6,7 +6,6 @@ reload weights on every MCP tool call. Explicit device=cuda when available.
 
 Enable only when CRG_APPLY_ST_CACHE_PATCH=1 (set in .cursor/mcp.json for MCP).
 """
-
 from __future__ import annotations
 
 import os
@@ -16,8 +15,9 @@ def _apply() -> None:
     if os.environ.get("CRG_APPLY_ST_CACHE_PATCH", "").strip() != "1":
         return
     try:
-        import code_review_graph.embeddings as emb
         import torch
+
+        import code_review_graph.embeddings as emb
     except Exception:
         return
     if getattr(emb.LocalEmbeddingProvider, "_crg_cache_patched", False):

@@ -6,6 +6,7 @@ import re
 from typing import Any
 
 from bs4 import BeautifulSoup
+
 from models import RawRelicRecord
 
 
@@ -22,9 +23,7 @@ def _cell_text(cell: Any) -> str:
     return cell.get_text(" ", strip=True)
 
 
-def parse_relics_from_wiki_html(
-    html: str, source_url: str, fetched_at: str
-) -> list[RawRelicRecord]:
+def parse_relics_from_wiki_html(html: str, source_url: str, fetched_at: str) -> list[RawRelicRecord]:
     soup = BeautifulSoup(html, "html.parser")
     records: list[RawRelicRecord] = []
     seen: set[str] = set()

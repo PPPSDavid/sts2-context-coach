@@ -1,7 +1,7 @@
 from .base import CachedFetcher
-from .community_guides import CommunityGuidesSource
-from .steam_patch_notes import SteamPatchSource
 from .wiki_gg import WikiGgSource
+from .steam_patch_notes import SteamPatchSource
+from .community_guides import CommunityGuidesSource
 
 __all__ = [
     "CachedFetcher",

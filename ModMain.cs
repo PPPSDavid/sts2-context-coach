@@ -47,8 +47,6 @@ public static class ModMain
             _harmony = new Harmony("Sts2ContextCoach");
             _harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-            RunTelemetryHeartbeat.TryScheduleAttach();
-
             var sm = (ContextCoachConfig.Current.ScoringMode ?? "heuristic").Trim();
             var keyOk = ContextCoachConfig.TryGetLlmApiKey() != null;
             Log.Info($"[ContextCoach] Harmony patches applied. logging_enabled={ContextCoachConfig.Current.LoggingEnabled}, telemetry_enabled={ContextCoachConfig.Current.TelemetryEnabled}, prompt_for_upload={ContextCoachConfig.Current.PromptForUpload}, auto_upload={ContextCoachConfig.Current.AutoUpload}, scoring_mode={sm}, llm_api_key={(keyOk ? "set" : "missing")}, llm_model={ContextCoachConfig.Current.LlmModel}");

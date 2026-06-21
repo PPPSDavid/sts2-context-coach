@@ -49,12 +49,8 @@ def validate_cards_document(doc: dict[str, Any]) -> list[ValidationIssue]:
         if meta is not None and not isinstance(meta, dict):
             issues.append(ValidationIssue("error", f"{iid}: _meta must be object"))
         _validate_tag_list(issues, iid, "tags", c.get("tags"), set(SUPPORTED_CARD_TAGS))
-        _validate_tag_list(
-            issues, iid, "synergy_tags", c.get("synergy_tags"), set(SUPPORTED_CARD_SYNERGY_TAGS)
-        )
-        _validate_tag_list(
-            issues, iid, "role_tags", c.get("role_tags"), set(SUPPORTED_CARD_ROLE_TAGS)
-        )
+        _validate_tag_list(issues, iid, "synergy_tags", c.get("synergy_tags"), set(SUPPORTED_CARD_SYNERGY_TAGS))
+        _validate_tag_list(issues, iid, "role_tags", c.get("role_tags"), set(SUPPORTED_CARD_ROLE_TAGS))
         il = c.get("impact_level")
         if il is not None and str(il).lower() not in set(SUPPORTED_IMPACT_LEVELS):
             issues.append(ValidationIssue("warning", f"{iid}: unsupported impact_level '{il}'"))
@@ -82,9 +78,7 @@ def validate_relics_document(doc: dict[str, Any]) -> list[ValidationIssue]:
         if dn is not None and not _valid_display_name(dn):
             issues.append(ValidationIssue("error", f"{iid}: display_name invalid"))
         _validate_tag_list(issues, iid, "tags", r.get("tags"), set(SUPPORTED_RELIC_TAGS))
-        _validate_tag_list(
-            issues, iid, "synergy_tags", r.get("synergy_tags"), set(SUPPORTED_RELIC_SYNERGY_TAGS)
-        )
+        _validate_tag_list(issues, iid, "synergy_tags", r.get("synergy_tags"), set(SUPPORTED_RELIC_SYNERGY_TAGS))
     return issues
 
 
@@ -121,11 +115,7 @@ def _validate_tag_list(
         return
     for t in value:
         if not isinstance(t, str):
-            issues.append(
-                ValidationIssue("warning", f"{internal_name}: {field} contains non-string tag")
-            )
+            issues.append(ValidationIssue("warning", f"{internal_name}: {field} contains non-string tag"))
             continue
         if t.lower() not in allowed:
-            issues.append(
-                ValidationIssue("warning", f"{internal_name}: unsupported {field} tag '{t}'")
-            )
+            issues.append(ValidationIssue("warning", f"{internal_name}: unsupported {field} tag '{t}'"))

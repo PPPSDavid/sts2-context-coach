@@ -28,17 +28,14 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - `State/`
   - Game-state extraction/probes/caching from runtime objects.
   - Includes reward/shop detection and economy/combat context.
-  - `GameStateCache` uses a short cache mutex + double-checked refresh: heavy reflection and `DeckAnalyzer.Analyze` run outside `Gate` but are serialized with a private **`BuildLock`** so only one thread touches game reflection at a time (concurrent builds are unsafe); very slow builds log `[ContextCoach] GameStateCache reflection+analyze slow:` in Godot.
 - `Llm/`
   - Batch coordination, transcript logging, and model payload structures.
   - Optional path layered on top of heuristic scoring.
-  - System prompt now enforces response language from runtime localization (e.g., `zh-CN` -> Simplified Chinese notes), discourages unsupported deck-strategy claims, requires deck-anchored `coach_note` text (not card-text paraphrase), and instructs explicit shop `gold` vs `shop_price` affordance when `decision` is `shop`.
+  - System prompt now enforces response language from runtime localization (e.g., `zh-CN` -> Simplified Chinese notes) and discourages unsupported deck-strategy claims.
   - Added periodic deck-profile summarization (signature/floor-triggered) and injects compact `deck_profile` lines into pick payloads so card-specific deck interactions remain explicit as decks grow.
 - `Telemetry/`
   - Runtime config and structured run logging.
   - Useful for diagnostics, tuning, and post-run analysis.
-  - `RunLogger.TryProbeTerminalFromSceneTree` (from `GameStateCache.GetStateForCard`) walks the Godot scene tree (`CombatScreenHeuristic.BuildGlobalUiPath`) so `run_finished` with `status` `victory` / `defeat` is not missed when no `NCard` overlay ticks (e.g. end-of-run UI). After a terminal close, `ResetSessionAfterRunClosed` clears in-memory session; `EnsureInitialized` defers a new `run_started` while `LooksLikeTerminalEndScreen` is still true so a second spurious `run_finished` is not opened on the same interstitial.
-  - `RunOutcomeClassifier` centralizes HP + UI-path classification for terminal outcomes.
   - `events.jsonl` may include `llm_coach_batch` / `llm_deck_summary` rows (corr id, batch key or deck signature, transcript basename, outcome) to correlate with Godot `[ContextCoach][LLM]` lines and `logs/llm/coach-*.json`.
   - Card reward / shop `decision` events record **full-row** `engine_scores` when the overlay has a coach row (or reward-card heuristics when not).
 - `Data/`
@@ -49,7 +46,6 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - `tools/data_refresh/`
   - Python pipeline for fetching/parsing/merging/reviewing metadata updates.
   - Not required for normal gameplay users.
-  - Maintainer formatting/lint: root **`pyproject.toml`** configures **Ruff** (`ruff format` / `ruff check`); install via **`requirements-dev.txt`**.
 - `tools/run_insights/`
   - Python CLI (`python -m tools.run_insights`, `PYTHONPATH=.`) reads `events.jsonl` or export ZIPs and writes **staging** pick-aggregate JSON (does not rewrite `Data/cards.json`).
   - Unit tests: `python -m unittest discover -s tools/run_insights/tests -p "test_*.py"`.
@@ -91,7 +87,7 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 
 ## Optional maintainer tooling: code-review-graph
 
-- **Python env:** [README](../README.md) Maintainer Notes + [root `environment.yml`](../environment.yml); helper scripts [`tools/dev/setup-conda-env.ps1`](../tools/dev/setup-conda-env.ps1), [`tools/dev/recreate-conda-env.ps1`](../tools/dev/recreate-conda-env.ps1). Cursor MCP: [`.cursor/mcp.json`](../.cursor/mcp.json) defaults to Windows (**[`crg_mcp_serve.ps1`](../tools/dev/crg_mcp_serve.ps1)**); Linux/macOS use **[`crg_mcp_serve.sh`](../tools/dev/crg_mcp_serve.sh)** (README JSON snippet) so **`conda`** is resolved when the GUI **`PATH`** is minimal.
+- **Python env:** [README](../README.md) Maintainer Notes + [root `environment.yml`](../environment.yml); helper scripts [`tools/dev/setup-conda-env.ps1`](../tools/dev/setup-conda-env.ps1), [`tools/dev/recreate-conda-env.ps1`](../tools/dev/recreate-conda-env.ps1). Example Cursor MCP config: [`.cursor/mcp.json`](../.cursor/mcp.json) (paths are machine-specific—adjust `command` to your env’s `python.exe`).
 - **Graph + MCP:** install per upstream `code-review-graph` docs; index under `.code-review-graph/` (gitignored). Excludes: [`.code-review-graphignore`](../.code-review-graphignore).
 - **Optional local embeddings:** `pip install "code-review-graph[embeddings]"` plus compatible `transformers` / `sentence-transformers`; run `embed_graph` / MCP `embed_graph_tool`. Keep `CRG_EMBEDDING_MODEL` aligned with the model used to build vectors (see `.cursor/mcp.json` `env` if you use the sample config).
 - **Semantic search perf / GPU meter:** upstream reloads **`SentenceTransformer` per search**; this repo adds an optional **process-level model cache** ([`tools/dev/crg_st_model_cache.py`](../tools/dev/crg_st_model_cache.py) + [`install_crg_st_cache_patch.ps1`](../tools/dev/install_crg_st_cache_patch.ps1), `.pth` in site-packages) gated by **`CRG_APPLY_ST_CACHE_PATCH=1`** in MCP `env`. Hybrid retrieval still spends most time on **CPU** (SQLite + Python cosine over all vectors), so **low sustained GPU %** is normal—the GPU only spikes during short query **`encode()`** calls.
@@ -112,14 +108,6 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 
 ## Changelog
 
-- 2026-06-21: **Agent priming:** restored missing agent infrastructure — **`.cursor/mcp.json`**, **`.cursor/rules/*.mdc`** (memory bank, validation, C#/Python), expanded **`AGENTS.md`**, **`.gitignore`**, **`.code-review-graphignore`**, **`.vscode/`** Ruff + dotnet tasks. Remote: **https://github.com/PPPSDavid/sts2-context-coach**. Known gaps: run_insights shop telemetry, local CRG index.
-- 2026-04-11: **Run log terminal outcomes:** `RunLogger` now probes victory/defeat via `CombatScreenHeuristic.BuildGlobalUiPath` from `GameStateCache`, resets session after `run_finished`, defers new `run_started` on terminal UI (`LooksLikeTerminalEndScreen`), logs `[run-log] run_finished`, and extracts `RunOutcomeClassifier` (+ tests). `summary.json` / `events.jsonl` `status` is the win/loss tag (`victory`, `defeat`, `user_gave_up`, `ended`, or `active` while in-progress).
-- 2026-04-11: LLM `BuildSystemPrompt`: `coach_note` must anchor to `deck_summary` / `deck_profile` / relics / history (no description paraphrase); shop batches must call out unaffordable rows when `shop_price` > `gold`; slightly relaxed one-line char guidance (~120 UTF-8).
-- 2026-04-11: **GameStateCache crash fix:** reflection + `DeckAnalyzer` still run outside the cache mutex for latency, but a dedicated **`BuildLock`** serializes builds—concurrent reflection (e.g. many combat hand cards) was unsafe and could crash the game; `GetStateForCard` wraps `TryProbeTerminalFromSceneTree` in try/catch for scene-transition safety.
-- 2026-04-11: **Python Ruff:** root **`pyproject.toml`** + **`requirements-dev.txt`** pin formatter/linter defaults for `tools/**` Python; VS Code **`ruff format` / `ruff check`** tasks and default Python formatter (**`charliermarsh.ruff`**); `data_refresh/main.py` ignores **E402/I001** because **`sys.path`** is adjusted before local imports.
-- 2026-04-11: **Runtime stall mitigation:** `GameStateCache` no longer holds its mutex across full reflection + deck analysis; `LlmBatchCoordinator.ScheduleBatch` runs `CoachPickHistory.TryInferPick` outside the LLM mutex (two-phase lock) and superseded-debounce telemetry no longer nests `RunLogger` under the LLM lock—reduces lock contention and deadlock risk; grep Godot log for `GameStateCache reflection+analyze slow` when investigating hitches.
-- 2026-04-11: Added **[`tools/dev/crg_mcp_serve.sh`](../tools/dev/crg_mcp_serve.sh)** + README **`bash`** / **`conda`** MCP snippets so **Linux/macOS** match the Windows launcher behavior (checked-in **`.cursor/mcp.json`** stays Windows **`powershell.exe`**).
-- 2026-04-11: **Cursor MCP default:** [`.cursor/mcp.json`](../.cursor/mcp.json) is **tracked** (no longer gitignored); it invokes **[`tools/dev/crg_mcp_serve.ps1`](../tools/dev/crg_mcp_serve.ps1)** so **`conda.exe`** is resolved when **`CONDA_EXE`** is unset in the Cursor GUI (avoids Windows **`. is not recognized`** from an empty MCP `command`). README + agent rules describe **`_tool` / `project-*-` tool-name prefix** behavior.
 - 2026-04-11: LLM observability + telemetry: `events.jsonl` gains `llm_coach_batch` / `llm_deck_summary`; reward/shop decisions log full-row `engine_scores`; optional `llm_mirror_transcripts_into_run_folder` + export ZIP `llm/` entries; `tools/run_insights` CLI for staging insights from exports; Cursor **three-expert review ritual** documented in `.cursor/rules/repo-memory-bank.mdc`.
 - 2026-04-11: Added `Diagnostics/CoachGameLog` so metadata JSON ingestion can log under `dotnet test` without initializing Godot-backed `MegaCrit.Sts2.Core.Logging.Log` (fixes xUnit host AV on Windows); README gained a contributor “quick map” + explicit headless-test note; `.cursor/mcp.json` gitignored as machine-local.
 - 2026-04-11: `tools/release/build-release.ps1` now packages `dll` + manifest + `contextcoach.config` + `result_cleaned.csv` only (metadata is embedded in the DLL); `Sts2ContextCoach.csproj` assembly/file version aligned with `Sts2ContextCoach.json` for v0.1.3.
@@ -139,7 +127,3 @@ It combines static heuristic scoring with optional LLM-assisted analysis, while 
 - 2026-04-11: README Maintainer Notes and memory bank `code-review-graph` section reduced to repo-generic setup pointers (no long MCP/embeddings latency prose).
 - 2026-04-11: README Maintainer Notes expanded with **C# onboarding** (`setup-lib.ps1`, `local.props.example`, .NET 9), optional Python callout, build vs release zip, link to `docs/GITHUB_RELEASE_GUIDE.md`.
 - 2026-04-11: Optional **CRG `SentenceTransformer` cache** (site-packages `.pth` + `CRG_APPLY_ST_CACHE_PATCH` in `.cursor/mcp.json`) and README note on **CPU-bound hybrid retrieval** vs brief GPU `encode`; `run_bench_st_cache.bat` for A/B timing.
-- 2026-04-12: **`heuristics-analyze`** may call the configured Chat Completions API when **`api_key_env`** is set, even if **`llm.enabled`** is false, so maintainers can run heuristic review without turning on card/tag **`enrich`** LLM (`tools/data_refresh/llm_heuristic_review.py` + README safety note).
-- 2026-04-12: **`heuristics-analyze`** run sampling now ignores log subfolders **without** `events.jsonl` (e.g. `logs/llm/` transcript directory) so telemetry counts match real runs.
-- 2026-04-12: **`heuristics-analyze`** telemetry bundle: `engine_scores[].score_breakdown[].reason`, `decision_choice` vs `recommended_choice` acceptance, `run_finished` overrides stale `summary.run_outcome`, `event_type_counts`, `final_state` for character/ascension (`tools/data_refresh/llm_heuristic_review.py` + `tests/`).
-- 2026-04-12: **Run log terminal close:** `RunTelemetryHeartbeat` attaches a 0.5s Godot `Timer` on scene root + `GameStateCache.TickRunTelemetryHeartbeat` (probe + `ObserveRunState`) so runs can finish when no `NCard` overlay ticks (`Telemetry/RunTelemetryHeartbeat.cs`, `ModMain.cs`).

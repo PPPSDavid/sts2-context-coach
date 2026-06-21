@@ -1,18 +1,11 @@
 """Print interpreter, torch/CUDA, and code-review-graph paths (run with intended MCP Python)."""
-
 from __future__ import annotations
 
-import os
 import sys
 
 
 def main() -> None:
     print("executable:", sys.executable)
-    conda_exe = os.environ.get("CONDA_EXE")
-    print(
-        "CONDA_EXE:",
-        conda_exe if conda_exe else "(unset — OK if tools/dev/crg_mcp_serve.ps1 finds conda.exe)",
-    )
     try:
         import torch
 

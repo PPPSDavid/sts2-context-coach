@@ -1,14 +1,22 @@
-# Excluded from code-review-graph indexing (see docs/REPO_MEMORY_BANK.md)
+# Third-party / game binaries (no source to parse meaningfully)
+lib/**
+
+# Build outputs
 bin/
 obj/
-/release/
-lib/
-.code-review-graph/
 .vs/
-**/__pycache__/
-tools/data_refresh/cache/
+/release/
+
+# Python tooling noise
 tools/data_refresh/.venv/
+tools/data_refresh/cache/
+tools/data_refresh/output/
+tools/data_refresh/backups/
+**/__pycache__/
+
+# Reflection / generated probe output
 _reflect/
+
 *.dll
 *.deps.json
 *.runtimeconfig.json

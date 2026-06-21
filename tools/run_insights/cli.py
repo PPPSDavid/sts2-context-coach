@@ -4,11 +4,7 @@ import argparse
 from pathlib import Path
 
 from tools.run_insights.aggregate import aggregate_pick_stats, load_card_names, write_insights
-from tools.run_insights.ingest import (
-    build_run_context_from_filesystem,
-    collect_run_sidecars_from_zip,
-    load_events,
-)
+from tools.run_insights.ingest import load_events
 
 
 def default_cards_path() -> Path:
@@ -44,30 +40,15 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Do not filter against cards.json (include all candidate strings)",
     )
-    p.add_argument(
-        "--no-run-context",
-        action="store_true",
-        help="Do not embed metadata.json / summary.json (filesystem or export ZIP)",
-    )
     args = p.parse_args(argv)
 
-    inp = Path(args.input).resolve()
-    events = load_events(inp)
+    events = load_events(Path(args.input))
     cards_path = args.cards or default_cards_path()
     known = None if args.no_card_filter else load_card_names(cards_path)
     payload = aggregate_pick_stats(events, known_cards=known)
-    payload["source"] = {"input": str(inp)}
+    payload["source"] = {"input": str(Path(args.input).resolve())}
     if known is not None:
         payload["source"]["cards_json"] = str(cards_path.resolve())
-
-    if not args.no_run_context:
-        zip_sidecars = collect_run_sidecars_from_zip(inp)
-        if zip_sidecars:
-            payload["run_sidecars"] = zip_sidecars
-        else:
-            fs_ctx = build_run_context_from_filesystem(inp)
-            if fs_ctx is not None:
-                payload["run_sidecars"] = [fs_ctx]
     write_insights(Path(args.out), payload)
     print(f"Wrote {args.out} ({payload['summary']['cards_tracked']} cards)")
     return 0

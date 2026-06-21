@@ -90,12 +90,8 @@ def apply_approved(
     by_card = {c["internal_name"]: i for i, c in enumerate(cards_list) if c.get("internal_name")}
     by_relic = {r["internal_name"]: i for i, r in enumerate(relics_list) if r.get("internal_name")}
 
-    gen_card_by = {
-        c["internal_name"]: c for c in (gen_cards.get("cards") or []) if c.get("internal_name")
-    }
-    gen_relic_by = {
-        r["internal_name"]: r for r in (gen_relics.get("relics") or []) if r.get("internal_name")
-    }
+    gen_card_by = {c["internal_name"]: c for c in (gen_cards.get("cards") or []) if c.get("internal_name")}
+    gen_relic_by = {r["internal_name"]: r for r in (gen_relics.get("relics") or []) if r.get("internal_name")}
 
     for it in q.items:
         if it.review_status != "approved":
@@ -132,9 +128,7 @@ def apply_approved(
     write_json(relics_production, prod_relics_doc)
 
 
-def _apply_proposed(
-    ent: dict[str, Any], proposed: dict[str, Any], generated_full: dict[str, Any]
-) -> None:
+def _apply_proposed(ent: dict[str, Any], proposed: dict[str, Any], generated_full: dict[str, Any]) -> None:
     meta = ent.setdefault("_meta", {})
     for k, v in proposed.items():
         if k == "patch_context":

@@ -6,6 +6,7 @@ import re
 from typing import Any
 
 from bs4 import BeautifulSoup
+
 from models import RawCardRecord
 
 
@@ -75,22 +76,10 @@ def parse_cards_from_wiki_html(html: str, source_url: str, fetched_at: str) -> l
                 continue
             seen.add(key)
 
-            cost = (
-                _parse_int_maybe(texts[col_cost])
-                if col_cost is not None and col_cost < len(texts)
-                else None
-            )
-            character = (
-                texts[col_char].strip() if col_char is not None and col_char < len(texts) else None
-            )
-            ctype = (
-                texts[col_type].strip() if col_type is not None and col_type < len(texts) else None
-            )
-            rarity = (
-                texts[col_rarity].strip()
-                if col_rarity is not None and col_rarity < len(texts)
-                else None
-            )
+            cost = _parse_int_maybe(texts[col_cost]) if col_cost is not None and col_cost < len(texts) else None
+            character = texts[col_char].strip() if col_char is not None and col_char < len(texts) else None
+            ctype = texts[col_type].strip() if col_type is not None and col_type < len(texts) else None
+            rarity = texts[col_rarity].strip() if col_rarity is not None and col_rarity < len(texts) else None
 
             desc = ""
             if row.find("td", class_=re.compile(r"description", re.I)):
@@ -168,11 +157,7 @@ def _parse_card_boxes(
         # resolve from detail pages in a later enrichment step.
         cost = _extract_cost_from_box(box)
 
-        desc_node = (
-            box.select_one(".desc-base")
-            or box.select_one(".relic-desc")
-            or box.select_one(".desc-upg")
-        )
+        desc_node = box.select_one(".desc-base") or box.select_one(".relic-desc") or box.select_one(".desc-upg")
         desc = desc_node.get_text(" ", strip=True) if desc_node else ""
         desc = re.sub(r"\s+", " ", desc).strip()
         upg_node = box.select_one(".desc-upg")

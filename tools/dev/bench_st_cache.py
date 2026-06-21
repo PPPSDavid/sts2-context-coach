@@ -1,5 +1,4 @@
 """Run via run_bench_st_cache.bat (sets env before Python; .pth loads crg_st_model_cache)."""
-
 import time
 
 from code_review_graph.embeddings import LocalEmbeddingProvider
