@@ -1,0 +1,16 @@
+# Excluded from code-review-graph indexing (see docs/REPO_MEMORY_BANK.md)
+bin/
+obj/
+/release/
+lib/
+.code-review-graph/
+.vs/
+**/__pycache__/
+tools/data_refresh/cache/
+tools/data_refresh/.venv/
+_reflect/
+*.dll
+*.deps.json
+*.runtimeconfig.json
+**/project.assets.json
+**/project.nuget.cache

@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "cards": [
+    {
+      "internal_name": "Bash",
+      "display_name": "Bash",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["attack", "debuff"],
+      "synergy_tags": ["strength", "frontload"],
+      "role_tags": ["frontload", "setup"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Anger",
+      "display_name": "Anger",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack"],
+      "synergy_tags": ["strength"],
+      "role_tags": ["frontload"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "BodySlam",
+      "display_name": "Body Slam",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "block_synergy"],
+      "synergy_tags": ["strength", "block"],
+      "role_tags": ["frontload"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "ShrugItOff",
+      "display_name": "Shrug It Off",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "draw", "block"],
+      "synergy_tags": ["draw", "block"],
+      "role_tags": ["block", "draw"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "TrueGrit",
+      "display_name": "True Grit",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "block", "exhaust"],
+      "synergy_tags": ["exhaust", "block"],
+      "role_tags": ["block", "exhaust"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "FlameBarrier",
+      "display_name": "Flame Barrier",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["skill", "block"],
+      "synergy_tags": ["block"],
+      "role_tags": ["block"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "GhostlyArmor",
+      "display_name": "Ghostly Armor",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "block"],
+      "synergy_tags": ["block"],
+      "role_tags": ["block"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Barricade",
+      "display_name": "Barricade",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": ["power", "scaling"],
+      "synergy_tags": ["block", "scaling"],
+      "role_tags": ["scaling"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "DemonForm",
+      "display_name": "Demon Form",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": ["power", "scaling"],
+      "synergy_tags": ["scaling", "strength"],
+      "role_tags": ["scaling"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Corruption",
+      "display_name": "Corruption",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": ["power", "exhaust"],
+      "synergy_tags": ["exhaust"],
+      "role_tags": ["exhaust", "scaling"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "FeelNoPain",
+      "display_name": "Feel No Pain",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["power", "exhaust"],
+      "synergy_tags": ["exhaust", "block"],
+      "role_tags": ["exhaust", "block"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "DarkEmbrace",
+      "display_name": "Dark Embrace",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["power", "exhaust"],
+      "synergy_tags": ["exhaust", "draw"],
+      "role_tags": ["exhaust", "draw"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Offering",
+      "display_name": "Offering",
+      "character": "Ironclad",
+      "cost": 0,
+      "tags": ["skill", "draw", "exhaust"],
+      "synergy_tags": ["draw", "exhaust", "frontload"],
+      "role_tags": ["draw", "frontload"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "BattleTrance",
+      "display_name": "Battle Trance",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["skill", "draw"],
+      "synergy_tags": ["draw"],
+      "role_tags": ["draw"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Inflame",
+      "display_name": "Inflame",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["power", "strength"],
+      "synergy_tags": ["strength", "scaling"],
+      "role_tags": ["scaling"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "LimitBreak",
+      "display_name": "Limit Break",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "strength"],
+      "synergy_tags": ["strength", "scaling"],
+      "role_tags": ["scaling"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "HeavyBlade",
+      "display_name": "Heavy Blade",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["attack", "non_redundant_attack"],
+      "synergy_tags": ["strength", "frontload"],
+      "role_tags": ["frontload"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "TwinStrike",
+      "display_name": "Twin Strike",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack"],
+      "synergy_tags": ["strength"],
+      "role_tags": ["frontload"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Whirlwind",
+      "display_name": "Whirlwind",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack"],
+      "synergy_tags": ["strength"],
+      "role_tags": ["frontload", "scaling"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "IronWave",
+      "display_name": "Iron Wave",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "block"],
+      "synergy_tags": ["block", "frontload"],
+      "role_tags": ["frontload", "block"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Uppercut",
+      "display_name": "Uppercut",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["attack", "debuff"],
+      "synergy_tags": ["frontload"],
+      "role_tags": ["frontload"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Reaper",
+      "display_name": "Reaper",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["attack", "non_redundant_attack"],
+      "synergy_tags": ["strength", "frontload"],
+      "role_tags": ["frontload"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Impervious",
+      "display_name": "Impervious",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": ["skill", "block", "exhaust"],
+      "synergy_tags": ["block", "exhaust"],
+      "role_tags": ["block"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "SecondWind",
+      "display_name": "Second Wind",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "exhaust"],
+      "synergy_tags": ["exhaust"],
+      "role_tags": ["exhaust"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Feed",
+      "display_name": "Feed",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "non_redundant_attack"],
+      "synergy_tags": ["scaling"],
+      "role_tags": ["frontload", "scaling"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Rampage",
+      "display_name": "Rampage",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "non_redundant_attack"],
+      "synergy_tags": ["scaling"],
+      "role_tags": ["scaling", "frontload"],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "SpotWeakness",
+      "display_name": "Spot Weakness",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["skill", "strength"],
+      "synergy_tags": ["strength", "scaling"],
+      "role_tags": ["scaling"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "PommelStrike",
+      "display_name": "Pommel Strike",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "draw"],
+      "synergy_tags": ["draw", "frontload"],
+      "role_tags": ["draw", "frontload"],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Thunderclap",
+      "display_name": "Thunderclap",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": ["attack", "debuff"],
+      "synergy_tags": ["frontload"],
+      "role_tags": ["frontload"],
+      "impact_level": "low"
+    }
+  ]
+}

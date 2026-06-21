@@ -1,0 +1,1185 @@
+{
+  "schema_version": 1,
+  "relics": [
+    {
+      "internal_name": "Vajra",
+      "display_name": "Vajra",
+      "synergy_tags": [
+        "strength",
+        "attack"
+      ],
+      "notes": "Strength helps attack scaling."
+    },
+    {
+      "internal_name": "Shuriken",
+      "display_name": "Shuriken",
+      "synergy_tags": [
+        "attack",
+        "frontload"
+      ],
+      "notes": "Rewards playing multiple attacks."
+    },
+    {
+      "internal_name": "Akabeko",
+      "display_name": "Akabeko",
+      "synergy_tags": [
+        "frontload",
+        "attack"
+      ],
+      "notes": "First attack each combat hits harder."
+    },
+    {
+      "internal_name": "BagOfPreparation",
+      "display_name": "Bag of Preparation",
+      "synergy_tags": [
+        "draw"
+      ],
+      "notes": "Extra opening draw.",
+      "_meta": {
+        "source_urls": [],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {}
+      }
+    },
+    {
+      "internal_name": "DeadBranch",
+      "display_name": "Dead Branch",
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "notes": "Synergizes with exhaust engines."
+    },
+    {
+      "internal_name": "CharonsOunce",
+      "display_name": "Charon's Ounce",
+      "synergy_tags": [
+        "block"
+      ],
+      "notes": "Shop economy / defensive posture."
+    },
+    {
+      "internal_name": "SingingBowl",
+      "display_name": "Singing Bowl",
+      "synergy_tags": [
+        "block",
+        "scaling"
+      ],
+      "notes": "HP trade for Max HP — favors longer fights."
+    },
+    {
+      "internal_name": "Anchor",
+      "display_name": "Anchor",
+      "synergy_tags": [
+        "block"
+      ],
+      "notes": "Start-of-combat block."
+    },
+    {
+      "internal_name": "MercuryHourglass",
+      "display_name": "Mercury Hourglass",
+      "synergy_tags": [
+        "draw",
+        "frontload"
+      ],
+      "notes": "First-turn tempo."
+    },
+    {
+      "internal_name": "Omamori",
+      "display_name": "Omamori",
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "notes": "Nullifies curses / protects key cards."
+    },
+    {
+      "internal_name": "BronzeScales",
+      "display_name": "Bronze Scales",
+      "synergy_tags": [
+        "block",
+        "frontload"
+      ],
+      "notes": "Reflect damage — likes blocking lines."
+    },
+    {
+      "internal_name": "PaperPhrog",
+      "display_name": "Paper Phrog",
+      "synergy_tags": [
+        "frontload",
+        "scaling"
+      ],
+      "notes": "Vulnerable synergy — rewards debuff/setup."
+    },
+    {
+      "internal_name": "Girya",
+      "display_name": "Girya",
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "notes": "Strength scaling over time."
+    },
+    {
+      "internal_name": "Lantern",
+      "display_name": "Lantern",
+      "synergy_tags": [
+        "draw",
+        "frontload"
+      ],
+      "notes": "Enemy intent visibility — indirect tempo."
+    },
+    {
+      "internal_name": "AlchemicalCoffer",
+      "display_name": "Alchemical Coffer",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, gain 4 potion slots filled with random potions. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "AmethystAubergine",
+      "display_name": "Amethyst Aubergine",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Enemies drop 10 additional Gold. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "BlackBlood",
+      "display_name": "Black Blood",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the end of combat, heal 12 HP. Details for this relic will be revealed in the future...",
+      "notes": "At the end of combat, heal 12 HP."
+    },
+    {
+      "internal_name": "BoundPhylactery",
+      "display_name": "Bound Phylactery",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of your turn, Summon 1. Details for this relic will be revealed in the future...",
+      "notes": "At the start of your turn, Summon 1. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "BowlerHat",
+      "display_name": "Bowler Hat",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Gain 20% additional Gold. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "BurningBlood",
+      "display_name": "Burning Blood",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the end of combat, heal 6 HP. Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "attack",
+        "block",
+        "discard",
+        "draw",
+        "exhaust",
+        "frontload",
+        "scaling",
+        "strength"
+      ],
+      "notes": "At the end of combat, heal 6 HP. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "DivineDestiny",
+      "display_name": "Divine Destiny",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of each combat, gain . Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "attack",
+        "block",
+        "discard",
+        "draw",
+        "exhaust",
+        "frontload",
+        "scaling",
+        "strength"
+      ],
+      "notes": "At the start of each combat, gain . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "DivineRight",
+      "display_name": "Divine Right",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of each combat, gain . Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "attack",
+        "block",
+        "discard",
+        "draw",
+        "exhaust",
+        "frontload",
+        "scaling",
+        "strength"
+      ],
+      "notes": "At the start of each combat, gain . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "GoldenCompass",
+      "display_name": "Golden Compass",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, replace the Act 2 Map with a single special path. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "HandDrill",
+      "display_name": "Hand Drill",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Whenever you break an enemy's Block , apply 2 Vulnerable . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "Kifuda",
+      "display_name": "Kifuda",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, Enchant up to 3 cards with Adroit . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "LastingCandy",
+      "display_name": "Lasting Candy",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Every other combat, your card rewards gain an additional Power . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "LeafyPoultice",
+      "display_name": "Leafy Poultice",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, Transform 1 of your Strikes and 1 of your Defends and lose 10 Max HP. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "LetterOpener",
+      "display_name": "Letter Opener",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Every time you play 3 Skills in a single turn, deal 5 damage to ALL enemies. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "LizardTail",
+      "display_name": "Lizard Tail",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "When you would die, heal to 50% of your Max HP instead (works once). Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "MassiveScroll",
+      "display_name": "Massive Scroll",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, choose 1 of 3 Multiplayer Colorless Cards to add to your Deck. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "Permafrost",
+      "display_name": "Permafrost",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "The first time you play a Powers each combat, gain 6 Block . Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "PhylacteryUnbound",
+      "display_name": "Phylactery Unbound",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of each combat, Summon 5. At the start of your turn, Summon 2. Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "attack",
+        "block",
+        "discard",
+        "draw",
+        "exhaust",
+        "frontload",
+        "scaling",
+        "strength"
+      ],
+      "notes": "At the start of each combat, Summon 5. At the start of your turn, Summon 2. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "Planisphere",
+      "display_name": "Planisphere",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Whenever you enter a ? room, heal 4 HP. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "PotionBelt",
+      "display_name": "Potion Belt",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, gain 2 potion slots. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "PrecariousShears",
+      "display_name": "Precarious Shears",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, remove 2 cards from your Deck and take 13 damage. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "PreservedFog",
+      "display_name": "Preserved Fog",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Upon pickup, remove 5 cards from your Deck. Add Folly to your Deck. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "RingoftheDrake",
+      "display_name": "Ring of the Drake",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of your first 3 turns, draw 2 additional cards. Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "draw",
+        "scaling"
+      ],
+      "notes": "This relic enhances card draw capabilities, particularly beneficial in decks focused on scaling strategies."
+    },
+    {
+      "internal_name": "RingoftheSnake",
+      "display_name": "Ring of the Snake",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of each combat, draw 2 additional cards. Details for this relic will be revealed in the future...",
+      "synergy_tags": [
+        "draw",
+        "exhaust"
+      ],
+      "notes": "At the start of each combat, draw 2 additional cards."
+    },
+    {
+      "internal_name": "StoneCracker",
+      "display_name": "Stone Cracker",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "At the start of Boss combats, Upgrade 3 random cards in your Draw Pile for the rest of combat. Details for this relic will be revealed in the future..."
+    },
+    {
+      "internal_name": "WhisperingEarring",
+      "display_name": "Whispering Earring",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-2-072026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026",
+            "hotfix-patch-notes-v0-98-2-072026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "description": "Gain at the start of each turn. Vakuu plays your first turn for you. Details for this relic will be revealed in the future..."
+    }
+  ]
+}

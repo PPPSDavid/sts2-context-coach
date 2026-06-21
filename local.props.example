@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <!-- Copy from this file to local.props and adjust paths. local.props is gitignored. -->
+    <STS2GamePath>M:\SteamLibrary\steamapps\common\Slay the Spire 2</STS2GamePath>
+    <!-- Set false to build without copying into mods\ -->
+    <DeploySts2Mod>true</DeploySts2Mod>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-03-28T20:14:22Z",
+  "entries": [
+    {
+      "url": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Main",
+      "fetched_at": "2026-03-26T01:15:40Z",
+      "from_cache": true,
+      "status": "stale_error",
+      "error": "403 Client Error: Forbidden for url: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Main"
+    },
+    {
+      "url": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Acts",
+      "fetched_at": "2026-03-28T20:14:21Z",
+      "from_cache": false,
+      "status": "error",
+      "error": "403 Client Error: Forbidden for url: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Acts"
+    },
+    {
+      "url": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cards_List",
+      "fetched_at": "2026-03-28T20:04:00Z",
+      "from_cache": true,
+      "status": "stale_error",
+      "error": "403 Client Error: Forbidden for url: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cards_List"
+    },
+    {
+      "url": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List",
+      "fetched_at": "2026-03-28T20:04:00Z",
+      "from_cache": true,
+      "status": "stale_error",
+      "error": "403 Client Error: Forbidden for url: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Relics_List"
+    },
+    {
+      "url": "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ironclad",
+      "fetched_at": "2026-03-26T01:15:40Z",
+      "from_cache": true,
+      "status": "stale_error",
+      "error": "403 Client Error: Forbidden for url: https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ironclad"
+    },
+    {
+      "url": "https://steamcommunity.com/games/2868840/rss/",
+      "fetched_at": "2026-03-28T20:14:21Z",
+      "from_cache": false,
+      "status": "ok",
+      "error": null
+    },
+    {
+      "url": "https://store.steampowered.com/news/?appids=2868840",
+      "fetched_at": "2026-03-28T20:14:22Z",
+      "from_cache": false,
+      "status": "ok",
+      "error": null
+    }
+  ]
+}

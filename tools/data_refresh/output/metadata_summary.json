@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-03-28T20:06:13Z",
+  "counts": {
+    "cards": 568,
+    "relics": 288,
+    "acts": 4,
+    "events": 55,
+    "encounters": 26,
+    "normal_encounters": 0,
+    "elites": 12,
+    "bosses": 14,
+    "monsters": 69,
+    "events_with_description": 40,
+    "encounters_with_description": 25,
+    "monsters_with_description": 69,
+    "monsters_with_skills": 0,
+    "total_monster_skills": 0
+  },
+  "coverage_by_act": {
+    "events": {
+      "Overgrowth": 18,
+      "Underdocks": 9,
+      "Hive": 18,
+      "Glory": 10
+    },
+    "encounters": {
+      "Overgrowth": 8,
+      "Underdocks": 6,
+      "Hive": 6,
+      "Glory": 6
+    },
+    "monsters": {
+      "Overgrowth": 21,
+      "Underdocks": 15,
+      "Hive": 17,
+      "Glory": 16
+    }
+  },
+  "act_names": [
+    "Overgrowth",
+    "Underdocks",
+    "Hive",
+    "Glory"
+  ],
+  "keywords_glossary": {
+    "source": "wiki_gg_mechanical",
+    "generated_at": "2026-03-28T20:06:13Z",
+    "term_count": 257,
+    "detail_page_urls": 7,
+    "detail_pages_skipped_empty": 0,
+    "table_fallback_rows_added": 250
+  }
+}

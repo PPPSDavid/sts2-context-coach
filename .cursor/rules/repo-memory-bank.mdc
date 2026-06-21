@@ -1,0 +1,27 @@
+---
+description: Load repo memory bank and session-start checklist for STS2 Context Coach
+alwaysApply: true
+---
+
+# Repo memory bank (always read first)
+
+Before exploring or editing, read **`docs/REPO_MEMORY_BANK.md`** for goals, architecture, diagnostics paths, and safety conventions.
+
+## Session start
+
+1. Read **`docs/REPO_MEMORY_BANK.md`** and skim **`README.md`** Maintainer Notes if touching build/data.
+2. Prefer **code-review-graph MCP tools** before Grep/Glob/Read for exploration (see **`AGENTS.md`**).
+3. Check active changes (`git status` / `detect_changes`) before large edits.
+4. For runtime bugs: Godot log `%AppData%\Roaming\SlayTheSpire2\logs\godot.log` and Context Coach root `%AppData%\Roaming\SlayTheSpire2\Sts2ContextCoach\`.
+
+## Three-expert review (substantive changes)
+
+Before claiming a scoring/state/LLM/telemetry change is done, sanity-check three lenses:
+
+1. **Player runtime** — Works with LLM off? No unsafe concurrent reflection in `GameStateCache`? Overlay/settings stable?
+2. **Data & scoring** — Pure logic covered by xUnit? Metadata merges stay conservative? Localization intact?
+3. **Maintainer ops** — Validation commands run? Memory bank / agent docs updated if workflows changed?
+
+## Memory bank maintenance
+
+When architecture, goals, diagnostics, or agent workflows change materially, update **`docs/REPO_MEMORY_BANK.md`** (concise, operational) and add a changelog entry.

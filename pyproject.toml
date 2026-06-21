@@ -1,0 +1,41 @@
+# Python tooling for `tools/` (data_refresh, run_insights, dev scripts).
+# Install Ruff via `requirements-dev.txt`, then from repo root:
+#   ruff format .
+#   ruff check .   # optional linter pass
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+extend-exclude = [
+    ".git",
+    "__pycache__",
+    "*.egg-info",
+    ".venv",
+    "venv",
+    "bin",
+    "obj",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+docstring-code-format = true
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # Pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    # "B" (flake8-bugbear): enable later; Typer uses patterns that trigger B008 on defaults.
+]
+ignore = [
+    "E501", # line length (formatter owns wrapping where possible)
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["tools"]
+
+# `main.py` adjusts sys.path before local imports (Typer entry when run as a script).
+[tool.ruff.lint.per-file-ignores]
+"tools/data_refresh/main.py" = ["E402", "I001"]

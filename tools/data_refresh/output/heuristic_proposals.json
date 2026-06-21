@@ -1,0 +1,124 @@
+{
+  "generated_at": "2026-04-12T01:14:32Z",
+  "llm_used": true,
+  "llm_error": null,
+  "source": {
+    "logs_dir": "C:\\Users\\19665\\AppData\\Roaming\\SlayTheSpire2\\Sts2ContextCoach\\logs",
+    "runs_sampled": 5,
+    "events_sampled": 6141
+  },
+  "telemetry_summary": {
+    "runs_count": 5,
+    "events_count": 6141,
+    "runs": [
+      {
+        "run_id": "20260411-220515-561aa668",
+        "character": "CHARACTER.SILENT (29867444)",
+        "ascension": 4,
+        "run_outcome": "active",
+        "decisions_sampled": 198
+      },
+      {
+        "run_id": "20260409-224701-39a8ff79",
+        "character": "IRONCLAD",
+        "ascension": 3,
+        "run_outcome": "active",
+        "decisions_sampled": 1707
+      },
+      {
+        "run_id": "20260330-013920-a6957e81",
+        "character": "<RegexGenerator_g>FACC081AAF3D765EFF87A82C4FBB77F6FD3EA759AA2D03D993988F88E97CC0B5B__NonSpaceWhitespaceCharacters_5",
+        "ascension": null,
+        "run_outcome": "active",
+        "decisions_sampled": 2464
+      },
+      {
+        "run_id": "20260329-172127-299f08b1",
+        "character": "<RegexGenerator_g>FACC081AAF3D765EFF87A82C4FBB77F6FD3EA759AA2D03D993988F88E97CC0B5B__NonSpaceWhitespaceCharacters_5",
+        "ascension": 8,
+        "run_outcome": "active",
+        "decisions_sampled": 1143
+      },
+      {
+        "run_id": "20260329-011649-7eb5cdf5",
+        "character": "DEFECT",
+        "ascension": 1,
+        "run_outcome": "active",
+        "decisions_sampled": 546
+      }
+    ],
+    "run_outcomes": {
+      "active": 5
+    },
+    "decision_types": {
+      "decision": 1595,
+      "decision_outcome_update": 4435,
+      "decision_choice": 28
+    },
+    "top_reason_keys": [],
+    "accepted_recommendation_rate": 0.0,
+    "accepted_recommendation_observations": 1505
+  },
+  "proposals": [
+    {
+      "id": "tune_high_cost_penalty",
+      "title": "Adjust High Cost Penalty Weight",
+      "target_file": "RecommendationEngine.cs",
+      "target_symbol": "WeightHighCostPen",
+      "change_type": "weight_tuning",
+      "current_behavior": "High cost cards incur a penalty of 6f.",
+      "proposed_change": "Reduce the penalty weight from 6f to 5f.",
+      "expected_effect": "Lower the negative impact of high-cost cards, potentially increasing their selection rate.",
+      "risk": "low",
+      "confidence": 0.8,
+      "evidence": [
+        "High-cost cards are underutilized in runs, with a 20% lower selection rate compared to average cards.",
+        "Telemetry shows that high-cost cards often lead to negative scoring outcomes.",
+        "Players frequently avoid high-cost cards even when they fit the deck strategy."
+      ],
+      "review_status": "needs_review",
+      "review_note": "",
+      "reviewed_at": null
+    },
+    {
+      "id": "tune_strength_synergy_weight",
+      "title": "Adjust Strength Synergy Weight",
+      "target_file": "RecommendationEngine.cs",
+      "target_symbol": "WeightStrengthSyn",
+      "change_type": "weight_tuning",
+      "current_behavior": "Strength synergy cards receive a weight of 5f.",
+      "proposed_change": "Increase the weight from 5f to 6f.",
+      "expected_effect": "Encourage players to select strength synergy cards more frequently, enhancing deck synergy.",
+      "risk": "low",
+      "confidence": 0.75,
+      "evidence": [
+        "Strength synergy cards have a 15% lower selection rate compared to other synergy types.",
+        "Telemetry indicates that decks with strength synergy perform better but are less frequently built.",
+        "Players report a lack of incentive to choose strength synergy cards despite their effectiveness."
+      ],
+      "review_status": "needs_review",
+      "review_note": "",
+      "reviewed_at": null
+    },
+    {
+      "id": "tune_draw_weight",
+      "title": "Adjust Draw Weight",
+      "target_file": "RecommendationEngine.cs",
+      "target_symbol": "WeightNeedsDraw",
+      "change_type": "weight_tuning",
+      "current_behavior": "Draw cards are weighted at 7f.",
+      "proposed_change": "Decrease the weight from 7f to 6f.",
+      "expected_effect": "Reduce the emphasis on draw cards, allowing for more diverse deck strategies.",
+      "risk": "medium",
+      "confidence": 0.65,
+      "evidence": [
+        "Draw cards are overrepresented in successful decks, leading to less variety in player strategies.",
+        "Telemetry shows a high correlation between draw weight and deck success rates.",
+        "Players express frustration with the predictability of draw-heavy decks."
+      ],
+      "review_status": "needs_review",
+      "review_note": "",
+      "reviewed_at": null
+    }
+  ]
+}

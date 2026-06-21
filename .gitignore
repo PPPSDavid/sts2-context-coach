@@ -1,0 +1,34 @@
+# Build / IDE
+bin/
+obj/
+.vs/
+*.user
+*.suo
+
+# Release zips (scripts under tools/release/ stay tracked)
+/release/
+
+# Local machine config (game paths, deploy targets)
+local.props
+
+# Game / modding binaries (populate via setup-lib.ps1)
+lib/
+
+# Code-review-graph local index
+.code-review-graph/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# data_refresh secrets and cache
+tools/data_refresh/config.yaml
+tools/data_refresh/cache/
+tools/data_refresh/.venv/
+
+# OS
+Thumbs.db
+.DS_Store

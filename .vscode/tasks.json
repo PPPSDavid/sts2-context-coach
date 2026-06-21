@@ -1,0 +1,33 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dotnet build (Release)",
+      "type": "shell",
+      "command": "dotnet build ${workspaceFolder}/Sts2ContextCoach.csproj -c Release",
+      "group": "build",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "dotnet test (Release)",
+      "type": "shell",
+      "command": "dotnet test ${workspaceFolder}/Sts2ContextCoach.Tests/Sts2ContextCoach.Tests.csproj -c Release",
+      "group": "test",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "ruff format (repo)",
+      "type": "shell",
+      "command": "ruff format .",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "none"
+    },
+    {
+      "label": "ruff check (repo)",
+      "type": "shell",
+      "command": "ruff check .",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": "none"
+    }
+  ]
+}

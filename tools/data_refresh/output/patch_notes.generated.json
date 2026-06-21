@@ -1,0 +1,908 @@
+{
+  "schema_version": 1,
+  "patches": [
+    {
+      "patch_id": "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026",
+      "date": "Tue, 24 Mar 2026 17:33:57 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/503978984819656658",
+      "affected_entities": [
+        {
+          "type": "relic",
+          "internal_name": "BagOfPreparation",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "beta-patch-notes-v0-100-0-202026",
+      "date": "Fri, 20 Mar 2026 01:44:55 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/503978984819655260",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "ForgottenRitual",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "CollisionCourse",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "SculptingStrike",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "MinionDiveBomb",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HeirloomHammer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "CorrosiveWave",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "IAmInvincible",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "CaptureSpirit",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "EternalArmor",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "SeekerStrike",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "BorrowedTime",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "MinionStrike",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Breakthrough",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "DanseMacabre",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Bombardment",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "SolarStrike",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "GraveWarden",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Untouchable",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "RocketPunch",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "KinglyPunch",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "GatherLight",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hemokinesis",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "GrandFinale",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Production",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "KinglyKick",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Debilitate",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Anticipate",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Infection",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HandTrick",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HiddenGem",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Discovery",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Alignment",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Knockdown",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Prepared",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HuddleUp",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Dominate",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Pinpoint",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "VoidForm",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Tremble",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Cascade",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Spinner",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "FightMe",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Skewer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "BEGONE",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Injury",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "GangUp",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "CHARGE",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Thrash",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Strike",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Pounce",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Seance",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hotfix",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Patter",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Cinder",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Volley",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Slice",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Folly",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Stack",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Break",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Stoke",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Dirge",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Spite",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Dazed",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Greed",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Parry",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Rage",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Glow",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Lift",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Defy",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Void",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Claw",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Soul",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "AmethystAubergine",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "WhisperingEarring",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "PrecariousShears",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LeafyPoultice",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "PreservedFog",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "StoneCracker",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LetterOpener",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "Planisphere",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "Permafrost",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LizardTail",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "BowlerHat",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "Kifuda",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "patch-notes-v0-99-1-172026",
+      "date": "Tue, 17 Mar 2026 20:55:39 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/502852451136701667",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "BrightestFlame",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "FeedingFrenzy",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Breakthrough",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hellraiser",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Coolheaded",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "WasteAway",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Colossus",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HuddleUp",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "IceLance",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Buffer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Sloth",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Burn",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Fuel",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Void",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Claw",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "WhisperingEarring",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "AlchemicalCoffer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "GoldenCompass",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "MassiveScroll",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LastingCandy",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "PotionBelt",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LizardTail",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "HandDrill",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "beta-hotfix-patch-notes-v0-99-1-142026",
+      "date": "Sat, 14 Mar 2026 04:56:20 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/502852451136701251",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "Breakthrough",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hotfix",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "the-neowsletter-march-2026-132026",
+      "date": "Fri, 13 Mar 2026 21:49:33 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/502852451136700527",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "CHARGE",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Brand",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "beta-patch-notes-v0-99-132026",
+      "date": "Fri, 13 Mar 2026 00:42:32 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/502852451136700759",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "BrightestFlame",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "FeedingFrenzy",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hellraiser",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Coolheaded",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "WasteAway",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Colossus",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "HuddleUp",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "IceLance",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Buffer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Sloth",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Burn",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Fuel",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Void",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Claw",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "WhisperingEarring",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "AlchemicalCoffer",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "GoldenCompass",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "MassiveScroll",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LastingCandy",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "PotionBelt",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "LizardTail",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "HandDrill",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "hotfix-patch-notes-v0-98-3-102026",
+      "date": "Tue, 10 Mar 2026 17:55:05 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/519740319207525150",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "Hotfix",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "hotfix-patch-notes-v0-98-2-072026",
+      "date": "Sat, 07 Mar 2026 02:47:45 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/519740319207524328",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "Hotfix",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "relic",
+          "internal_name": "WhisperingEarring",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "hotfix-patch-notes-v0-98-1-062026",
+      "date": "Fri, 06 Mar 2026 00:56:25 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/519740319207522939",
+      "affected_entities": [
+        {
+          "type": "card",
+          "internal_name": "KnifeTrap",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        },
+        {
+          "type": "card",
+          "internal_name": "Hotfix",
+          "change_type": "balance_change",
+          "summary": "Mentioned in patch notes (heuristic)"
+        }
+      ]
+    },
+    {
+      "patch_id": "slay-the-spire-2-is-out-now-in-early-access-052026",
+      "date": "Thu, 05 Mar 2026 17:51:30 +0000",
+      "source_url": "https://steamcommunity.com/games/2868840/announcements/detail/519740319207522312",
+      "affected_entities": []
+    }
+  ]
+}

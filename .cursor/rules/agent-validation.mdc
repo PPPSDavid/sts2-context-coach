@@ -1,0 +1,45 @@
+---
+description: Verification commands and agent safety rails for STS2 Context Coach
+alwaysApply: true
+---
+
+# Validation loop
+
+Run the smallest check that proves the change. Do not claim success without command output.
+
+## C# mod (primary)
+
+Requires **`lib/`** (run **`setup-lib.ps1 -GamePath "<STS2 install>"`** once) and **.NET 9 SDK**.
+
+```powershell
+dotnet build .\Sts2ContextCoach.csproj -c Release
+dotnet test .\Sts2ContextCoach.Tests\Sts2ContextCoach.Tests.csproj -c Release
+```
+
+- Keep new **Data/** ingestion testable without Godot logging (`Diagnostics/CoachGameLog` pattern).
+- Avoid calling **`MegaCrit.Sts2.Core.Logging.Log`** from code paths hit by xUnit.
+
+## Python tools (when touching `tools/`)
+
+From repo root with **`sts2-context-coach`** conda env (see **`README.md`**):
+
+```powershell
+ruff format .
+ruff check .
+set PYTHONPATH=.
+python -m unittest discover -s tools/run_insights/tests -p "test_*.py" -v
+python -m unittest discover -s tools/data_refresh/tests -p "test_*.py" -v
+```
+
+## Release zip (release changes only)
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\tools\release\build-release.ps1
+```
+
+## Safety (never break)
+
+- Runtime mod must work **without LLM** (`scoring_mode=heuristic`).
+- Do **not** commit secrets: **`local.props`**, **`tools/data_refresh/config.yaml`**, API keys.
+- **`data_refresh`** must not silently overwrite curated **`Data/*.json`** — use review/apply flow.
+- Shipped metadata stays **embedded in the DLL** for production; loose JSON under mod folders breaks STS2 mod scanning.

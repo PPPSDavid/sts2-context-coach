@@ -1,0 +1,26 @@
+---
+description: C# mod conventions for Harmony patches, state reflection, and scoring
+globs: "**/*.cs"
+alwaysApply: false
+---
+
+# C# mod conventions
+
+## Layout
+
+| Area | Role |
+|------|------|
+| `ModMain.cs` | Init, Harmony, config/data load |
+| `UI/` | Overlay + settings (`CardOverlayPatch`, `LlmSettingsPanel`) |
+| `Scoring/` | Heuristic engine (`RecommendationEngine`, `DeckAnalyzer`) |
+| `State/` | Reflection probes, caching (`GameStateCache` uses **`BuildLock`** for serialized builds) |
+| `Llm/` | Optional batch LLM on top of heuristics |
+| `Telemetry/` | Run logs, heartbeat, export |
+| `Data/` | Embedded metadata loaders |
+
+## Editing rules
+
+- **Minimal scope** — match existing naming, nullability, and logging style (`[ContextCoach]` prefix).
+- **Threading** — never run concurrent game reflection; follow `GameStateCache` lock patterns.
+- **Tests** — add xUnit coverage for pure scoring/data normalization; keep tests Godot-free.
+- **Player-facing** — preserve signed reason lines and locale-aware strings in overlays.

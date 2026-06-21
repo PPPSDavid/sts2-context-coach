@@ -1,0 +1,15 @@
+{
+  "python.defaultInterpreterPath": "${env:CONDA_PREFIX}/python.exe",
+  "python.analysis.extraPaths": ["."],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff",
+    "editor.formatOnSave": true
+  },
+  "ruff.configuration": "${workspaceFolder}/pyproject.toml",
+  "editor.formatOnSave": true,
+  "files.exclude": {
+    "**/__pycache__": true,
+    "**/bin": true,
+    "**/obj": true
+  }
+}

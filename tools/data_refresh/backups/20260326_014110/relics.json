@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "relics": [
+    {
+      "internal_name": "Vajra",
+      "display_name": "Vajra",
+      "synergy_tags": [
+        "strength",
+        "attack"
+      ],
+      "notes": "Strength helps attack scaling."
+    },
+    {
+      "internal_name": "Shuriken",
+      "display_name": "Shuriken",
+      "synergy_tags": [
+        "attack",
+        "frontload"
+      ],
+      "notes": "Rewards playing multiple attacks."
+    },
+    {
+      "internal_name": "Akabeko",
+      "display_name": "Akabeko",
+      "synergy_tags": [
+        "frontload",
+        "attack"
+      ],
+      "notes": "First attack each combat hits harder."
+    },
+    {
+      "internal_name": "BagOfPreparation",
+      "display_name": "Bag of Preparation",
+      "synergy_tags": [
+        "draw"
+      ],
+      "notes": "Extra opening draw."
+    },
+    {
+      "internal_name": "DeadBranch",
+      "display_name": "Dead Branch",
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "notes": "Synergizes with exhaust engines."
+    },
+    {
+      "internal_name": "CharonsOunce",
+      "display_name": "Charon's Ounce",
+      "synergy_tags": [
+        "block"
+      ],
+      "notes": "Shop economy / defensive posture."
+    },
+    {
+      "internal_name": "SingingBowl",
+      "display_name": "Singing Bowl",
+      "synergy_tags": [
+        "block",
+        "scaling"
+      ],
+      "notes": "HP trade for Max HP — favors longer fights."
+    },
+    {
+      "internal_name": "Anchor",
+      "display_name": "Anchor",
+      "synergy_tags": [
+        "block"
+      ],
+      "notes": "Start-of-combat block."
+    },
+    {
+      "internal_name": "MercuryHourglass",
+      "display_name": "Mercury Hourglass",
+      "synergy_tags": [
+        "draw",
+        "frontload"
+      ],
+      "notes": "First-turn tempo."
+    },
+    {
+      "internal_name": "Omamori",
+      "display_name": "Omamori",
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "notes": "Nullifies curses / protects key cards."
+    },
+    {
+      "internal_name": "BronzeScales",
+      "display_name": "Bronze Scales",
+      "synergy_tags": [
+        "block",
+        "frontload"
+      ],
+      "notes": "Reflect damage — likes blocking lines."
+    },
+    {
+      "internal_name": "PaperPhrog",
+      "display_name": "Paper Phrog",
+      "synergy_tags": [
+        "frontload",
+        "scaling"
+      ],
+      "notes": "Vulnerable synergy — rewards debuff/setup."
+    },
+    {
+      "internal_name": "Girya",
+      "display_name": "Girya",
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "notes": "Strength scaling over time."
+    },
+    {
+      "internal_name": "Lantern",
+      "display_name": "Lantern",
+      "synergy_tags": [
+        "draw",
+        "frontload"
+      ],
+      "notes": "Enemy intent visibility — indirect tempo."
+    }
+  ]
+}

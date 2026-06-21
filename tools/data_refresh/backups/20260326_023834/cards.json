@@ -1,0 +1,5747 @@
+{
+  "schema_version": 1,
+  "cards": [
+    {
+      "internal_name": "Bash",
+      "display_name": "Bash",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "attack",
+        "debuff",
+        "vulnerable"
+      ],
+      "synergy_tags": [
+        "attack",
+        "scaling",
+        "strength"
+      ],
+      "role_tags": [
+        "consistency",
+        "sustain"
+      ],
+      "impact_level": "medium",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Bash"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "cost": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "notes": "Bash deals damage while applying Vulnerable, enhancing future attacks."
+    },
+    {
+      "internal_name": "Anger",
+      "display_name": "Anger",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "discard",
+        "frontload",
+        "scaling"
+      ],
+      "synergy_tags": [
+        "discard",
+        "scaling"
+      ],
+      "role_tags": [
+        "consistency",
+        "draw",
+        "exhaust"
+      ],
+      "impact_level": "medium",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Anger?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "notes": "Generates additional damage through card recursion."
+    },
+    {
+      "internal_name": "BodySlam",
+      "display_name": "Body Slam",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "block",
+        "scaling",
+        "strength"
+      ],
+      "synergy_tags": [
+        "block",
+        "scaling",
+        "strength"
+      ],
+      "role_tags": [
+        "block",
+        "scaling",
+        "sustain"
+      ],
+      "impact_level": "medium",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Body_Slam?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "notes": "Damage scales with Block, making it effective with high Block generation."
+    },
+    {
+      "internal_name": "ShrugItOff",
+      "display_name": "Shrug It Off",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "draw",
+        "block"
+      ],
+      "synergy_tags": [
+        "draw",
+        "block"
+      ],
+      "role_tags": [
+        "block",
+        "draw"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "TrueGrit",
+      "display_name": "True Grit",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "block",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "exhaust",
+        "block"
+      ],
+      "role_tags": [
+        "block",
+        "exhaust"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "FlameBarrier",
+      "display_name": "Flame Barrier",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "skill",
+        "block"
+      ],
+      "synergy_tags": [
+        "block"
+      ],
+      "role_tags": [
+        "block"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "GhostlyArmor",
+      "display_name": "Ghostly Armor",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "block"
+      ],
+      "synergy_tags": [
+        "block"
+      ],
+      "role_tags": [
+        "block"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Barricade",
+      "display_name": "Barricade",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": [
+        "power",
+        "scaling"
+      ],
+      "synergy_tags": [
+        "block",
+        "scaling"
+      ],
+      "role_tags": [
+        "scaling"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "DemonForm",
+      "display_name": "Demon Form",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": [
+        "power",
+        "scaling"
+      ],
+      "synergy_tags": [
+        "scaling",
+        "strength"
+      ],
+      "role_tags": [
+        "scaling"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Corruption",
+      "display_name": "Corruption",
+      "character": "Ironclad",
+      "cost": 3,
+      "tags": [
+        "power",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "role_tags": [
+        "exhaust",
+        "scaling"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "FeelNoPain",
+      "display_name": "Feel No Pain",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "power",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "exhaust",
+        "block"
+      ],
+      "role_tags": [
+        "exhaust",
+        "block"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "DarkEmbrace",
+      "display_name": "Dark Embrace",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "power",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "exhaust",
+        "draw"
+      ],
+      "role_tags": [
+        "exhaust",
+        "draw"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Offering",
+      "display_name": "Offering",
+      "character": "Ironclad",
+      "cost": 0,
+      "tags": [
+        "skill",
+        "draw",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "draw",
+        "exhaust",
+        "frontload"
+      ],
+      "role_tags": [
+        "draw",
+        "frontload"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "BattleTrance",
+      "display_name": "Battle Trance",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "skill",
+        "draw"
+      ],
+      "synergy_tags": [
+        "draw"
+      ],
+      "role_tags": [
+        "draw"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Inflame",
+      "display_name": "Inflame",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "power",
+        "strength"
+      ],
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "role_tags": [
+        "scaling"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "LimitBreak",
+      "display_name": "Limit Break",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "strength"
+      ],
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "role_tags": [
+        "scaling"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "HeavyBlade",
+      "display_name": "Heavy Blade",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "attack",
+        "non_redundant_attack"
+      ],
+      "synergy_tags": [
+        "strength",
+        "frontload"
+      ],
+      "role_tags": [
+        "frontload"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "TwinStrike",
+      "display_name": "Twin Strike",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack"
+      ],
+      "synergy_tags": [
+        "strength"
+      ],
+      "role_tags": [
+        "frontload"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Whirlwind",
+      "display_name": "Whirlwind",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack"
+      ],
+      "synergy_tags": [
+        "strength"
+      ],
+      "role_tags": [
+        "frontload",
+        "scaling"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "IronWave",
+      "display_name": "Iron Wave",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "block"
+      ],
+      "synergy_tags": [
+        "block",
+        "frontload"
+      ],
+      "role_tags": [
+        "frontload",
+        "block"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Uppercut",
+      "display_name": "Uppercut",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "attack",
+        "debuff"
+      ],
+      "synergy_tags": [
+        "frontload"
+      ],
+      "role_tags": [
+        "frontload"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Reaper",
+      "display_name": "Reaper",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "attack",
+        "non_redundant_attack"
+      ],
+      "synergy_tags": [
+        "strength",
+        "frontload"
+      ],
+      "role_tags": [
+        "frontload"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Impervious",
+      "display_name": "Impervious",
+      "character": "Ironclad",
+      "cost": 2,
+      "tags": [
+        "skill",
+        "block",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "block",
+        "exhaust"
+      ],
+      "role_tags": [
+        "block"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "SecondWind",
+      "display_name": "Second Wind",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "exhaust"
+      ],
+      "synergy_tags": [
+        "exhaust"
+      ],
+      "role_tags": [
+        "exhaust"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Feed",
+      "display_name": "Feed",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "non_redundant_attack"
+      ],
+      "synergy_tags": [
+        "scaling"
+      ],
+      "role_tags": [
+        "frontload",
+        "scaling"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "Rampage",
+      "display_name": "Rampage",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "non_redundant_attack"
+      ],
+      "synergy_tags": [
+        "scaling"
+      ],
+      "role_tags": [
+        "scaling",
+        "frontload"
+      ],
+      "impact_level": "high"
+    },
+    {
+      "internal_name": "SpotWeakness",
+      "display_name": "Spot Weakness",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "skill",
+        "strength"
+      ],
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "role_tags": [
+        "scaling"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "PommelStrike",
+      "display_name": "Pommel Strike",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "draw"
+      ],
+      "synergy_tags": [
+        "draw",
+        "frontload"
+      ],
+      "role_tags": [
+        "draw",
+        "frontload"
+      ],
+      "impact_level": "medium"
+    },
+    {
+      "internal_name": "Thunderclap",
+      "display_name": "Thunderclap",
+      "character": "Ironclad",
+      "cost": 1,
+      "tags": [
+        "attack",
+        "debuff"
+      ],
+      "synergy_tags": [
+        "frontload"
+      ],
+      "role_tags": [
+        "frontload"
+      ],
+      "impact_level": "low"
+    },
+    {
+      "internal_name": "Alignment",
+      "display_name": "Alignment",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Alignment?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Gain ."
+    },
+    {
+      "internal_name": "Anticipate",
+      "display_name": "Anticipate",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Anticipate?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 3 Dexterity this turn."
+    },
+    {
+      "internal_name": "Armaments",
+      "display_name": "Armaments",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Armaments?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 5 Block . Upgrade a card in your Hand.",
+      "synergy_tags": [
+        "scaling",
+        "strength",
+        "draw"
+      ],
+      "role_tags": [
+        "block",
+        "consistency",
+        "setup"
+      ],
+      "impact_level": "medium",
+      "notes": "Provides block and enhances card effectiveness through upgrading."
+    },
+    {
+      "internal_name": "BEGONE",
+      "display_name": "BEGONE!",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:BEGONE!?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 4 damage. Choose a card in your Hand to Transform into Minion Dive Bomb ."
+    },
+    {
+      "internal_name": "BloodWall",
+      "display_name": "Blood Wall",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Blood_Wall?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Lose 2 HP. Gain 16 Block .",
+      "synergy_tags": [
+        "block",
+        "exhaust",
+        "scaling"
+      ],
+      "role_tags": [
+        "block",
+        "sustain"
+      ],
+      "impact_level": "medium",
+      "notes": "Provides a solid amount of block at the cost of HP, synergizes with exhaust mechanics."
+    },
+    {
+      "internal_name": "Bloodletting",
+      "display_name": "Bloodletting",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Bloodletting?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Lose 3 HP. Gain .",
+      "synergy_tags": [
+        "discard",
+        "scaling"
+      ],
+      "role_tags": [
+        "sustain",
+        "exhaust"
+      ],
+      "impact_level": "medium",
+      "notes": "Bloodletting allows for HP loss to gain benefits, synergizing well with discard and scaling strategies."
+    },
+    {
+      "internal_name": "Bombardment",
+      "display_name": "Bombardment",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Bombardment?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Deal 18 damage. At the start of your turn, plays from the Exhaust Pile. Exhaust ."
+    },
+    {
+      "internal_name": "BorrowedTime",
+      "display_name": "Borrowed Time",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Borrowed_Time?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Apply 3 Doom to yourself. Gain ."
+    },
+    {
+      "internal_name": "Brand",
+      "display_name": "Brand",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Brand?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Lose 1 HP. Exhaust 1 card. Gain 1 Strength ."
+    },
+    {
+      "internal_name": "Break",
+      "display_name": "Break",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Break?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Ancient",
+      "type": "Attack",
+      "description": "Deal 20 damage. Apply 5 Vulnerable ."
+    },
+    {
+      "internal_name": "Breakthrough",
+      "display_name": "Breakthrough",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Breakthrough?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-hotfix-patch-notes-v0-99-1-142026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-hotfix-patch-notes-v0-99-1-142026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Lose 1 HP. Deal 9 damage to ALL enemies."
+    },
+    {
+      "internal_name": "BrightestFlame",
+      "display_name": "Brightest Flame",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Brightest_Flame?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Ancient",
+      "type": "Skill",
+      "description": "Gain . Draw 2 cards. Lose 1 Max HP."
+    },
+    {
+      "internal_name": "Buffer",
+      "display_name": "Buffer",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Buffer?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Rare",
+      "type": "Power",
+      "description": "Prevent the next time you would lose HP."
+    },
+    {
+      "internal_name": "Burn",
+      "display_name": "Burn",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Burn?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "Unplayable . At the end of your turn, if this is in your Hand, take 2 damage."
+    },
+    {
+      "internal_name": "CHARGE",
+      "display_name": "CHARGE!!",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:CHARGE!!?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Choose 2 cards in your Draw Pile to Transform into Minion Strikes ."
+    },
+    {
+      "internal_name": "CaptureSpirit",
+      "display_name": "Capture Spirit",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Capture_Spirit?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Enemy loses 3 HP. Add 3 Souls into your Draw Pile."
+    },
+    {
+      "internal_name": "Cascade",
+      "display_name": "Cascade",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cascade?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Play the top X cards of your Draw Pile."
+    },
+    {
+      "internal_name": "Cinder",
+      "display_name": "Cinder",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Cinder?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 17 damage. Exhaust the top card of your Draw Pile."
+    },
+    {
+      "internal_name": "Claw",
+      "display_name": "Claw",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Claw?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 3 damage. Increase the damage of ALL Claw cards by 2 this combat."
+    },
+    {
+      "internal_name": "CollisionCourse",
+      "display_name": "Collision Course",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Collision_Course?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 9 damage. Add a Debris into your Hand."
+    },
+    {
+      "internal_name": "Colossus",
+      "display_name": "Colossus",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Colossus?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Gain 5 Block . You receive 50% less damage from Vulnerable enemies this turn."
+    },
+    {
+      "internal_name": "Coolheaded",
+      "display_name": "Coolheaded",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Coolheaded?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Channel 1 Frost . Draw 1 card."
+    },
+    {
+      "internal_name": "CorrosiveWave",
+      "display_name": "Corrosive Wave",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Corrosive_Wave?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Whenever you draw a card this turn, apply 3 Poison to ALL enemies."
+    },
+    {
+      "internal_name": "DanseMacabre",
+      "display_name": "Danse Macabre",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Danse_Macabre?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Uncommon",
+      "type": "Power",
+      "description": "Whenever you play a card that costs or more, gain 3 Block ."
+    },
+    {
+      "internal_name": "Dazed",
+      "display_name": "Dazed",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Dazed?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "Unplayable . Ethereal ."
+    },
+    {
+      "internal_name": "Debilitate",
+      "display_name": "Debilitate",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Debilitate?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 7 damage. Vulnerable and Weak are twice as effective against the enemy for the next 3 turns."
+    },
+    {
+      "internal_name": "Defend",
+      "display_name": "Defend (Ironclad)",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Defend_(Ironclad)"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": null,
+          "recently_changed": false,
+          "related_patch_ids": [],
+          "needs_rereview_due_to_patch": false
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Basic",
+      "type": "Skill",
+      "description": "Gain 5 Block .",
+      "synergy_tags": [
+        "block",
+        "scaling"
+      ],
+      "role_tags": [
+        "block",
+        "sustain"
+      ],
+      "impact_level": "low",
+      "notes": "Basic defensive skill providing reliable block."
+    },
+    {
+      "internal_name": "Defy",
+      "display_name": "Defy",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Defy?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Ethereal . Gain 6 Block . Apply 1 Weak ."
+    },
+    {
+      "internal_name": "Dirge",
+      "display_name": "Dirge",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Dirge?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Summon 3 X times. Add X Souls into your Draw Pile."
+    },
+    {
+      "internal_name": "Discovery",
+      "display_name": "Discovery",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Discovery?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Choose 1 of 3 random cards to add into your Hand. It costs 0 this turn. Exhaust ."
+    },
+    {
+      "internal_name": "Dominate",
+      "display_name": "Dominate",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Dominate"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "cost": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "cost": 1,
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Gain 1 Strength for each Vulnerable on the enemy. Exhaust ."
+    },
+    {
+      "internal_name": "EternalArmor",
+      "display_name": "Eternal Armor",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Eternal_Armor?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Rare",
+      "type": "Power",
+      "description": "Gain 7 Plating ."
+    },
+    {
+      "internal_name": "FeedingFrenzy",
+      "display_name": "Feeding Frenzy",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Feeding_Frenzy?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Event",
+      "type": "Skill",
+      "description": "Gain 5 Strength this turn."
+    },
+    {
+      "internal_name": "FightMe",
+      "display_name": "Fight Me!",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Fight_Me!?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 5 damage twice. Gain 2 Strength . The enemy gains 1 Strength ."
+    },
+    {
+      "internal_name": "Folly",
+      "display_name": "Folly",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Folly?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Curse",
+      "type": "Curse",
+      "description": "Unplayable . Innate . Eternal ."
+    },
+    {
+      "internal_name": "ForgottenRitual",
+      "display_name": "Forgotten Ritual",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Forgotten_Ritual?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "If you Exhausted a card this turn, gain ."
+    },
+    {
+      "internal_name": "Fuel",
+      "display_name": "Fuel",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Fuel?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Token",
+      "type": "Skill",
+      "description": "Gain . Draw 1 card. Exhaust ."
+    },
+    {
+      "internal_name": "GangUp",
+      "display_name": "Gang Up",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Gang_Up?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 5 damage. Deals 5 additional damage for each time another player has attacked the enemy this turn."
+    },
+    {
+      "internal_name": "GatherLight",
+      "display_name": "Gather Light",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Gather_Light?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 7 Block . Gain ."
+    },
+    {
+      "internal_name": "Glow",
+      "display_name": "Glow",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Glow?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain . Draw 2 cards."
+    },
+    {
+      "internal_name": "GrandFinale",
+      "display_name": "Grand Finale",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Grand_Finale?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Can only be played if there are no cards in your Draw Pile. Deal 50 damage to ALL enemies."
+    },
+    {
+      "internal_name": "GraveWarden",
+      "display_name": "Grave Warden",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Grave_Warden?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 8 Block . Add a Soul into your Draw Pile."
+    },
+    {
+      "internal_name": "Greed",
+      "display_name": "Greed",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Greed"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Curse",
+      "type": "Curse",
+      "description": "Unplayable . Eternal ."
+    },
+    {
+      "internal_name": "HandTrick",
+      "display_name": "Hand Trick",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hand_Trick?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Gain 7 Block . Add Sly to a Skill in your Hand this turn."
+    },
+    {
+      "internal_name": "HeirloomHammer",
+      "display_name": "Heirloom Hammer",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Heirloom_Hammer?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Deal 17 damage. Choose a Colorless card in your Hand. Add a copy of that card into your Hand."
+    },
+    {
+      "internal_name": "Hellraiser",
+      "display_name": "Hellraiser",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hellraiser?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Power",
+      "description": "Whenever you draw a card containing “Strike”, it is played against a random enemy."
+    },
+    {
+      "internal_name": "Hemokinesis",
+      "display_name": "Hemokinesis",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hemokinesis?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Lose 2 HP. Deal 14 damage."
+    },
+    {
+      "internal_name": "HiddenGem",
+      "display_name": "Hidden Gem",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hidden_Gem?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "A random card in your Draw Pile gains Replay 2."
+    },
+    {
+      "internal_name": "Hotfix",
+      "display_name": "Hotfix",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Hotfix?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "beta-hotfix-patch-notes-v0-99-1-142026",
+            "hotfix-patch-notes-v0-98-3-102026",
+            "hotfix-patch-notes-v0-98-2-072026",
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 2 Focus this turn."
+    },
+    {
+      "internal_name": "HuddleUp",
+      "display_name": "Huddle Up",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Huddle_Up?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "ALL allies draw 2 cards."
+    },
+    {
+      "internal_name": "IAmInvincible",
+      "display_name": "I Am Invincible",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:I_Am_Invincible?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Gain 9 Block . At the end of your turn, if this is on top of your Draw Pile, play it."
+    },
+    {
+      "internal_name": "IceLance",
+      "display_name": "Ice Lance",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Ice_Lance?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Deal 19 damage. Channel 3 Frost ."
+    },
+    {
+      "internal_name": "Infection",
+      "display_name": "Infection",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Infection?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "Unplayable . At the end of your turn, if this is in your Hand, take 3 damage."
+    },
+    {
+      "internal_name": "Injury",
+      "display_name": "Injury",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Injury?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Curse",
+      "type": "Curse",
+      "description": "Unplayable ."
+    },
+    {
+      "internal_name": "KinglyKick",
+      "display_name": "Kingly Kick",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Kingly_Kick?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 24 damage. Whenever you draw this card, reduce its cost by 1."
+    },
+    {
+      "internal_name": "KinglyPunch",
+      "display_name": "Kingly Punch",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Kingly_Punch?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 8 damage. Whenever you draw this card, increase its damage by 3 this combat."
+    },
+    {
+      "internal_name": "KnifeTrap",
+      "display_name": "Knife Trap",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Knife_Trap?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Play every Shiv in your Exhaust Pile on the enemy."
+    },
+    {
+      "internal_name": "Knockdown",
+      "display_name": "Knockdown",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Knockdown?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Deal 10 damage. The enemy takes double damage from other players this turn."
+    },
+    {
+      "internal_name": "Lift",
+      "display_name": "Lift",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Lift?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Give another player 11 Block ."
+    },
+    {
+      "internal_name": "MinionDiveBomb",
+      "display_name": "Minion Dive Bomb",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Minion_Dive_Bomb?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Token",
+      "type": "Attack",
+      "description": "Deal 13 damage. Exhaust ."
+    },
+    {
+      "internal_name": "MinionStrike",
+      "display_name": "Minion Strike",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Minion_Strike?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Token",
+      "type": "Attack",
+      "description": "Deal 7 damage. Draw 1 card. Exhaust ."
+    },
+    {
+      "internal_name": "Parry",
+      "display_name": "Parry",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Parry?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Uncommon",
+      "type": "Power",
+      "description": "Whenever you play Sovereign Blade , gain 6 Block ."
+    },
+    {
+      "internal_name": "Patter",
+      "display_name": "Patter",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Patter?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Gain 8 Block . Gain 2 Vigor ."
+    },
+    {
+      "internal_name": "Pinpoint",
+      "display_name": "Pinpoint",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Pinpoint?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 17 damage. Costs 1 less for each Skill played this turn."
+    },
+    {
+      "internal_name": "Pounce",
+      "display_name": "Pounce",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Pounce?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 12 damage. The next Skill you play costs 0 ."
+    },
+    {
+      "internal_name": "Prepared",
+      "display_name": "Prepared",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Prepared?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Draw 1 card. Discard 1 card."
+    },
+    {
+      "internal_name": "Production",
+      "display_name": "Production",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Production?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Gain . Exhaust ."
+    },
+    {
+      "internal_name": "Rage",
+      "display_name": "Rage",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Rage?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Uncommon",
+      "type": "Skill",
+      "description": "Whenever you play an Attack this turn, gain 3 Block ."
+    },
+    {
+      "internal_name": "RocketPunch",
+      "display_name": "Rocket Punch",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Rocket_Punch?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 13 damage. Draw 1 card. When a Status card is created, reduce this card's cost to 0 this turn."
+    },
+    {
+      "internal_name": "SculptingStrike",
+      "display_name": "Sculpting Strike",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Sculpting_Strike?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 8 damage. Add Ethereal to a card in your Hand."
+    },
+    {
+      "internal_name": "Seance",
+      "display_name": "Seance",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Seance?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Necrobinder",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Ethereal . Transform a card in your Draw Pile into Soul."
+    },
+    {
+      "internal_name": "SeekerStrike",
+      "display_name": "Seeker Strike",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Seeker_Strike?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 6 damage. Choose 1 of 3 cards in your Draw Pile to add into your Hand."
+    },
+    {
+      "internal_name": "Skewer",
+      "display_name": "Skewer",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Skewer?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 7 damage X times."
+    },
+    {
+      "internal_name": "Slice",
+      "display_name": "Slice",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Slice?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 6 damage."
+    },
+    {
+      "internal_name": "Sloth",
+      "display_name": "Sloth",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Sloth?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "You cannot play more than 3 cards each turn."
+    },
+    {
+      "internal_name": "SolarStrike",
+      "display_name": "Solar Strike",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Solar_Strike?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Common",
+      "type": "Attack",
+      "description": "Deal 8 damage. Gain ."
+    },
+    {
+      "internal_name": "Soul",
+      "display_name": "Soul",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Soul"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Token",
+      "type": "Skill",
+      "description": "Draw 2 cards. Exhaust ."
+    },
+    {
+      "internal_name": "Spinner",
+      "display_name": "Spinner",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Spinner?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Rare",
+      "type": "Power",
+      "description": "At the start of your turn, Channel 1 Glass ."
+    },
+    {
+      "internal_name": "Spite",
+      "display_name": "Spite",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Spite"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 6 damage. If you lost HP this turn, draw 1 card."
+    },
+    {
+      "internal_name": "Stack",
+      "display_name": "Stack",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Stack?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Defect",
+      "rarity": "Event",
+      "type": "Skill",
+      "description": "Gain Block equal to the number of cards in your Discard Pile."
+    },
+    {
+      "internal_name": "Stoke",
+      "display_name": "Stoke",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Stoke"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Skill",
+      "description": "Exhaust your Hand. Draw a card for each card Exhausted . Exhaust ."
+    },
+    {
+      "internal_name": "Strike",
+      "display_name": "Strike (Ironclad)",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Strike_(Ironclad)"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Basic",
+      "type": "Attack",
+      "description": "Deal 6 damage.",
+      "synergy_tags": [
+        "strength",
+        "scaling"
+      ],
+      "role_tags": [
+        "consistency",
+        "frontload"
+      ],
+      "impact_level": "low",
+      "notes": "Basic attack card with low damage output."
+    },
+    {
+      "internal_name": "Thrash",
+      "display_name": "Thrash",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Thrash?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Rare",
+      "type": "Attack",
+      "description": "Deal 4 damage twice. Exhaust a random Attack in your Hand and add its damage to this card."
+    },
+    {
+      "internal_name": "Tremble",
+      "display_name": "Tremble",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Tremble?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Ironclad",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Apply 2 Vulnerable ."
+    },
+    {
+      "internal_name": "Untouchable",
+      "display_name": "Untouchable",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Untouchable?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Silent",
+      "rarity": "Common",
+      "type": "Skill",
+      "description": "Sly . Gain 9 Block ."
+    },
+    {
+      "internal_name": "Void",
+      "display_name": "Void",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Void?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "Unplayable . Ethereal . Whenever you draw this card, lose ."
+    },
+    {
+      "internal_name": "VoidForm",
+      "display_name": "Void Form",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Void_Form"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Regent",
+      "rarity": "Rare",
+      "type": "Power",
+      "description": "End your turn. The first 2 cards you play each turn are free to play."
+    },
+    {
+      "internal_name": "Volley",
+      "display_name": "Volley",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Volley?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Uncommon",
+      "type": "Attack",
+      "description": "Deal 10 damage to a random enemy X times."
+    },
+    {
+      "internal_name": "WasteAway",
+      "display_name": "Waste Away",
+      "_meta": {
+        "source_urls": [
+          "https://slaythespire.wiki.gg/wiki/Slay_the_Spire_2:Waste_Away?action=edit&redlink=1"
+        ],
+        "source_last_seen": "2026-03-26T01:30:00Z",
+        "generated_at": "2026-03-26T01:30:00Z",
+        "generator_version": "0.1.0",
+        "review_status": "approved",
+        "last_reviewed_at": "2026-03-26T01:41:10Z",
+        "review_notes": null,
+        "reviewed_by": null,
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        },
+        "manual_override_fields": [],
+        "field_provenance": {
+          "display_name": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "character": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "rarity": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "type": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          },
+          "description": {
+            "source": "wiki",
+            "confidence": 1.0,
+            "derived_from": "parsed_source"
+          }
+        }
+      },
+      "character": "Colorless",
+      "rarity": "Status",
+      "type": "Status",
+      "description": "Gain 1 less per turn."
+    }
+  ]
+}

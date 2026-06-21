@@ -1,0 +1,23 @@
+---
+description: Python maintainer tools — data_refresh, run_insights, dev scripts
+globs: "tools/**/*.py"
+alwaysApply: false
+---
+
+# Python maintainer tools
+
+## Pipelines
+
+- **`tools/data_refresh/`** — wiki/Steam fetch, parse, merge, optional LLM tag proposals. See **`tools/data_refresh/README.md`**. Never commit **`config.yaml`** (use **`config.example.yaml`** + env vars).
+- **`tools/run_insights/`** — aggregate telemetry from **`events.jsonl`** or export ZIPs; does not rewrite production JSON.
+
+## Style
+
+- **Ruff** is the formatter/linter (`pyproject.toml`). Run **`ruff format .`** before finishing.
+- **`tools/data_refresh/main.py`** intentionally adjusts **`sys.path`** before imports (E402/I001 ignored in Ruff config).
+- Use **`PYTHONPATH=.`** from repo root when running **`python -m tools.run_insights`**.
+
+## LLM in tooling
+
+- **`heuristics-analyze`** may call Chat Completions when **`api_key_env`** is set even if runtime **`llm.enabled`** is false.
+- Tag proposals must stay within **`SUPPORTED_TAGS.md`** vocabulary.

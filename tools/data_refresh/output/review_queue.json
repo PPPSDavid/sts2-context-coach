@@ -1,0 +1,3612 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-03-26T05:20:59Z",
+  "items": [
+    {
+      "entity_type": "card",
+      "internal_name": "Alignment",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Anticipate",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "BEGONE",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Bombardment",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "BorrowedTime",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Brand",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Break",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Breakthrough",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-hotfix-patch-notes-v0-99-1-142026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-hotfix-patch-notes-v0-99-1-142026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-hotfix-patch-notes-v0-99-1-142026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-hotfix-patch-notes-v0-99-1-142026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "BrightestFlame",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Buffer",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Burn",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "CHARGE",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "the-neowsletter-march-2026-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "the-neowsletter-march-2026-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "CaptureSpirit",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Cascade",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Cinder",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Claw",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "CollisionCourse",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Colossus",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Coolheaded",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "CorrosiveWave",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "DanseMacabre",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Dazed",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Debilitate",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Defy",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Dirge",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Discovery",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Dominate",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "EternalArmor",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "FeedingFrenzy",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "FightMe",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Folly",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "ForgottenRitual",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Fuel",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "GangUp",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "GatherLight",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Glow",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "GrandFinale",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "GraveWarden",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Greed",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "HandTrick",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "HeirloomHammer",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Hellraiser",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Hemokinesis",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "HiddenGem",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Hotfix",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "beta-hotfix-patch-notes-v0-99-1-142026",
+            "hotfix-patch-notes-v0-98-3-102026",
+            "hotfix-patch-notes-v0-98-2-072026",
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "beta-hotfix-patch-notes-v0-99-1-142026",
+            "hotfix-patch-notes-v0-98-3-102026",
+            "hotfix-patch-notes-v0-98-2-072026",
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "HuddleUp",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "IAmInvincible",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "IceLance",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Infection",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Injury",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "KinglyKick",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "KinglyPunch",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "KnifeTrap",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-1-062026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "hotfix-patch-notes-v0-98-1-062026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Knockdown",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Lift",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "MinionDiveBomb",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "MinionStrike",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Parry",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Patter",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Pinpoint",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Pounce",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Prepared",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Production",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Rage",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "RocketPunch",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "SculptingStrike",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Seance",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "SeekerStrike",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Skewer",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Slice",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Sloth",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "SolarStrike",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Soul",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Spinner",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Spite",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Stack",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Stoke",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Strike",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Thrash",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Tremble",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Untouchable",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Void",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "VoidForm",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "Volley",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "card",
+      "internal_name": "WasteAway",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Entity referenced in recent patch notes — verify gameplay tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "AlchemicalCoffer",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "AmethystAubergine",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "BagOfPreparation",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "slay-the-spire-the-board-game-downfall-expansion-kickstarter-now-live-242026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "BowlerHat",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "GoldenCompass",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "HandDrill",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "Kifuda",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "LastingCandy",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "LeafyPoultice",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "LetterOpener",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "LizardTail",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "MassiveScroll",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "Permafrost",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "Planisphere",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "PotionBelt",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-99-132026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "PrecariousShears",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "PreservedFog",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "StoneCracker",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "beta-patch-notes-v0-100-0-202026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    },
+    {
+      "entity_type": "relic",
+      "internal_name": "WhisperingEarring",
+      "changed_fields": [
+        "_meta.patch_context"
+      ],
+      "previous": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-2-072026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026",
+            "hotfix-patch-notes-v0-98-2-072026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "proposed": {
+        "patch_context": {
+          "last_seen_patch": "hotfix-patch-notes-v0-98-2-072026",
+          "recently_changed": true,
+          "related_patch_ids": [
+            "beta-patch-notes-v0-100-0-202026",
+            "patch-notes-v0-99-1-172026",
+            "beta-patch-notes-v0-99-132026",
+            "hotfix-patch-notes-v0-98-2-072026"
+          ],
+          "needs_rereview_due_to_patch": true
+        }
+      },
+      "provenance": {
+        "source": "steam",
+        "derived_from": "patch_notes"
+      },
+      "confidence": 0.6,
+      "reason": "Relic mentioned in patch notes — verify notes/tags.",
+      "review_status": "needs_review"
+    }
+  ]
+}
